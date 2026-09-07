@@ -244,7 +244,7 @@ const alphaRole = desk.fleetRole({
   lane: "none",
 });
 if (/NOT CoS/i.test(alphaRole)) fail("role still has shouting: " + alphaRole);
-if (alphaRole !== "Quant CIO only") fail("ALPHA role expected Quant CIO only, got " + alphaRole);
+if (alphaRole !== "Quant CIO") fail("ALPHA role expected Quant CIO, got " + alphaRole);
 ok("role shouting stripped: " + alphaRole);
 
 const sorted = desk.sortFleetBots([

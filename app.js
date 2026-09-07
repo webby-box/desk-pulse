@@ -787,7 +787,9 @@
     else if (/PARKED/i.test(r)) r = "Parked";
     else if (/^ROOM\b/i.test(r)) r = "Room";
     else {
+      r = r.replace(/\s*\bonly\b\s*$/i, "");
       r = r.replace(/\s*[—–-]\s*NOT\b.*$/i, "");
+      r = r.replace(/\s*\bonly\b\s*$/i, "");
       r = r.replace(/\s*[—–-]\s*Signals pod under Radar/i, " · signals");
       r = r.replace(/\s+/g, " ").trim();
     }
@@ -814,7 +816,7 @@
       return { kind: "mode", label: "Status", text: "Standby" };
     }
     if (state === "ORPHAN") {
-      return { kind: "mode", label: "Status", text: "Orphan — delete from sidebar" };
+      return { kind: "mode", label: "Status", text: "Orphan" };
     }
     if (task) return { kind: "last", label: "Last", text: task };
     if (file) return { kind: "last", label: "Last", text: "Last file " + file };
