@@ -1,7 +1,7 @@
 {
-  "updated_et": "2026-09-07 12:57:23 ET",
-  "working": 3,
-  "idle": 16,
+  "updated_et": "2026-09-07 13:07:30 ET",
+  "working": 4,
+  "idle": 15,
   "standby": 1,
   "bots": [
     {
@@ -19,10 +19,20 @@
       "role": "Chief of Efficiency",
       "state": "WORKING",
       "lane": "cli",
-      "task": "touch EXECUTION-CONSTRAINTS.md",
-      "proof": "gamma/EXECUTION-CONSTRAINTS.md",
-      "age_min": 9.4,
+      "task": "touch DAEMON-DEDUPE-2026-09-07.md",
+      "proof": "gamma/DAEMON-DEDUPE-2026-09-07.md",
+      "age_min": 1.7,
       "owner_stream": "efficiency"
+    },
+    {
+      "name": "OMEGA",
+      "role": "Chief of Execution",
+      "state": "WORKING",
+      "lane": "file",
+      "task": "touch GAMMA-USAGE-ALERT-20260907-1303.md",
+      "proof": "omega/GAMMA-USAGE-ALERT-20260907-1303.md",
+      "age_min": 3.3,
+      "owner_stream": "cos"
     },
     {
       "name": "Webby",
@@ -31,7 +41,7 @@
       "lane": "file",
       "task": "touch styles.css",
       "proof": "quant/web/desk-dashboard/styles.css",
-      "age_min": 11.9,
+      "age_min": 22.0,
       "owner_stream": "ops"
     },
     {
@@ -41,7 +51,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "OFFLOAD-QUEUE.md",
-      "age_min": 105.8,
+      "age_min": 115.9,
       "owner_stream": "cos"
     },
     {
@@ -51,7 +61,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/infra/env.sh",
-      "age_min": 299.0,
+      "age_min": 309.1,
       "owner_stream": "infra"
     },
     {
@@ -71,7 +81,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/proof/EOD1K-C-LEG3-LIVE.md",
-      "age_min": 36.0,
+      "age_min": 46.1,
       "owner_stream": "exec"
     },
     {
@@ -81,7 +91,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/FLOW.md",
-      "age_min": 86.3,
+      "age_min": 96.4,
       "owner_stream": "flow"
     },
     {
@@ -101,7 +111,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/code/eod1k_leg3_open.py",
-      "age_min": 37.6,
+      "age_min": 47.7,
       "owner_stream": "eng"
     },
     {
@@ -121,7 +131,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/PM-EOD1K-MAX.md",
-      "age_min": 47.0,
+      "age_min": 57.2,
       "owner_stream": "pm"
     },
     {
@@ -131,18 +141,8 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/MACRO.md",
-      "age_min": 87.4,
+      "age_min": 97.5,
       "owner_stream": "macro"
-    },
-    {
-      "name": "OMEGA",
-      "role": "Chief of Execution",
-      "state": "IDLE",
-      "lane": "none",
-      "task": "\u2014",
-      "proof": "omega/ZETA-COS-TAKE.md",
-      "age_min": 69.5,
-      "owner_stream": "cos"
     },
     {
       "name": "Radar",
@@ -151,7 +151,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/research/PM-EOD1K-MAX.md",
-      "age_min": 48.4,
+      "age_min": 58.5,
       "owner_stream": "research"
     },
     {
@@ -161,7 +161,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "RISK.md",
-      "age_min": 47.2,
+      "age_min": 57.3,
       "owner_stream": "risk"
     },
     {
@@ -171,7 +171,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/SCALP.md",
-      "age_min": 87.9,
+      "age_min": 98.0,
       "owner_stream": "scalp"
     },
     {
