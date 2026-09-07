@@ -1,8 +1,8 @@
 {
-  "updated_et": "2026-09-07 11:36:18 ET",
-  "liquid_usd": 31.3373,
-  "upnl_usd": 1.0082,
-  "equity_usd": 85.6804,
+  "updated_et": "2026-09-07 11:46:25 ET",
+  "liquid_usd": 31.3257,
+  "upnl_usd": 1.7245,
+  "equity_usd": 86.3851,
   "status": "LIVE",
   "wallet": "0x425F91cFebFD8979c21008806403379390900052",
   "residuals": {
@@ -22,10 +22,10 @@
       "collateral_usd": 53.3349,
       "size_usd": 267.2088,
       "entry": 2484.4939,
-      "mark": 2475.12,
+      "mark": 2468.46,
       "sl": 2533.91,
       "tp": 2387.25,
-      "upnl_usd": 1.0082,
+      "upnl_usd": 1.7245,
       "status": "LIVE",
       "opened_et": "2026-09-07 10:29 ET",
       "tx_open": "0xc74b8a3f7dfdea8a6dfc67368da0962fe8050d4e2905d8fda78cfa06bb26347b",
@@ -44,10 +44,10 @@
     "collateral_usd": 53.3349,
     "size_usd": 267.2088,
     "entry": 2484.4939,
-    "mark": 2475.12,
+    "mark": 2468.46,
     "sl": 2533.91,
     "tp": 2387.25,
-    "upnl_usd": 1.0082,
+    "upnl_usd": 1.7245,
     "status": "LIVE",
     "opened_et": "2026-09-07 10:29 ET",
     "tx_open": "0xc74b8a3f7dfdea8a6dfc67368da0962fe8050d4e2905d8fda78cfa06bb26347b",
@@ -420,12 +420,19 @@
       "liquid_usd": 31.3373,
       "upnl_usd": 1.0082,
       "n_pos": 1
+    },
+    {
+      "t": "2026-09-07 11:46:25 ET",
+      "equity_usd": 86.3851,
+      "liquid_usd": 31.3257,
+      "upnl_usd": 1.7245,
+      "n_pos": 1
     }
   ],
   "funding_usd": 107.0,
   "funding_note": "orig 07 = ~7 desk liquid + 0 lost on Alpha transfer",
-  "total_pnl_usd": -21.3196,
-  "total_pnl_pct": -19.92,
+  "total_pnl_usd": -20.6149,
+  "total_pnl_pct": -19.27,
   "trades": [
     {
       "t": "suggested-fees origin=8453 dest=42161 token=WETH amount=5e15 recipient=0x425F\u20260052",
@@ -503,18 +510,6 @@
       "t": "Base ETH now",
       "kind": "NOTE",
       "venue": "\u2014",
-      "market": "ETH/USD",
-      "side": "\u2014",
-      "size_usd": null,
-      "price": null,
-      "pnl_usd": null,
-      "tx": null,
-      "note": "~**0.005495** (includes gas dust + new ETH)"
-    },
-    {
-      "t": "Base ETH now",
-      "kind": "NOTE",
-      "venue": "\u2014",
       "market": "\u2014",
       "side": "\u2014",
       "size_usd": null,
@@ -522,6 +517,18 @@
       "pnl_usd": null,
       "tx": null,
       "note": "~0.007889"
+    },
+    {
+      "t": "Base ETH now",
+      "kind": "NOTE",
+      "venue": "\u2014",
+      "market": "ETH/USD",
+      "side": "\u2014",
+      "size_usd": null,
+      "price": null,
+      "pnl_usd": null,
+      "tx": null,
+      "note": "~**0.005495** (includes gas dust + new ETH)"
     },
     {
       "t": "Base ETH left",
@@ -533,7 +540,7 @@
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "**~0.004919** (\u22650.002 gas OK)"
+      "note": "**~0.00231** (\u22650.0015 OK)"
     },
     {
       "t": "Base ETH left",
@@ -557,19 +564,7 @@
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "**~0.00231** (\u22650.0015 OK)"
-    },
-    {
-      "t": "Arb ETH residual",
-      "kind": "NOTE",
-      "venue": "\u2014",
-      "market": "\u2014",
-      "side": "\u2014",
-      "size_usd": null,
-      "price": null,
-      "pnl_usd": null,
-      "tx": null,
-      "note": "~0.000858"
+      "note": "**~0.004919** (\u22650.002 gas OK)"
     },
     {
       "t": "Arb ETH residual",
@@ -582,6 +577,18 @@
       "pnl_usd": null,
       "tx": null,
       "note": "~0.003995"
+    },
+    {
+      "t": "Arb ETH residual",
+      "kind": "NOTE",
+      "venue": "\u2014",
+      "market": "\u2014",
+      "side": "\u2014",
+      "size_usd": null,
+      "price": null,
+      "pnl_usd": null,
+      "tx": null,
+      "note": "~0.000858"
     },
     {
       "t": "Arb ETH credited",
@@ -701,7 +708,7 @@
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "ETH SHORT **LIVE** Reader isLong=0 pos=1 orders=4 size~$267 coll~$53. open `0x76d68a1d\u2026` SL `0xee576342\u2026` TP `0xd2776c25\u2026`. Manage-only. No rebroadcast."
+      "note": "Book refresh: ETH SHORT LIVE Reader size~$267 coll~$53.33 lev~5.01\u00d7 orders\u22484. open/sl/tp status1."
     },
     {
       "t": "2026-09-07 10:31 ET",
@@ -713,7 +720,7 @@
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "Book refresh: ETH SHORT LIVE Reader size~$267 coll~$53.33 lev~5.01\u00d7 orders\u22484. open/sl/tp status1."
+      "note": "ETH SHORT **LIVE** Reader isLong=0 pos=1 orders=4 size~$267 coll~$53. open `0x76d68a1d\u2026` SL `0xee576342\u2026` TP `0xd2776c25\u2026`. Manage-only. No rebroadcast."
     },
     {
       "t": "2026-09-07 10:29 ET",
@@ -767,13 +774,13 @@
       "t": "2026-09-07 10:13 ET",
       "kind": "CLOSE",
       "venue": "\u2014",
-      "market": "ETH/USD",
+      "market": "\u2014",
       "side": "\u2014",
       "size_usd": null,
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "LINK FLAT. PM-POSTFLAT-NOW: SOL>105 else ETH\u22652505. Pick=WAIT SOL~104.48 ETH~2484.9."
+      "note": "LINK SL **FLAT** Reader pos=0 orders=0 USDC~$53.92. Spot~13.00. No revenge. SOL micro COND."
     },
     {
       "t": "2026-09-07 10:13 ET",
@@ -791,13 +798,13 @@
       "t": "2026-09-07 10:13 ET",
       "kind": "CLOSE",
       "venue": "\u2014",
-      "market": "\u2014",
+      "market": "ETH/USD",
       "side": "\u2014",
       "size_usd": null,
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "LINK SL **FLAT** Reader pos=0 orders=0 USDC~$53.92. Spot~13.00. No revenge. SOL micro COND."
+      "note": "LINK FLAT. PM-POSTFLAT-NOW: SOL>105 else ETH\u22652505. Pick=WAIT SOL~104.48 ETH~2484.9."
     },
     {
       "t": "2026-09-07 10:12 ET",
@@ -821,7 +828,7 @@
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "Alpha: USDC$53.92 OK. SOL~104.57 gate FAIL \u2014 wait >105 then Risk. No encode."
+      "note": "Risk \u00a729 FAIL encode. SOL\u2264105 HOLD. COND PASS when SOL>105."
     },
     {
       "t": "2026-09-07 10:11 ET",
@@ -833,7 +840,7 @@
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "Risk \u00a729 FAIL encode. SOL\u2264105 HOLD. COND PASS when SOL>105."
+      "note": "Alpha: USDC$53.92 OK. SOL~104.57 gate FAIL \u2014 wait >105 then Risk. No encode."
     },
     {
       "t": "2026-09-07 10:10 ET",
@@ -993,18 +1000,6 @@
     },
     {
       "t": "2026-09-07 09:06 ET",
-      "kind": "CLOSE",
-      "venue": "\u2014",
-      "market": "\u2014",
-      "side": "LONG",
-      "size_usd": null,
-      "price": null,
-      "pnl_usd": null,
-      "tx": "0x7f1fa204bb700853d36994da19f830b6ad18455c",
-      "note": "\u00a718 LEG2 LINK **LIVE LONG** Reader-proved. size~$300 coll~$49.88 lev~6.01\u00d7 market `0x7f1fa204bb700853d36994da19f830b6ad18455c` isLong=1 orders\u22482. BTC FLAT."
-    },
-    {
-      "t": "2026-09-07 09:06 ET",
       "kind": "TP",
       "venue": "\u2014",
       "market": "\u2014",
@@ -1014,6 +1009,18 @@
       "pnl_usd": null,
       "tx": "0x22a0976a089303c21b08ec97c6e21c775271921711d686c6bbc7c0371d7281b7",
       "note": "\u00a718 LEG2 LINK **LIVE** Reader-proved: isLong=1 size~$300 coll~$49.88 lev~6\u00d7 orders=2 (SL6+TP5). open `0x22a0976a089303c21b08ec97c6e21c775271921711d686c6bbc7c037"
+    },
+    {
+      "t": "2026-09-07 09:06 ET",
+      "kind": "CLOSE",
+      "venue": "\u2014",
+      "market": "\u2014",
+      "side": "LONG",
+      "size_usd": null,
+      "price": null,
+      "pnl_usd": null,
+      "tx": "0x7f1fa204bb700853d36994da19f830b6ad18455c",
+      "note": "\u00a718 LEG2 LINK **LIVE LONG** Reader-proved. size~$300 coll~$49.88 lev~6.01\u00d7 market `0x7f1fa204bb700853d36994da19f830b6ad18455c` isLong=1 orders\u22482. BTC FLAT."
     },
     {
       "t": "2026-09-07 09:04 ET",
@@ -1028,16 +1035,16 @@
       "note": "\u00a718 LEG1 BTC **FLAT** Reader-proved. tx `0xa1c804dba9bf808c1119b664a32c3ba446947a6dc85aae2f8dae82170d8899a4` status=1 block 502685977. positions=0 orders=0 USDC"
     }
   ],
-  "mark": 2475.12,
+  "mark": 2468.46,
   "mark_src": "coinbase",
-  "mark_eth": 2475.12,
-  "mark_btc": 78857.96,
+  "mark_eth": 2468.46,
+  "mark_btc": 78704.5,
   "mark_btc_src": "coinbase",
-  "mark_link": 12.942,
+  "mark_link": 12.888,
   "mark_link_src": "coinbase",
   "marks": {
-    "ETH": 2475.12,
-    "BTC": 78857.96,
-    "LINK": 12.942
+    "ETH": 2468.46,
+    "BTC": 78704.5,
+    "LINK": 12.888
   }
 }
