@@ -1,7 +1,7 @@
 {
-  "updated_et": "2026-09-07 12:06:38 ET",
-  "working": 4,
-  "idle": 15,
+  "updated_et": "2026-09-07 12:16:53 ET",
+  "working": 7,
+  "idle": 12,
   "standby": 1,
   "bots": [
     {
@@ -10,39 +10,69 @@
       "state": "WORKING",
       "lane": "file",
       "task": "touch book.json",
-      "proof": "quant/scans/book.json",
+      "proof": "quant/web/desk-dashboard/book.json",
       "age_min": 0.0,
       "owner_stream": "ops"
+    },
+    {
+      "name": "Exec",
+      "role": "Trade Exec",
+      "state": "WORKING",
+      "lane": "file",
+      "task": "touch EOD1K-C-LEG2-PRE-FLAT.md",
+      "proof": "quant/proof/EOD1K-C-LEG2-PRE-FLAT.md",
+      "age_min": 1.6,
+      "owner_stream": "exec"
     },
     {
       "name": "GAMMA",
       "role": "Chief of Efficiency",
       "state": "WORKING",
       "lane": "file",
-      "task": "touch P4-DAEMON-WATCH.md",
-      "proof": "gamma/P4-DAEMON-WATCH.md",
-      "age_min": 10.6,
+      "task": "touch CURSOR-RUNS.md",
+      "proof": "gamma/CURSOR-RUNS.md",
+      "age_min": 0.0,
       "owner_stream": "efficiency"
     },
     {
-      "name": "OMEGA",
-      "role": "Chief of Execution",
+      "name": "Iddy",
+      "role": "Quant eng",
       "state": "WORKING",
       "lane": "file",
-      "task": "touch ZETA-COS-TAKE.md",
-      "proof": "omega/ZETA-COS-TAKE.md",
-      "age_min": 18.7,
-      "owner_stream": "cos"
+      "task": "touch l1_across_depositV3_sim.py",
+      "proof": "quant/code/l1_across_depositV3_sim.py",
+      "age_min": 0.8,
+      "owner_stream": "eng"
+    },
+    {
+      "name": "Liquid",
+      "role": "Quant PM (GMX/Base)",
+      "state": "WORKING",
+      "lane": "file",
+      "task": "touch PM-EOD1K-MAX.md",
+      "proof": "quant/PM-EOD1K-MAX.md",
+      "age_min": 6.5,
+      "owner_stream": "pm"
     },
     {
       "name": "Radar",
       "role": "Research + Signals lead",
       "state": "WORKING",
       "lane": "file",
-      "task": "touch RADAR-PACK.md",
-      "proof": "quant/signals/RADAR-PACK.md",
-      "age_min": 10.3,
+      "task": "touch PM-EOD1K-MAX.md",
+      "proof": "quant/research/PM-EOD1K-MAX.md",
+      "age_min": 7.9,
       "owner_stream": "research"
+    },
+    {
+      "name": "Risk",
+      "role": "Chief Risk",
+      "state": "WORKING",
+      "lane": "file",
+      "task": "touch RISK.md",
+      "proof": "RISK.md",
+      "age_min": 6.7,
+      "owner_stream": "risk"
     },
     {
       "name": "ALPHA",
@@ -51,7 +81,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "OFFLOAD-QUEUE.md",
-      "age_min": 55.1,
+      "age_min": 65.3,
       "owner_stream": "cos"
     },
     {
@@ -61,7 +91,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/infra/env.sh",
-      "age_min": 248.3,
+      "age_min": 258.5,
       "owner_stream": "infra"
     },
     {
@@ -75,23 +105,13 @@
       "owner_stream": "standby"
     },
     {
-      "name": "Exec",
-      "role": "Trade Exec",
-      "state": "IDLE",
-      "lane": "none",
-      "task": "\u2014",
-      "proof": "quant/proof/ETH-SHORT-COVER-READER.md",
-      "age_min": 37.5,
-      "owner_stream": "exec"
-    },
-    {
       "name": "Flow",
       "role": "Flow funding/OI/liqs \u2014 Signals pod under Radar",
       "state": "IDLE",
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/FLOW.md",
-      "age_min": 35.5,
+      "age_min": 45.8,
       "owner_stream": "flow"
     },
     {
@@ -105,16 +125,6 @@
       "owner_stream": "standby"
     },
     {
-      "name": "Iddy",
-      "role": "Quant eng",
-      "state": "IDLE",
-      "lane": "none",
-      "task": "\u2014",
-      "proof": "quant/scans/cursor-burn-topup-consol.txt",
-      "age_min": 63.6,
-      "owner_stream": "eng"
-    },
-    {
       "name": "Lex",
       "role": "Lex",
       "state": "IDLE",
@@ -125,34 +135,24 @@
       "owner_stream": "standby"
     },
     {
-      "name": "Liquid",
-      "role": "Quant PM (GMX/Base)",
-      "state": "IDLE",
-      "lane": "none",
-      "task": "\u2014",
-      "proof": "quant/PM-SIZE-NOTES.md",
-      "age_min": 37.6,
-      "owner_stream": "pm"
-    },
-    {
       "name": "Macro",
       "role": "Macro regime \u2014 Signals pod under Radar",
       "state": "IDLE",
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/MACRO.md",
-      "age_min": 36.6,
+      "age_min": 46.9,
       "owner_stream": "macro"
     },
     {
-      "name": "Risk",
-      "role": "Chief Risk",
+      "name": "OMEGA",
+      "role": "Chief of Execution",
       "state": "IDLE",
       "lane": "none",
       "task": "\u2014",
-      "proof": "RISK.md",
-      "age_min": 63.0,
-      "owner_stream": "risk"
+      "proof": "omega/ZETA-COS-TAKE.md",
+      "age_min": 29.0,
+      "owner_stream": "cos"
     },
     {
       "name": "Scalp",
@@ -161,7 +161,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/SCALP.md",
-      "age_min": 37.1,
+      "age_min": 47.4,
       "owner_stream": "scalp"
     },
     {
@@ -181,7 +181,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/web/desk-dashboard/styles.css",
-      "age_min": 41.6,
+      "age_min": 51.9,
       "owner_stream": "ops"
     },
     {
