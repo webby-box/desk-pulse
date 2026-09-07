@@ -1,8 +1,8 @@
 {
-  "updated_et": "2026-09-07 07:50:09 ET",
-  "liquid_usd": 34.1794,
-  "upnl_usd": 0.0084,
-  "equity_usd": 72.051,
+  "updated_et": "2026-09-07 07:50:15 ET",
+  "liquid_usd": 34.1788,
+  "upnl_usd": -0.0204,
+  "equity_usd": 72.0216,
   "status": "LIVE",
   "wallet": "0x425F91cFebFD8979c21008806403379390900052",
   "residuals": {
@@ -11,7 +11,7 @@
     "base_eth": 0.0023087,
     "base_usdc": 0.0
   },
-  "notes": "OMEGA #2: ETH FLAT \u00b7 BTC LONG LIVE \u00b7 SL~77813 / TP~82577 \u00b7 pulse 10s BTC mark",
+  "notes": "manage-only",
   "positions": [
     {
       "id": "gmx-btc-long",
@@ -22,13 +22,13 @@
       "collateral_usd": 37.8632,
       "size_usd": 228.0,
       "entry": 79407.0937,
-      "mark": 79410.01,
-      "sl": 77813.01,
-      "tp": 82577.07,
-      "upnl_usd": 0.0084,
+      "mark": 79400.0,
+      "sl": null,
+      "tp": null,
+      "upnl_usd": -0.0204,
       "status": "LIVE",
       "opened_et": "2026-09-07 07:46 ET",
-      "tx_open": null
+      "tx_open": "0xc74b8a3f7dfdea8a6dfc67368da0962fe8050d4e2905d8fda78cfa06bb26347b"
     }
   ],
   "position": {
@@ -40,10 +40,10 @@
     "collateral_usd": 37.8632,
     "size_usd": 228.0,
     "entry": 79407.0937,
-    "mark": 79410.01,
+    "mark": 79400.0,
     "sl": null,
     "tp": null,
-    "upnl_usd": 0.0084,
+    "upnl_usd": -0.0204,
     "status": "LIVE",
     "opened_et": "2026-09-07 07:46 ET",
     "tx_open": "0xc74b8a3f7dfdea8a6dfc67368da0962fe8050d4e2905d8fda78cfa06bb26347b"
@@ -194,6 +194,13 @@
       "equity_usd": 72.051,
       "liquid_usd": 34.1794,
       "upnl_usd": 0.0084,
+      "n_pos": 1
+    },
+    {
+      "t": "2026-09-07 07:50:15 ET",
+      "equity_usd": 72.0216,
+      "liquid_usd": 34.1788,
+      "upnl_usd": -0.0204,
       "n_pos": 1
     }
   ],
@@ -425,6 +432,18 @@
       "pnl_usd": null,
       "tx": null,
       "note": "OMEGA cast-verify: Reader **positions=1 orders=2** BTC/USD LONG LIVE coll~$37.86 size~$228 \u00b7 wallet USDC~$20.63 \u00b7 prior 07:45\u201307:46 FLAT/BLOCKER superseded by r"
+    },
+    {
+      "t": "2026-09-07 07:49 ET",
+      "kind": "NOTE",
+      "venue": "\u2014",
+      "market": "\u2014",
+      "side": "LONG",
+      "size_usd": null,
+      "price": null,
+      "pnl_usd": null,
+      "tx": null,
+      "note": "\u00a79 LEG2 **LIVE** Reader-verified: BTC LONG size~$228 coll~$37.86 orders=2 (SL6+TP5). Prior positions=0 was Exec truncate bug. BLOCKER retracted. No decrease w/o"
     },
     {
       "t": "2026-09-07 07:48 ET",
@@ -785,22 +804,10 @@
       "pnl_usd": null,
       "tx": "0x71002f24a7ac0067ae9633b08791453399d1027e85520bdb445be91b508e581e",
       "note": "BRIDGE"
-    },
-    {
-      "t": "2026-09-06 23:11 ET",
-      "kind": "TP",
-      "venue": "GMX",
-      "market": "AERO",
-      "side": "\u2014",
-      "size_usd": null,
-      "price": null,
-      "pnl_usd": null,
-      "tx": null,
-      "note": "Book correction: AERO\u2192**USDC ~$62.78** Base. Alpha EXECUTE: Risk PASS Across USDC ~$60 \u2192 then GMX ETH **8\u00d7** SL~2% TP~5% one ticket. liquid-hold/TRADE-FASTER/RE"
     }
   ],
   "mark_src": "coinbase",
-  "mark_eth": 2490.26,
-  "mark_btc": 79410.01,
+  "mark_eth": 2490.16,
+  "mark_btc": 79400.0,
   "mark_btc_src": "coinbase"
 }
