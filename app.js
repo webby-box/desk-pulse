@@ -195,24 +195,51 @@
     const open = book.positions.filter(isOpen);
     let upnl = 0;
     let coll = 0;
+    let usedWriter = false;
     const cards = book.positions.map(function (p) {
+      const a = assetOf(p);
       const m = markFor(p);
-      const u = isOpen(p) ? upnlOf(p, m) : 0;
+      let u = 0;
       if (isOpen(p)) {
+        // Prefer writer uPnL until live same-asset Coinbase spot is in marks[a].
+        // Do not compute from bookMarks / p.mark alone (stale book.marks can zero out first paint).
+        if (marks[a] != null) {
+          u = upnlOf(p, marks[a]);
+        } else if (p.upnlUsd != null) {
+          u = p.upnlUsd;
+          usedWriter = true;
+        } else if (book.bookUpnl != null) {
+          u = book.bookUpnl;
+          usedWriter = true;
+        } else {
+          u = upnlOf(p, m);
+        }
         upnl += u || 0;
         coll += p.collateralUsd || 0;
       }
       return { p: p, mark: m, upnl: u };
     });
     const primary = open.length ? assetOf(open[0]) : markAsset;
+    // marks.ASSET → bookMarks.ASSET → p.mark only; never cross-asset liveMark
     const mark = marks[primary] != null
       ? marks[primary]
       : (bookMarks[primary] != null
         ? bookMarks[primary]
         : (open[0] && open[0].mark != null ? open[0].mark : null));
     const liquid = book.liquidUsd != null ? book.liquidUsd : 0;
-    const equity = open.length ? liquid + coll + upnl : (book.bookEquity != null ? book.bookEquity : liquid);
-    return { mark: mark, asset: primary, upnl: open.length ? upnl : book.bookUpnl, equity: equity, cards: cards, open: open };
+    let totalUpnl;
+    if (!open.length) {
+      totalUpnl = book.bookUpnl;
+    } else if (usedWriter && open.every(function (p) { return marks[assetOf(p)] == null; }) && book.bookUpnl != null) {
+      // single writer book-level upnl is authoritative when no live spots yet
+      totalUpnl = book.bookUpnl;
+      // keep per-card writer values; sync sum for equity
+      upnl = book.bookUpnl;
+    } else {
+      totalUpnl = upnl;
+    }
+    const equity = open.length ? liquid + coll + (totalUpnl || 0) : (book.bookEquity != null ? book.bookEquity : liquid);
+    return { mark: mark, asset: primary, upnl: totalUpnl, equity: equity, cards: cards, open: open };
   }
 
   function setTone(el, n) {
@@ -224,6 +251,7 @@
 
   function setBadge(status) {
     const el = $("badge");
+    if (!el) return; // badge removed from UI
     const s = String(status || "FLAT").toUpperCase();
     el.textContent = s;
     el.className = "badge";
@@ -241,13 +269,17 @@
 
   function paintAge() {
     const el = $("mark-age");
-    el.textContent = "age " + ageText(markAt);
-    el.className = "age";
-    if (!markAt) return;
-    const s = (Date.now() - markAt) / 1000;
-    if (s > 30) el.classList.add("dead");
-    else if (s > 12) el.classList.add("stale");
-    $("book-age").textContent = "book " + ageText(bookAt);
+    if (el) {
+      el.textContent = "age " + ageText(markAt);
+      el.className = "dim tiny age";
+      if (markAt) {
+        const s = (Date.now() - markAt) / 1000;
+        if (s > 30) el.classList.add("dead");
+        else if (s > 12) el.classList.add("stale");
+      }
+    }
+    const ba = $("book-age");
+    if (ba) ba.textContent = "book " + ageText(bookAt);
   }
 
   function el(tag, cls, text) {
@@ -309,8 +341,10 @@
     const list = $("pos-list");
     list.replaceChildren();
     const openCards = cards.filter(function (c) { return isOpen(c.p); });
-    $("pos-count").textContent = String(openCards.length);
-    $("pos-empty").hidden = openCards.length > 0;
+    const pc = $("pos-count");
+    if (pc) pc.textContent = String(openCards.length);
+    const pe = $("pos-empty");
+    if (pe) pe.hidden = openCards.length > 0;
     for (const c of openCards) {
       const p = c.p;
       const card = el("article", "card");
@@ -362,7 +396,7 @@
     const svg = $("spark");
     svg.replaceChildren();
     const w = 320;
-    const h = 80;
+    const h = 64;
     const pad = 4;
     const eq = series(hist, "equity_usd");
     const up = series(hist, "upnl_usd");
@@ -395,8 +429,7 @@
       tr.append(
         el("td", "", compactTime(pick(h, ["t", "updated_et"]))),
         tdU,
-        el("td", "", money(e)),
-        el("td", "", h.n_pos != null ? String(h.n_pos) : "—")
+        el("td", "", money(e))
       );
       body.append(tr);
     }
@@ -413,12 +446,9 @@
       const size = num(pick(t, ["size_usd", "sizeUsd"]));
       tr.append(
         el("td", "", compactTime(pick(t, ["t"]))),
-        el("td", "", String(pick(t, ["kind"]) || "—")),
         el("td", "", String(pick(t, ["market"]) || "—")),
         el("td", "", String(pick(t, ["side"]) || "—")),
-        el("td", "", money(size)),
-        el("td", pnl > 0 ? "up" : pnl < 0 ? "down" : "", money(pnl)),
-        el("td", "", truncTx(pick(t, ["tx"])))
+        el("td", pnl > 0 ? "up" : pnl < 0 ? "down" : "", money(pnl))
       );
       body.append(tr);
     }
@@ -485,13 +515,7 @@
         const bm = normalize(bookRaw).marks || {};
         bookMarks.ETH = bm.ETH != null ? bm.ETH : null;
         bookMarks.BTC = bm.BTC != null ? bm.BTC : null;
-        // seed same-asset marks from book when spot lagging
-        if (bm.BTC != null && marks.BTC == null) marks.BTC = bm.BTC;
-        if (bm.ETH != null && marks.ETH == null) marks.ETH = bm.ETH;
-        for (const p of open) {
-          const a = assetOf(p);
-          if (marks[a] == null && p.mark != null) marks[a] = p.mark;
-        }
+        // Do not seed live marks[] from book — first paint uses writer upnl until Coinbase spot lands.
         render();
         return;
       } catch (e) {
@@ -561,8 +585,10 @@
     }
   }
 
-  refreshBook();
-  refreshMark();
+  (async function boot() {
+    await refreshBook();
+    await refreshMark();
+  })();
   setInterval(refreshBook, BOOK_MS);
   setInterval(refreshMark, MARK_MS);
   setInterval(paintAge, 1000);
