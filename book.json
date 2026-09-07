@@ -17,7 +17,7 @@
     "base": "https://basescan.org/address/0x425F91cFebFD8979c21008806403379390900052",
     "ethereum": "https://etherscan.io/address/0x425F91cFebFD8979c21008806403379390900052"
   },
-  "notes": "CONTINUOUS TRADE PATH C \u2014 consol\u2192flat\u2192redeploy (ZETA 15:41)",
+  "notes": "FIRE PATH C \u2014 Risk \u00a741 \u00b7 C1 consol IN_PROGRESS \u2192 C2 flat \u2192 C3 open ~$90/50x/$4500. Not HOLD.",
   "positions": [
     {
       "id": "gmx-eth-short",
@@ -1281,10 +1281,15 @@
     "BTC": 79357.34,
     "LINK": 12.819
   },
-  "mode": "HOLD_EXECUTE",
+  "mode": "FIRE_PATH_C",
   "zeta_decide": {
     "decision": "HOLD",
     "auth": "ZETA-DECIDE-HOLD \u00b7 Risk \u00a740",
     "updated_et": "2026-09-07 15:41 ET"
+  },
+  "path_c": {
+    "auth": "ZETA-EXECUTE-PATH-C-FIRE \u00b7 Risk \u00a741",
+    "leg": "C1_IN_PROGRESS",
+    "updated_et": "2026-09-07 15:43 ET"
   }
 }
