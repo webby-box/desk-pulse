@@ -1,7 +1,7 @@
 {
-  "updated_et": "2026-09-07 12:27:03 ET",
-  "working": 7,
-  "idle": 12,
+  "updated_et": "2026-09-07 12:37:10 ET",
+  "working": 4,
+  "idle": 15,
   "standby": 1,
   "bots": [
     {
@@ -10,7 +10,7 @@
       "state": "WORKING",
       "lane": "file",
       "task": "touch book.json",
-      "proof": "quant/scans/book.json",
+      "proof": "quant/web/desk-dashboard/book.json",
       "age_min": 0.0,
       "owner_stream": "ops"
     },
@@ -21,7 +21,7 @@
       "lane": "file",
       "task": "touch EOD1K-C-LEG3-LIVE.md",
       "proof": "quant/proof/EOD1K-C-LEG3-LIVE.md",
-      "age_min": 5.7,
+      "age_min": 15.8,
       "owner_stream": "exec"
     },
     {
@@ -31,7 +31,7 @@
       "lane": "file",
       "task": "touch CURSOR-RUNS.md",
       "proof": "gamma/CURSOR-RUNS.md",
-      "age_min": 10.1,
+      "age_min": 20.2,
       "owner_stream": "efficiency"
     },
     {
@@ -41,38 +41,8 @@
       "lane": "file",
       "task": "touch eod1k_leg3_open.py",
       "proof": "quant/code/eod1k_leg3_open.py",
-      "age_min": 7.3,
+      "age_min": 17.4,
       "owner_stream": "eng"
-    },
-    {
-      "name": "Liquid",
-      "role": "Quant PM (GMX/Base)",
-      "state": "WORKING",
-      "lane": "file",
-      "task": "touch PM-EOD1K-MAX.md",
-      "proof": "quant/PM-EOD1K-MAX.md",
-      "age_min": 16.7,
-      "owner_stream": "pm"
-    },
-    {
-      "name": "Radar",
-      "role": "Research + Signals lead",
-      "state": "WORKING",
-      "lane": "file",
-      "task": "touch PM-EOD1K-MAX.md",
-      "proof": "quant/research/PM-EOD1K-MAX.md",
-      "age_min": 18.1,
-      "owner_stream": "research"
-    },
-    {
-      "name": "Risk",
-      "role": "Chief Risk",
-      "state": "WORKING",
-      "lane": "file",
-      "task": "touch RISK.md",
-      "proof": "RISK.md",
-      "age_min": 16.9,
-      "owner_stream": "risk"
     },
     {
       "name": "ALPHA",
@@ -81,7 +51,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "OFFLOAD-QUEUE.md",
-      "age_min": 75.5,
+      "age_min": 85.6,
       "owner_stream": "cos"
     },
     {
@@ -91,7 +61,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/infra/env.sh",
-      "age_min": 268.7,
+      "age_min": 278.8,
       "owner_stream": "infra"
     },
     {
@@ -111,7 +81,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/FLOW.md",
-      "age_min": 55.9,
+      "age_min": 66.0,
       "owner_stream": "flow"
     },
     {
@@ -135,13 +105,23 @@
       "owner_stream": "standby"
     },
     {
+      "name": "Liquid",
+      "role": "Quant PM (GMX/Base)",
+      "state": "IDLE",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "quant/PM-EOD1K-MAX.md",
+      "age_min": 26.8,
+      "owner_stream": "pm"
+    },
+    {
       "name": "Macro",
       "role": "Macro regime \u2014 Signals pod under Radar",
       "state": "IDLE",
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/MACRO.md",
-      "age_min": 57.0,
+      "age_min": 67.1,
       "owner_stream": "macro"
     },
     {
@@ -151,8 +131,28 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "omega/ZETA-COS-TAKE.md",
-      "age_min": 39.2,
+      "age_min": 49.3,
       "owner_stream": "cos"
+    },
+    {
+      "name": "Radar",
+      "role": "Research + Signals lead",
+      "state": "IDLE",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "quant/research/PM-EOD1K-MAX.md",
+      "age_min": 28.2,
+      "owner_stream": "research"
+    },
+    {
+      "name": "Risk",
+      "role": "Chief Risk",
+      "state": "IDLE",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "RISK.md",
+      "age_min": 27.0,
+      "owner_stream": "risk"
     },
     {
       "name": "Scalp",
@@ -161,7 +161,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/SCALP.md",
-      "age_min": 57.5,
+      "age_min": 67.6,
       "owner_stream": "scalp"
     },
     {
@@ -181,7 +181,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/web/desk-dashboard/styles.css",
-      "age_min": 62.0,
+      "age_min": 72.2,
       "owner_stream": "ops"
     },
     {
