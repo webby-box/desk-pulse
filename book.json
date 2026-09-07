@@ -1,55 +1,58 @@
 {
-  "updated_et": "2026-09-07 08:57:28 ET",
-  "liquid_usd": 34.2663,
-  "upnl_usd": 0.517,
-  "equity_usd": 72.6465,
+  "updated_et": "2026-09-07 09:07 ET",
+  "liquid_usd": 21.0254,
+  "upnl_usd": -0.1376,
+  "equity_usd": 70.7678,
   "status": "LIVE",
   "wallet": "0x425F91cFebFD8979c21008806403379390900052",
   "residuals": {
-    "arb_eth": 0.00313086,
-    "arb_usdc": 20.633463,
+    "arb_eth": 0.00273851,
+    "arb_usdc": 8.382145,
     "base_eth": 0.0023087,
     "base_usdc": 0.0
   },
-  "notes": "manage-only",
+  "notes": "LINK LONG LIVE manage-only \u00b7 mark-safe \u00b7 OMEGA fix ETH-as-LINK",
   "positions": [
     {
-      "id": "gmx-btc-long",
+      "id": "gmx-18455c-long",
       "venue": "GMX",
-      "market": "BTC/USD",
+      "market": "LINK/USD",
       "side": "LONG",
-      "leverage": 6.02,
-      "collateral_usd": 37.8632,
-      "size_usd": 228.0,
-      "entry": 79407.0937,
-      "mark": 79587.17,
-      "sl": 77818.71,
-      "tp": 82583.12,
-      "upnl_usd": 0.517,
+      "leverage": 6.01,
+      "collateral_usd": 49.88,
+      "size_usd": 300.0,
+      "entry": 13.2961,
+      "mark": 13.29,
+      "sl": 13.05,
+      "tp": 13.85,
+      "upnl_usd": -0.1376,
       "status": "LIVE",
-      "opened_et": "2026-09-07 07:46 ET",
+      "opened_et": "2026-09-07 09:05 ET",
       "tx_open": "0xc74b8a3f7dfdea8a6dfc67368da0962fe8050d4e2905d8fda78cfa06bb26347b",
       "word15": 1,
       "geometry": "LONG-like",
       "reader_positions": 1,
-      "reader_orders": 2
+      "reader_orders": 2,
+      "orders_n": 2,
+      "sl_trigger_usd": 0.0,
+      "tp_trigger_usd": 0.0
     }
   ],
   "position": {
-    "id": "gmx-btc-long",
+    "id": "gmx-18455c-long",
     "venue": "GMX",
-    "market": "BTC/USD",
+    "market": "GMX:18455c",
     "side": "LONG",
-    "leverage": 6.02,
-    "collateral_usd": 37.8632,
-    "size_usd": 228.0,
-    "entry": 79407.0937,
-    "mark": 79587.17,
-    "sl": 77818.71,
-    "tp": 82583.12,
-    "upnl_usd": 0.517,
+    "leverage": 6.01,
+    "collateral_usd": 49.88,
+    "size_usd": 300.0,
+    "entry": 13.2961,
+    "mark": 2504.96,
+    "sl": 13.05,
+    "tp": 13.85,
+    "upnl_usd": 56219.4305,
     "status": "LIVE",
-    "opened_et": "2026-09-07 07:46 ET",
+    "opened_et": "2026-09-07 09:05 ET",
     "tx_open": "0xc74b8a3f7dfdea8a6dfc67368da0962fe8050d4e2905d8fda78cfa06bb26347b",
     "word15": 1,
     "geometry": "LONG-like",
@@ -287,6 +290,13 @@
       "liquid_usd": 34.2663,
       "upnl_usd": 0.517,
       "n_pos": 1
+    },
+    {
+      "t": "2026-09-07 09:06:46 ET",
+      "equity_usd": 56290.3357,
+      "liquid_usd": 21.0252,
+      "upnl_usd": 56219.4305,
+      "n_pos": 1
     }
   ],
   "trades": [
@@ -366,18 +376,6 @@
       "t": "Base ETH now",
       "kind": "NOTE",
       "venue": "\u2014",
-      "market": "\u2014",
-      "side": "\u2014",
-      "size_usd": null,
-      "price": null,
-      "pnl_usd": null,
-      "tx": null,
-      "note": "~0.007889"
-    },
-    {
-      "t": "Base ETH now",
-      "kind": "NOTE",
-      "venue": "\u2014",
       "market": "ETH/USD",
       "side": "\u2014",
       "size_usd": null,
@@ -385,6 +383,18 @@
       "pnl_usd": null,
       "tx": null,
       "note": "~**0.005495** (includes gas dust + new ETH)"
+    },
+    {
+      "t": "Base ETH now",
+      "kind": "NOTE",
+      "venue": "\u2014",
+      "market": "\u2014",
+      "side": "\u2014",
+      "size_usd": null,
+      "price": null,
+      "pnl_usd": null,
+      "tx": null,
+      "note": "~0.007889"
     },
     {
       "t": "Base ETH left",
@@ -396,7 +406,7 @@
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "**~0.00231** (\u22650.0015 OK)"
+      "note": "**~0.004919** (\u22650.002 gas OK)"
     },
     {
       "t": "Base ETH left",
@@ -420,19 +430,7 @@
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "**~0.004919** (\u22650.002 gas OK)"
-    },
-    {
-      "t": "Arb ETH residual",
-      "kind": "NOTE",
-      "venue": "\u2014",
-      "market": "\u2014",
-      "side": "\u2014",
-      "size_usd": null,
-      "price": null,
-      "pnl_usd": null,
-      "tx": null,
-      "note": "~0.003995"
+      "note": "**~0.00231** (\u22650.0015 OK)"
     },
     {
       "t": "Arb ETH residual",
@@ -445,6 +443,18 @@
       "pnl_usd": null,
       "tx": null,
       "note": "~0.000858"
+    },
+    {
+      "t": "Arb ETH residual",
+      "kind": "NOTE",
+      "venue": "\u2014",
+      "market": "\u2014",
+      "side": "\u2014",
+      "size_usd": null,
+      "price": null,
+      "pnl_usd": null,
+      "tx": null,
+      "note": "~0.003995"
     },
     {
       "t": "Arb ETH credited",
@@ -493,6 +503,42 @@
       "pnl_usd": null,
       "tx": null,
       "note": "~0.00457 (from closed GMX \u2014 dry powder)"
+    },
+    {
+      "t": "2026-09-07 09:06 ET",
+      "kind": "TP",
+      "venue": "\u2014",
+      "market": "\u2014",
+      "side": "LONG",
+      "size_usd": null,
+      "price": null,
+      "pnl_usd": null,
+      "tx": "0x22a0976a089303c21b08ec97c6e21c775271921711d686c6bbc7c0371d7281b7",
+      "note": "\u00a718 LEG2 LINK **LIVE** Reader-proved: isLong=1 size~$300 coll~$49.88 lev~6\u00d7 orders=2 (SL6+TP5). open `0x22a0976a089303c21b08ec97c6e21c775271921711d686c6bbc7c037"
+    },
+    {
+      "t": "2026-09-07 09:04 ET",
+      "kind": "CLOSE",
+      "venue": "\u2014",
+      "market": "\u2014",
+      "side": "\u2014",
+      "size_usd": null,
+      "price": null,
+      "pnl_usd": null,
+      "tx": "0xa1c804dba9bf808c1119b664a32c3ba446947a6dc85aae2f8dae82170d8899a4",
+      "note": "\u00a718 LEG1 BTC **FLAT** Reader-proved. tx `0xa1c804dba9bf808c1119b664a32c3ba446947a6dc85aae2f8dae82170d8899a4` status=1 block 502685977. positions=0 orders=0 USDC"
+    },
+    {
+      "t": "2026-09-07 09:00 ET",
+      "kind": "CLOSE",
+      "venue": "\u2014",
+      "market": "\u2014",
+      "side": "\u2014",
+      "size_usd": null,
+      "price": null,
+      "pnl_usd": null,
+      "tx": null,
+      "note": "OMEGA ROTATE EXECUTE \u2014 Liquid mirroring. Awaiting Reader leg fills (BTC flat then LINK)."
     },
     {
       "t": "2026-09-07 08:54 ET",
@@ -616,15 +662,15 @@
     },
     {
       "t": "2026-09-07 07:51 ET",
-      "kind": "CLOSE",
+      "kind": "SL",
       "venue": "\u2014",
       "market": "\u2014",
-      "side": "\u2014",
+      "side": "SHORT",
       "size_usd": null,
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "PM proposal filed `quant/PM-PROPOSAL-USDC20.md`: A/B obsolete (BTC already LIVE). Rank **HOLD LIVE manage-only**; among A/B/C only, C=do-not-open-another (not c"
+      "note": "Exec side check: Reader isLong=1 **LONG** BTC ~$228 / ~$37.86; SL\u22122%/TP+4% geometry PASS. Risk SHORT claim disputed. No decrease."
     },
     {
       "t": "2026-09-07 07:51 ET",
@@ -640,27 +686,27 @@
     },
     {
       "t": "2026-09-07 07:51 ET",
-      "kind": "SL",
+      "kind": "CLOSE",
       "venue": "\u2014",
       "market": "\u2014",
-      "side": "SHORT",
+      "side": "\u2014",
       "size_usd": null,
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "Exec side check: Reader isLong=1 **LONG** BTC ~$228 / ~$37.86; SL\u22122%/TP+4% geometry PASS. Risk SHORT claim disputed. No decrease."
+      "note": "PM proposal filed `quant/PM-PROPOSAL-USDC20.md`: A/B obsolete (BTC already LIVE). Rank **HOLD LIVE manage-only**; among A/B/C only, C=do-not-open-another (not c"
     },
     {
       "t": "2026-09-07 07:49 ET",
-      "kind": "NOTE",
+      "kind": "TP",
       "venue": "\u2014",
-      "market": "\u2014",
+      "market": "ETH/USD",
       "side": "LONG",
       "size_usd": null,
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "\u00a79 LEG2 **LIVE** Reader-verified: BTC LONG size~$228 coll~$37.86 orders=2 (SL6+TP5). Prior positions=0 was Exec truncate bug. BLOCKER retracted. No decrease w/o"
+      "note": "OMEGA: BTC LONG **LIVE** manage-only. Reader pos=1 size~ coll~ lev~6.02\u00d7 entry~ mark~ uPnL~. SL/TP on-chain. ETH FLAT. Wallet USDC~. Ignore prior stuck-coll."
     },
     {
       "t": "2026-09-07 07:49 ET",
@@ -676,15 +722,15 @@
     },
     {
       "t": "2026-09-07 07:49 ET",
-      "kind": "TP",
+      "kind": "NOTE",
       "venue": "\u2014",
-      "market": "ETH/USD",
+      "market": "\u2014",
       "side": "LONG",
       "size_usd": null,
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "OMEGA: BTC LONG **LIVE** manage-only. Reader pos=1 size~ coll~ lev~6.02\u00d7 entry~ mark~ uPnL~. SL/TP on-chain. ETH FLAT. Wallet USDC~. Ignore prior stuck-coll."
+      "note": "\u00a79 LEG2 **LIVE** Reader-verified: BTC LONG size~$228 coll~$37.86 orders=2 (SL6+TP5). Prior positions=0 was Exec truncate bug. BLOCKER retracted. No decrease w/o"
     },
     {
       "t": "2026-09-07 07:48 ET",
@@ -700,18 +746,6 @@
     },
     {
       "t": "2026-09-07 07:47 ET",
-      "kind": "OPEN",
-      "venue": "\u2014",
-      "market": "\u2014",
-      "side": "\u2014",
-      "size_usd": null,
-      "price": null,
-      "pnl_usd": null,
-      "tx": null,
-      "note": "\u00a79 BLOCKER to OMEGA: Reader 0/0. No rebroadcast old open. USDC~$20.63 < $35\u201340. Need Risk reconfirm on mark~$79398 + fund/re-stamp."
-    },
-    {
-      "t": "2026-09-07 07:47 ET",
       "kind": "TP",
       "venue": "\u2014",
       "market": "ETH/USD",
@@ -723,8 +757,8 @@
       "note": "Overnight PnL: BTC LONG **LIVE** 6\u00d7 coll~$37.86 size~$228 entry~$79407 mark~book \u00b7 SL~$77813 TP~$82577 \u00b7 ETH FLAT \u00b7 liquid~$34 \u00b7 equity~book \u00b7 desk-pulse push \u00b7"
     },
     {
-      "t": "2026-09-07 07:46 ET",
-      "kind": "NOTE",
+      "t": "2026-09-07 07:47 ET",
+      "kind": "OPEN",
       "venue": "\u2014",
       "market": "\u2014",
       "side": "\u2014",
@@ -732,7 +766,7 @@
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "\u00a79 LEG2 BLOCKER: Reader still 0. LEG2_RESULT live retracted. Wallet USDC~$20.63 < $35\u201340 coll gate. Fresh encode blocked on funds."
+      "note": "\u00a79 BLOCKER to OMEGA: Reader 0/0. No rebroadcast old open. USDC~$20.63 < $35\u201340. Need Risk reconfirm on mark~$79398 + fund/re-stamp."
     },
     {
       "t": "2026-09-07 07:46 ET",
@@ -745,6 +779,18 @@
       "pnl_usd": null,
       "tx": null,
       "note": "OMEGA BLOCKER: BTC \u00a79 NOT LIVE. Reader 0/0. Wallet USDC ~$20.63 (was ~$58). ~$38 likely stuck OrderVault from unfilled increases. No new open until recover or R"
+    },
+    {
+      "t": "2026-09-07 07:46 ET",
+      "kind": "NOTE",
+      "venue": "\u2014",
+      "market": "\u2014",
+      "side": "\u2014",
+      "size_usd": null,
+      "price": null,
+      "pnl_usd": null,
+      "tx": null,
+      "note": "\u00a79 LEG2 BLOCKER: Reader still 0. LEG2_RESULT live retracted. Wallet USDC~$20.63 < $35\u201340 coll gate. Fresh encode blocked on funds."
     },
     {
       "t": "2026-09-07 07:45 ET",
@@ -784,18 +830,6 @@
     },
     {
       "t": "2026-09-07 07:39 ET",
-      "kind": "SWAP",
-      "venue": "\u2014",
-      "market": "ETH/USD",
-      "side": "\u2014",
-      "size_usd": null,
-      "price": null,
-      "pnl_usd": null,
-      "tx": null,
-      "note": "OMEGA OVERRIDE: FULL CLOSE ETH\u2192BTC per \u00a79 (not HOLD/trim50). Liquid mirror + Exec sizeDelta filed. Ping OMEGA fill/critical. Never Ricky."
-    },
-    {
-      "t": "2026-09-07 07:39 ET",
       "kind": "TP",
       "venue": "\u2014",
       "market": "ETH/USD",
@@ -805,6 +839,18 @@
       "pnl_usd": null,
       "tx": null,
       "note": "OMEGA OVERRIDE #1 LEG1 SENT: ETH full decrease+cancel SL/TP `0xfd904415\u2026c3ba` status=1 block 502666196. Waiting keeper flat \u2192 BTC \u00a79."
+    },
+    {
+      "t": "2026-09-07 07:39 ET",
+      "kind": "SWAP",
+      "venue": "\u2014",
+      "market": "ETH/USD",
+      "side": "\u2014",
+      "size_usd": null,
+      "price": null,
+      "pnl_usd": null,
+      "tx": null,
+      "note": "OMEGA OVERRIDE: FULL CLOSE ETH\u2192BTC per \u00a79 (not HOLD/trim50). Liquid mirror + Exec sizeDelta filed. Ping OMEGA fill/critical. Never Ricky."
     },
     {
       "t": "2026-09-07 07:38 ET",
@@ -853,51 +899,18 @@
       "pnl_usd": null,
       "tx": null,
       "note": "Overnight PnL: mark~$2488.98 entry~$2512.26 uPnL~$-4.28 (~7.5% coll) equity~$73.90 liquid~$20.71 \u00b7 cushion to SL~$26.98 (~1.1%) \u00b7 recovered from 03:42 near-SL \u00b7"
-    },
-    {
-      "t": "2026-09-07 03:42 ET",
-      "kind": "TP",
-      "venue": "\u2014",
-      "market": "\u2014",
-      "side": "\u2014",
-      "size_usd": null,
-      "price": null,
-      "pnl_usd": null,
-      "tx": null,
-      "note": "Overnight PnL **near-SL**: mark~$2480.81 entry~$2512.26 uPnL~$-5.78 (~10% coll) equity~$72.35 liquid~$20.66 \u00b7 cushion to SL~$18.81 (~0.76%) \u00b7 \u0394uPnL since 03:25 "
-    },
-    {
-      "t": "2026-09-07 00:08 ET",
-      "kind": "TP",
-      "venue": "\u2014",
-      "market": "\u2014",
-      "side": "\u2014",
-      "size_usd": null,
-      "price": null,
-      "pnl_usd": null,
-      "tx": null,
-      "note": "Overnight PnL: mark~$2497.27 entry~$2512.26 uPnL~$-2.76 coll~$57.47 equity~$75.48 \u00b7 cushion to SL~$35 (~1.4%) \u00b7 hold TP~2638/SL~2462 \u00b7 desk-pulse `9a761d0` \u00b7 no"
-    },
-    {
-      "t": "2026-09-06 23:48 ET",
-      "kind": "TP",
-      "venue": "Across",
-      "market": "\u2014",
-      "side": "\u2014",
-      "size_usd": null,
-      "price": null,
-      "pnl_usd": null,
-      "tx": null,
-      "note": "RiskExec overnight lock mirrored: FAIL add/avg-down while mark<entry; trail only \u2265$2537+Risk PASS; no Across; no second ticket; HOLD 8\u00d7 to on-chain TP/SL."
     }
   ],
-  "mark": 79587.17,
-  "mark_src": "coinbase/gmx",
-  "mark_eth": 2506.24,
-  "mark_btc": 79587.17,
+  "mark": 13.29,
+  "mark_src": "coinbase",
+  "mark_eth": 2504.96,
+  "mark_btc": 79529.99,
   "mark_btc_src": "coinbase",
   "marks": {
-    "ETH": 2506.24,
-    "BTC": 79587.17
-  }
+    "ETH": 2504.96,
+    "BTC": 79529.99
+  },
+  "geometry": "LONG-like",
+  "orders_n": 2,
+  "mark_link": 13.29
 }
