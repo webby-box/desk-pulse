@@ -1,8 +1,8 @@
 {
-  "updated_et": "2026-09-07 07:51:43 ET",
+  "updated_et": "2026-09-07 07:52:40 ET",
   "liquid_usd": 34.1819,
-  "upnl_usd": -0.0032,
-  "equity_usd": 72.0419,
+  "upnl_usd": 0.0126,
+  "equity_usd": 72.0577,
   "status": "LIVE",
   "wallet": "0x425F91cFebFD8979c21008806403379390900052",
   "residuals": {
@@ -11,7 +11,7 @@
     "base_eth": 0.0023087,
     "base_usdc": 0.0
   },
-  "notes": "manage-only \u00b7 SL/TP overlay 77818.71/82583.12 (Reader orders)",
+  "notes": "manage-only \u00b7 BTC LIVE \u00b7 Reader 1pos \u00b7 Atlas Alpha-mirror",
   "positions": [
     {
       "id": "gmx-btc-long",
@@ -22,13 +22,14 @@
       "collateral_usd": 37.8632,
       "size_usd": 228.0,
       "entry": 79407.0937,
-      "mark": 79405.97,
+      "mark": 79411.49,
       "sl": 77818.71,
       "tp": 82583.12,
-      "upnl_usd": -0.0032,
+      "upnl_usd": 0.0126,
       "status": "LIVE",
       "opened_et": "2026-09-07 07:46 ET",
-      "tx_open": "0xef03b48e0ffdb2120e4a43547febd65f8d684cf04b43933f58f93901498f37ce"
+      "tx_open": "0xef03b48e0ffdb2120e4a43547febd65f8d684cf04b43933f58f93901498f37ce",
+      "reader_positions": 1
     }
   ],
   "position": {
@@ -40,13 +41,14 @@
     "collateral_usd": 37.8632,
     "size_usd": 228.0,
     "entry": 79407.0937,
-    "mark": 79405.97,
+    "mark": 79411.49,
     "sl": 77818.71,
     "tp": 82583.12,
-    "upnl_usd": -0.0032,
+    "upnl_usd": 0.0126,
     "status": "LIVE",
     "opened_et": "2026-09-07 07:46 ET",
-    "tx_open": "0xef03b48e0ffdb2120e4a43547febd65f8d684cf04b43933f58f93901498f37ce"
+    "tx_open": "0xef03b48e0ffdb2120e4a43547febd65f8d684cf04b43933f58f93901498f37ce",
+    "reader_positions": 1
   },
   "pnl_history": [
     {
@@ -815,6 +817,6 @@
   ],
   "mark_src": "coinbase",
   "mark_eth": 2490.73,
-  "mark_btc": 79405.97,
+  "mark_btc": 79411.49,
   "mark_btc_src": "coinbase"
 }
