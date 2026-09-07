@@ -168,7 +168,7 @@
       trades: Array.isArray(trades) ? trades : [],
       marks: (function () {
         const src = raw.marks || raw.spot || {};
-        // Prefer nested marks/spot; also accept top-level mark_eth / mark_btc (never cross-seed).
+        // Prefer nested marks/spot; also accept top-level mark_eth / mark_btc / mark_link (never cross-seed ETH into LINK).
         const eth = num(pick(src, ["ETH", "eth", "ETH-USD", "eth_usd"])) ?? num(pick(raw, ["mark_eth", "markEth"]));
         const btc = num(pick(src, ["BTC", "btc", "BTC-USD", "btc_usd"])) ?? num(pick(raw, ["mark_btc", "markBtc"]));
         const link = num(pick(src, ["LINK", "link", "LINK-USD", "link_usd"])) ?? num(pick(raw, ["mark_link", "markLink"]));
@@ -179,15 +179,23 @@
 
   function assetOf(p) {
     const m = String((p && p.market) || "").toUpperCase();
-    if (m.indexOf("BTC") >= 0 || m.indexOf("WBTC") >= 0) return "BTC";
     if (m.indexOf("LINK") >= 0) return "LINK";
+    if (m.indexOf("BTC") >= 0 || m.indexOf("WBTC") >= 0) return "BTC";
     if (m.indexOf("ETH") >= 0) return "ETH";
+    // Market set but unknown: return recognizable token symbol, else null (use p.mark).
+    // Never default unknown-with-market to ETH — that cross-filled LINK with ETH (~2505).
+    if (m) {
+      const tok = (m.split(/[\/:\-\s]/)[0] || "").replace(/[^A-Z0-9]/g, "");
+      if (tok && tok !== "GMX" && tok !== "USD" && tok !== "USDC") return tok;
+      return null;
+    }
+    // Only fall back to markAsset when market empty.
     return markAsset || "ETH";
   }
 
   function markFor(p) {
     const a = assetOf(p);
-    // Prefer marks.BTC / marks.ETH then p.mark. Never use cross-asset liveMark (ETH≠BTC≠LINK).
+    // Prefer marks.LINK / marks.BTC / marks.ETH then p.mark. Never cross-fill LINK↔ETH (or ETH≠BTC).
     if (marks[a] != null) return marks[a];
     if (bookMarks[a] != null) return bookMarks[a];
     if (p && p.mark != null) return p.mark;
@@ -523,6 +531,7 @@
         bookMarks.ETH = bm.ETH != null ? bm.ETH : null;
         bookMarks.BTC = bm.BTC != null ? bm.BTC : null;
         bookMarks.LINK = bm.LINK != null ? bm.LINK : null;
+        // Never cross-fill LINK↔ETH.
         // Do not seed live marks[] from book — first paint uses writer upnl until Coinbase spot lands.
         render();
         return;
@@ -537,12 +546,12 @@
     const set = {};
     if (bookRaw) {
       const open = positionsFrom(bookRaw).filter(isOpen);
-      for (const p of open) set[assetOf(p)] = true;
+      for (const p of open) { const a = assetOf(p); if (a) set[a] = true; }
     }
     if (!Object.keys(set).length) set[markAsset || "ETH"] = true;
-    // always keep ETH for liquid residual pricing context when flat
-    if (!set.ETH && !set.BTC) set.ETH = true;
-    return Object.keys(set);
+    // always keep ETH for liquid residual pricing context when flat (never invent LINK↔ETH)
+    if (!set.ETH && !set.BTC && !set.LINK) set.ETH = true;
+    return Object.keys(set).filter(Boolean);
   }
 
   async function fetchSpot(asset) {
@@ -570,7 +579,7 @@
           any = true;
         } catch (e) { /* keep prior */ }
       }
-      // Prefer open position's asset spot only — NEVER fall BTC→ETH (or cross-asset).
+      // Prefer open position's asset spot only — NEVER fall LINK→ETH / BTC→ETH (or cross-asset).
       if (marks[markAsset] != null) {
         liveMark = marks[markAsset];
         markAt = Date.now();
