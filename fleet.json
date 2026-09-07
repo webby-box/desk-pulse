@@ -1,5 +1,5 @@
 {
-  "updated_et": "2026-09-07 15:19:05 ET",
+  "updated_et": "2026-09-07 15:29:12 ET",
   "working": 1,
   "idle": 18,
   "standby": 1,
@@ -21,7 +21,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "OFFLOAD-QUEUE.md",
-      "age_min": 247.5,
+      "age_min": 257.6,
       "owner_stream": "cos"
     },
     {
@@ -31,7 +31,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/infra/env.sh",
-      "age_min": 440.7,
+      "age_min": 450.8,
       "owner_stream": "infra"
     },
     {
@@ -51,7 +51,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/proof/EOD1K-C-LEG3-LIVE.md",
-      "age_min": 177.7,
+      "age_min": 187.8,
       "owner_stream": "exec"
     },
     {
@@ -61,7 +61,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/FLOW.md",
-      "age_min": 228.0,
+      "age_min": 238.1,
       "owner_stream": "flow"
     },
     {
@@ -71,7 +71,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "gamma/QUOTA-LOG.md",
-      "age_min": 62.8,
+      "age_min": 72.9,
       "owner_stream": "efficiency"
     },
     {
@@ -91,7 +91,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/code/eod1k_leg3_open.py",
-      "age_min": 179.3,
+      "age_min": 189.4,
       "owner_stream": "eng"
     },
     {
@@ -111,7 +111,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/PM-EOD1K-MAX.md",
-      "age_min": 188.7,
+      "age_min": 198.8,
       "owner_stream": "pm"
     },
     {
@@ -121,7 +121,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/MACRO.md",
-      "age_min": 229.1,
+      "age_min": 239.2,
       "owner_stream": "macro"
     },
     {
@@ -131,7 +131,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "omega/GAMMA-USAGE-ALERT-20260907-1303.md",
-      "age_min": 134.9,
+      "age_min": 145.0,
       "owner_stream": "cos"
     },
     {
@@ -141,7 +141,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/research/PM-EOD1K-MAX.md",
-      "age_min": 190.1,
+      "age_min": 200.2,
       "owner_stream": "research"
     },
     {
@@ -151,7 +151,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "RISK.md",
-      "age_min": 188.9,
+      "age_min": 199.0,
       "owner_stream": "risk"
     },
     {
@@ -161,7 +161,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/SCALP.md",
-      "age_min": 229.6,
+      "age_min": 239.7,
       "owner_stream": "scalp"
     },
     {
@@ -181,7 +181,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/web/desk-dashboard/styles.css",
-      "age_min": 153.6,
+      "age_min": 163.7,
       "owner_stream": "ops"
     },
     {
