@@ -409,6 +409,8 @@ body {
 }
 
 .dist-row span { min-width: 0; }
+.dist-row .up { color: var(--ok); }
+.dist-row .down { color: var(--bad); }
 
 .panel--split {
   display: grid;
@@ -421,10 +423,10 @@ body {
 
 .res-list {
   list-style: none;
-  margin: 0.2rem 0 0.35rem;
+  margin: 0.2rem 0 0;
   padding: 0;
   display: grid;
-  gap: 0.28rem 0.75rem;
+  gap: 0.42rem 0.75rem;
 }
 
 .res-list li {

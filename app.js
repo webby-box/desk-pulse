@@ -24,12 +24,13 @@
     });
   }
 
-  function qty(n) {
+  function qty(n, key) {
     if (n == null || Number.isNaN(Number(n))) return "—";
     const v = Number(n);
-    const digits = Math.abs(v) >= 1 ? 2 : 6;
+    const stable = /usdc|usd|usdt/i.test(String(key || ""));
+    const digits = stable ? 2 : Math.abs(v) >= 1 ? 4 : 6;
     return v.toLocaleString("en-US", {
-      minimumFractionDigits: 0,
+      minimumFractionDigits: stable ? 2 : 0,
       maximumFractionDigits: digits,
     });
   }
@@ -172,6 +173,8 @@
       "SL " + (toSl >= 0 ? "+" : "") + toSl.toFixed(2) + "%";
     $("dist-tp").textContent =
       "TP " + (toTp >= 0 ? "+" : "") + toTp.toFixed(2) + "%";
+    $("dist-sl").className = toSl < 0 ? "down" : "";
+    $("dist-tp").className = toTp < 0 ? "down" : "up";
   }
 
   function renderResiduals(book) {
@@ -190,16 +193,18 @@
         k.textContent = row.key;
         const v = document.createElement("span");
         v.className = "res-v";
-        v.textContent = qty(row.val);
+        v.textContent = qty(row.val, row.key);
         li.append(k, v);
         list.append(li);
       }
-      note.textContent = "dust across chains";
+      note.hidden = true;
+      note.textContent = "";
       return;
     }
 
     num.hidden = false;
     list.hidden = true;
+    note.hidden = false;
     num.textContent = money(book.residualsUsd);
     note.textContent = book.residualsNote || "—";
   }
