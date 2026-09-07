@@ -10,6 +10,7 @@
   };
   const SOURCES = [
     "./book.json",
+    "https://cdn.jsdelivr.net/gh/webby-box/desk-pulse@main/book.json",
     "https://raw.githubusercontent.com/webby-box/desk-pulse/main/book.json",
     "../scans/book.json",
   ];
