@@ -1,5 +1,5 @@
 {
-  "updated_et": "2026-09-07 12:16:53 ET",
+  "updated_et": "2026-09-07 12:27:03 ET",
   "working": 7,
   "idle": 12,
   "standby": 1,
@@ -10,7 +10,7 @@
       "state": "WORKING",
       "lane": "file",
       "task": "touch book.json",
-      "proof": "quant/web/desk-dashboard/book.json",
+      "proof": "quant/scans/book.json",
       "age_min": 0.0,
       "owner_stream": "ops"
     },
@@ -19,9 +19,9 @@
       "role": "Trade Exec",
       "state": "WORKING",
       "lane": "file",
-      "task": "touch EOD1K-C-LEG2-PRE-FLAT.md",
-      "proof": "quant/proof/EOD1K-C-LEG2-PRE-FLAT.md",
-      "age_min": 1.6,
+      "task": "touch EOD1K-C-LEG3-LIVE.md",
+      "proof": "quant/proof/EOD1K-C-LEG3-LIVE.md",
+      "age_min": 5.7,
       "owner_stream": "exec"
     },
     {
@@ -31,7 +31,7 @@
       "lane": "file",
       "task": "touch CURSOR-RUNS.md",
       "proof": "gamma/CURSOR-RUNS.md",
-      "age_min": 0.0,
+      "age_min": 10.1,
       "owner_stream": "efficiency"
     },
     {
@@ -39,9 +39,9 @@
       "role": "Quant eng",
       "state": "WORKING",
       "lane": "file",
-      "task": "touch l1_across_depositV3_sim.py",
-      "proof": "quant/code/l1_across_depositV3_sim.py",
-      "age_min": 0.8,
+      "task": "touch eod1k_leg3_open.py",
+      "proof": "quant/code/eod1k_leg3_open.py",
+      "age_min": 7.3,
       "owner_stream": "eng"
     },
     {
@@ -51,7 +51,7 @@
       "lane": "file",
       "task": "touch PM-EOD1K-MAX.md",
       "proof": "quant/PM-EOD1K-MAX.md",
-      "age_min": 6.5,
+      "age_min": 16.7,
       "owner_stream": "pm"
     },
     {
@@ -61,7 +61,7 @@
       "lane": "file",
       "task": "touch PM-EOD1K-MAX.md",
       "proof": "quant/research/PM-EOD1K-MAX.md",
-      "age_min": 7.9,
+      "age_min": 18.1,
       "owner_stream": "research"
     },
     {
@@ -71,7 +71,7 @@
       "lane": "file",
       "task": "touch RISK.md",
       "proof": "RISK.md",
-      "age_min": 6.7,
+      "age_min": 16.9,
       "owner_stream": "risk"
     },
     {
@@ -81,7 +81,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "OFFLOAD-QUEUE.md",
-      "age_min": 65.3,
+      "age_min": 75.5,
       "owner_stream": "cos"
     },
     {
@@ -91,7 +91,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/infra/env.sh",
-      "age_min": 258.5,
+      "age_min": 268.7,
       "owner_stream": "infra"
     },
     {
@@ -111,7 +111,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/FLOW.md",
-      "age_min": 45.8,
+      "age_min": 55.9,
       "owner_stream": "flow"
     },
     {
@@ -141,7 +141,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/MACRO.md",
-      "age_min": 46.9,
+      "age_min": 57.0,
       "owner_stream": "macro"
     },
     {
@@ -151,7 +151,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "omega/ZETA-COS-TAKE.md",
-      "age_min": 29.0,
+      "age_min": 39.2,
       "owner_stream": "cos"
     },
     {
@@ -161,7 +161,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/SCALP.md",
-      "age_min": 47.4,
+      "age_min": 57.5,
       "owner_stream": "scalp"
     },
     {
@@ -181,7 +181,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/web/desk-dashboard/styles.css",
-      "age_min": 51.9,
+      "age_min": 62.0,
       "owner_stream": "ops"
     },
     {
