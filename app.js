@@ -176,9 +176,11 @@
 
   function markFor(p) {
     const a = assetOf(p);
+    // Never cross-asset: BTC position must not use ETH spot (fake −$220 uPnL bug).
     if (marks[a] != null) return marks[a];
+    if (p && p.mark != null) return p.mark; // book.json position.mark
     if (a === markAsset && liveMark != null) return liveMark;
-    return p && p.mark != null ? p.mark : liveMark;
+    return null;
   }
 
   function liveNumbers(book) {
@@ -195,7 +197,9 @@
       return { p: p, mark: m, upnl: u };
     });
     const primary = open.length ? assetOf(open[0]) : markAsset;
-    const mark = marks[primary] != null ? marks[primary] : liveMark;
+    const mark = marks[primary] != null
+      ? marks[primary]
+      : (open[0] && open[0].mark != null ? open[0].mark : (primary === markAsset ? liveMark : null));
     const liquid = book.liquidUsd != null ? book.liquidUsd : 0;
     const equity = open.length ? liquid + coll + upnl : (book.bookEquity != null ? book.bookEquity : liquid);
     return { mark: mark, asset: primary, upnl: open.length ? upnl : book.bookUpnl, equity: equity, cards: cards, open: open };
@@ -490,7 +494,8 @@
   }
 
   async function fetchSpot(asset) {
-    const url = SPOT[asset] || SPOT.ETH;
+    const url = SPOT[asset];
+    if (!url) throw new Error("no spot url for " + asset);
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error(asset + " HTTP " + res.status);
     const j = await res.json();
@@ -513,9 +518,23 @@
           any = true;
         } catch (e) { /* keep prior */ }
       }
-      if (!any) throw new Error("no marks");
-      liveMark = marks[markAsset] != null ? marks[markAsset] : (marks.ETH != null ? marks.ETH : marks.BTC);
-      markAt = Date.now();
+      // Prefer open position's asset spot only — NEVER fall BTC→ETH (or cross-asset).
+      if (marks[markAsset] != null) {
+        liveMark = marks[markAsset];
+        markAt = Date.now();
+      } else if (bookRaw) {
+        const open = positionsFrom(bookRaw).filter(isOpen);
+        const bm = open[0] && open[0].mark != null ? open[0].mark : null;
+        if (bm != null) {
+          liveMark = bm;
+          marks[markAsset] = bm;
+          markAt = Date.now();
+        } else if (!any) {
+          throw new Error("no marks");
+        }
+      } else if (!any) {
+        throw new Error("no marks");
+      }
       render();
     } catch (e) {
       paintAge();
