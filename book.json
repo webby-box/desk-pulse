@@ -17,7 +17,7 @@
     "base": "https://basescan.org/address/0x425F91cFebFD8979c21008806403379390900052",
     "ethereum": "https://etherscan.io/address/0x425F91cFebFD8979c21008806403379390900052"
   },
-  "notes": "HOLD EXECUTE \u2014 ride TP/SL (ZETA DECIDE \u00b7 Risk \u00a740). No encode/add/rotate.",
+  "notes": "CONTINUOUS TRADE PATH C \u2014 consol\u2192flat\u2192redeploy (ZETA 15:41)",
   "positions": [
     {
       "id": "gmx-eth-short",
