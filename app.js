@@ -760,6 +760,17 @@
     return "pill pill-idle";
   }
 
+  function pillLabel(state) {
+    const s = String(state || "").toUpperCase();
+    if (s === "WORKING") return "Working";
+    if (s === "IDLE") return "Idle";
+    if (s === "STANDBY") return "Standby";
+    if (s === "PARKED") return "Parked";
+    if (s === "ROOM") return "Room";
+    if (s === "ORPHAN") return "Orphan";
+    return s ? s.charAt(0) + s.slice(1).toLowerCase() : "Idle";
+  }
+
   function paintFleet() {
     if (!fleetRaw) return;
     const w = $("fleet-working");
@@ -786,13 +797,13 @@
         '<span class="' + pillClass(b.state) + '"></span>' +
         "</div>" +
         '<p class="fleet-role"></p>' +
-        '<p class="fleet-task"></p>' +
-        '<p class="fleet-meta mono"></p>';
+        '<p class="fleet-task"><span class="fleet-doing-k">Doing</span> <span class="fleet-doing-v"></span></p>' +
+        '<p class="fleet-meta">age ' + age + ' · Proof: <span class="mono fleet-proof"></span></p>';
       card.querySelector(".fleet-name").textContent = b.name || "—";
-      card.querySelector(".pill").textContent = b.state || "IDLE";
+      card.querySelector(".pill").textContent = pillLabel(b.state);
       card.querySelector(".fleet-role").textContent = (b.role || "—") + (b.lane && b.lane !== "none" ? " · " + b.lane : "");
-      card.querySelector(".fleet-task").textContent = b.task || "—";
-      card.querySelector(".fleet-meta").textContent = "age " + age + " · " + (b.proof || "—");
+      card.querySelector(".fleet-doing-v").textContent = b.task || "—";
+      card.querySelector(".fleet-proof").textContent = b.proof || "—";
       list.appendChild(card);
     });
     const fs = $("fleet-src");

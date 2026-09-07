@@ -1,8 +1,8 @@
 {
-  "updated_et": "2026-09-07 15:31:11 ET",
-  "liquid_usd": 19.2863,
-  "upnl_usd": -35.2782,
-  "equity_usd": 82.0078,
+  "updated_et": "2026-09-07 15:33:58 ET",
+  "liquid_usd": 19.3008,
+  "upnl_usd": -39.9045,
+  "equity_usd": 77.396,
   "status": "LIVE",
   "wallet": "0x425F91cFebFD8979c21008806403379390900052",
   "residuals": {
@@ -17,7 +17,7 @@
     "base": "https://basescan.org/address/0x425F91cFebFD8979c21008806403379390900052",
     "ethereum": "https://etherscan.io/address/0x425F91cFebFD8979c21008806403379390900052"
   },
-  "notes": "manage-only \u00b7 LIVE ETH SHORT \u00b7 open tx filed",
+  "notes": "manage-only",
   "positions": [
     {
       "id": "gmx-eth-short",
@@ -28,20 +28,17 @@
       "collateral_usd": 97.9997,
       "size_usd": 5000.0,
       "entry": 2474.9973,
-      "mark": 2492.46,
+      "mark": 2494.75,
       "sl": 2573.95,
       "tp": 1979.96,
-      "upnl_usd": -35.2782,
+      "upnl_usd": -39.9045,
       "status": "LIVE",
       "opened_et": "2026-09-07 12:19 ET",
-      "tx_open": "0x00847742e5c872e87f81c4ef1a25b016b345735c3653703f343ae166c0a1a306",
+      "tx_open": null,
       "word15": 0,
       "geometry": "SHORT-like",
       "reader_positions": 1,
-      "reader_orders": 2,
-      "tx_sl": "0xa25e6359d824e0233b5f3b6eed2ccf8df5958883ef0a39102437e37d3e6e60fa",
-      "tx_tp": "0x313a4969fea6bf5ef0c3c168e6dd7c2d6ef9739a452e6941c4237e257e188e98",
-      "explorer_open": "https://arbiscan.io/tx/0x00847742e5c872e87f81c4ef1a25b016b345735c3653703f343ae166c0a1a306"
+      "reader_orders": 2
     }
   ],
   "position": {
@@ -53,20 +50,17 @@
     "collateral_usd": 97.9997,
     "size_usd": 5000.0,
     "entry": 2474.9973,
-    "mark": 2492.46,
+    "mark": 2494.75,
     "sl": 2573.95,
     "tp": 1979.96,
-    "upnl_usd": -35.2782,
+    "upnl_usd": -39.9045,
     "status": "LIVE",
     "opened_et": "2026-09-07 12:19 ET",
-    "tx_open": "0x00847742e5c872e87f81c4ef1a25b016b345735c3653703f343ae166c0a1a306",
+    "tx_open": null,
     "word15": 0,
     "geometry": "SHORT-like",
     "reader_positions": 1,
-    "reader_orders": 2,
-    "tx_sl": "0xa25e6359d824e0233b5f3b6eed2ccf8df5958883ef0a39102437e37d3e6e60fa",
-    "tx_tp": "0x313a4969fea6bf5ef0c3c168e6dd7c2d6ef9739a452e6941c4237e257e188e98",
-    "explorer_open": "https://arbiscan.io/tx/0x00847742e5c872e87f81c4ef1a25b016b345735c3653703f343ae166c0a1a306"
+    "reader_orders": 2
   },
   "pnl_history": [
     {
@@ -595,66 +589,45 @@
       "n_pos": 1
     },
     {
-      "t": "2026-09-07 14:28:32 ET",
-      "equity_usd": 86.6799,
-      "liquid_usd": 19.2715,
-      "upnl_usd": -30.5913,
+      "t": "2026-09-07 15:32:44 ET",
+      "equity_usd": 77.1745,
+      "liquid_usd": 19.3015,
+      "upnl_usd": -40.1267,
       "n_pos": 1
     },
     {
-      "t": "2026-09-07 14:38:38 ET",
-      "equity_usd": 92.7215,
-      "liquid_usd": 19.2525,
-      "upnl_usd": -24.5307,
+      "t": "2026-09-07 15:33:43 ET",
+      "equity_usd": 77.0134,
+      "liquid_usd": 19.302,
+      "upnl_usd": -40.2883,
       "n_pos": 1
     },
     {
-      "t": "2026-09-07 14:48:45 ET",
-      "equity_usd": 90.3048,
-      "liquid_usd": 19.2601,
-      "upnl_usd": -26.955,
+      "t": "2026-09-07 15:33:47 ET",
+      "equity_usd": 77.0738,
+      "liquid_usd": 19.3018,
+      "upnl_usd": -40.2277,
       "n_pos": 1
     },
     {
-      "t": "2026-09-07 14:58:52 ET",
-      "equity_usd": 83.9008,
-      "liquid_usd": 19.2803,
-      "upnl_usd": -33.3792,
+      "t": "2026-09-07 15:33:55 ET",
+      "equity_usd": 77.396,
+      "liquid_usd": 19.3008,
+      "upnl_usd": -39.9045,
       "n_pos": 1
     },
     {
-      "t": "2026-09-07 15:08:59 ET",
-      "equity_usd": 86.8008,
-      "liquid_usd": 19.2712,
-      "upnl_usd": -30.4701,
-      "n_pos": 1
-    },
-    {
-      "t": "2026-09-07 15:19:05 ET",
-      "equity_usd": 85.1494,
-      "liquid_usd": 19.2764,
-      "upnl_usd": -32.1267,
-      "n_pos": 1
-    },
-    {
-      "t": "2026-09-07 15:29:12 ET",
-      "equity_usd": 83.6792,
-      "liquid_usd": 19.281,
-      "upnl_usd": -33.6015,
-      "n_pos": 1
-    },
-    {
-      "t": "2026-09-07 15:31:11 ET",
-      "equity_usd": 82.0078,
-      "liquid_usd": 19.2863,
-      "upnl_usd": -35.2782,
+      "t": "2026-09-07 15:33:58 ET",
+      "equity_usd": 77.396,
+      "liquid_usd": 19.3008,
+      "upnl_usd": -39.9045,
       "n_pos": 1
     }
   ],
   "funding_usd": 107.0,
   "funding_note": "Original $107 includes Alpha ~$20 wrong-Inbox burn (gone). Current = live wallets+position only.",
-  "total_pnl_usd": -24.9922,
-  "total_pnl_pct": -23.36,
+  "total_pnl_usd": -29.604,
+  "total_pnl_pct": -27.67,
   "trades": [
     {
       "t": "suggested-fees origin=8453 dest=42161 token=WETH amount=5e15 recipient=0x425F\u20260052",
@@ -1257,22 +1230,16 @@
       "note": "\u00a718 LEG1 BTC **FLAT** Reader-proved. tx `0xa1c804dba9bf808c1119b664a32c3ba446947a6dc85aae2f8dae82170d8899a4` status=1 block 502685977. positions=0 orders=0 USDC"
     }
   ],
-  "mark": 2492.46,
+  "mark": 2494.75,
   "mark_src": "coinbase",
-  "mark_eth": 2492.46,
-  "mark_btc": 79239.99,
+  "mark_eth": 2494.75,
+  "mark_btc": 79304.96,
   "mark_btc_src": "coinbase",
-  "mark_link": 12.769,
+  "mark_link": 12.783,
   "mark_link_src": "coinbase",
   "marks": {
-    "ETH": 2492.46,
-    "BTC": 79239.99,
-    "LINK": 12.769
-  },
-  "chain_proof": {
-    "wallet": "https://arbiscan.io/address/0x425F91cFebFD8979c21008806403379390900052",
-    "open_tx": "https://arbiscan.io/tx/0x00847742e5c872e87f81c4ef1a25b016b345735c3653703f343ae166c0a1a306",
-    "leg1_across": "https://etherscan.io/tx/0x2a70674320976cbe9f1e79ce1ca3597760053eb17674b63a792a199282379788",
-    "reader": "n_pos=1 size=$5000 coll~$98 SHORT isLong=false"
+    "ETH": 2494.75,
+    "BTC": 79304.96,
+    "LINK": 12.783
   }
 }
