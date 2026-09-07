@@ -4,86 +4,82 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#0b0d10">
   <title>Desk</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="mast">
-    <div class="mast-row">
-      <strong class="id">desk</strong>
-    </div>
-    <div class="mast-row mast-mark">
-      <span id="mark-label">ETH</span>
-      <span id="live-mark" class="mono">—</span>
-      <span id="mark-age" class="age">age —</span>
-    </div>
+  <header class="top">
+    <p class="brand">Desk</p>
+    <p class="asof"><span id="last-updated">—</span></p>
   </header>
 
   <main>
     <div id="err" class="err" hidden role="alert"></div>
 
-    <p class="updated-line"><span class="k">lastUpdated</span> <span id="last-updated" class="mono">—</span></p>
-    <section class="metrics" aria-label="Book">
-      <div>
-        <h2>LIQUID</h2>
-        <p id="liquid" class="n">—</p>
-      </div>
-      <div>
-        <h2>UPNL</h2>
-        <p id="upnl" class="n">—</p>
-      </div>
-      <div>
-        <h2>EQUITY</h2>
-        <p id="equity" class="n">—</p>
+    <section class="hero" aria-label="Equity">
+      <p class="hero-k">Equity</p>
+      <p id="equity" class="hero-n">—</p>
+      <p id="upnl" class="hero-pnl">—</p>
+      <div class="hero-sub">
+        <div>
+          <span class="k">Liquid</span>
+          <span id="liquid" class="num">—</span>
+        </div>
+        <div>
+          <span class="k"><span id="mark-label">ETH</span> mark</span>
+          <span id="live-mark" class="num">—</span>
+          <span id="mark-age" class="age">—</span>
+        </div>
       </div>
     </section>
 
-    <section class="block">
-      <h2>POSITIONS <span id="pos-count" class="sub">0</span></h2>
-      <div id="pos-empty" class="empty" hidden>FLAT — no open ticket</div>
+    <section class="panel" aria-label="Positions">
+      <div class="panel-h">
+        <h2>Position</h2>
+        <span id="pos-count" class="count">0</span>
+      </div>
+      <div id="pos-empty" class="empty" hidden>No open position</div>
       <div id="pos-list"></div>
     </section>
 
-    <section class="block">
-      <h2>UPNL HISTORY</h2>
+    <details class="fold">
+      <summary>History</summary>
       <div id="spark-wrap" class="spark-wrap">
-        <svg id="spark" viewBox="0 0 320 80" preserveAspectRatio="none" aria-hidden="true"></svg>
-        <p class="legend"><span class="lg lg-eq"></span> equity <span class="lg lg-up"></span> uPnL</p>
+        <svg id="spark" viewBox="0 0 320 64" preserveAspectRatio="none" aria-hidden="true"></svg>
       </div>
-      <div id="hist-empty" class="empty" hidden>no snaps</div>
+      <div id="hist-empty" class="empty" hidden>No snaps</div>
       <div class="scroll">
         <table>
           <thead>
-            <tr><th>t</th><th>uPnL</th><th>eq</th><th>n</th></tr>
+            <tr><th>Time</th><th>uPnL</th><th>Equity</th><th>n</th></tr>
           </thead>
           <tbody id="hist-body"></tbody>
         </table>
       </div>
-    </section>
+    </details>
 
-    <section class="block">
-      <h2>TRADES</h2>
-      <div id="trades-empty" class="empty" hidden>no trades</div>
+    <details class="fold">
+      <summary>Trades</summary>
+      <div id="trades-empty" class="empty" hidden>No trades</div>
       <div class="scroll">
         <table>
           <thead>
-            <tr><th>t</th><th>k</th><th>mkt</th><th>side</th><th>sz</th><th>pnl</th><th>tx</th></tr>
+            <tr><th>Time</th><th>Kind</th><th>Mkt</th><th>Side</th><th>Size</th><th>PnL</th><th>Tx</th></tr>
           </thead>
           <tbody id="trades-body"></tbody>
         </table>
       </div>
-    </section>
+    </details>
 
-    <section class="block meta-block">
-      <p><span class="k">wallet</span> <span id="wallet" class="mono wrap">—</span></p>
-      <p><span class="k">notes</span> <span id="notes" class="wrap">—</span></p>
+    <section class="meta">
+      <p><span class="k">Wallet</span> <span id="wallet" class="num wrap">—</span></p>
+      <p><span class="k">Notes</span> <span id="notes" class="wrap">—</span></p>
       <ul id="residuals-list" class="res"></ul>
     </section>
 
     <footer>
       <span id="src">—</span>
-      <span>mark 5s · book 10s · no-cache</span>
       <span id="book-age">book —</span>
     </footer>
   </main>

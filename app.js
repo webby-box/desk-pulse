@@ -300,7 +300,6 @@
 
   function renderTherm(host, pos, mark) {
     if (pos.sl == null || pos.tp == null || mark == null) {
-      host.append(el("p", "empty", "no SL/TP"));
       return;
     }
     const sl = Number(pos.sl);
@@ -352,16 +351,17 @@
       const p = c.p;
       const card = el("article", "card");
       const head = el("div", "card-head");
+      const side = String(p.side || "").toUpperCase();
+      const pill = el("span", "pill " + (side === "SHORT" ? "short" : "long"), side || "—");
       head.append(
-        el("span", "", [p.venue, p.market].filter(Boolean).join(" ") || "pos"),
-        el("span", String(p.side).toUpperCase() === "LONG" ? "v long" : "v short", p.side || "—")
+        el("span", "mkt", [p.venue, p.market].filter(Boolean).join(" ") || "Position"),
+        pill
       );
       const grid = el("div", "grid");
-      kv(grid, "lev", p.leverage != null ? Number(p.leverage).toFixed(2) + "x" : "—");
-      kv(grid, "coll", p.collateralUsd != null ? money(p.collateralUsd) : "—");
-      kv(grid, "size", money(p.sizeUsd));
-      kv(grid, "entry", px(p.entry));
-      kv(grid, "mark", px(c.mark));
+      kv(grid, "Lev", p.leverage != null ? Number(p.leverage).toFixed(2) + "×" : "—");
+      kv(grid, "Size", money(p.sizeUsd));
+      kv(grid, "Entry", px(p.entry));
+      kv(grid, "Mark", px(c.mark));
       kv(grid, "uPnL", money(c.upnl), "v" + (c.upnl > 0 ? " up" : c.upnl < 0 ? " down" : ""));
       card.append(head, grid);
       renderTherm(card, p, c.mark);

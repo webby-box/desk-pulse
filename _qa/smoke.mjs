@@ -23,18 +23,29 @@ const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 if (/\bid=["']badge["']/.test(html)) fail("index.html still has #badge");
 if (/class=["'][^"']*\bbadge\b/.test(html)) fail("index.html still has .badge chrome");
 if (/>\s*LIVE\s*</.test(html)) fail("index.html contains LIVE badge text");
+if (/\bLIVE\b/.test(html)) fail("index.html contains LIVE text");
 ok("no LIVE/status badge in HTML");
 
 const css = fs.readFileSync(path.join(root, "styles.css"), "utf8");
 if (/\.badge\b/.test(css)) fail("styles.css still defines .badge");
-ok("no .badge rules in CSS");
+if (/ui-monospace/.test(css.split("body")[0] + "") && /body\s*\{[^}]*ui-monospace/.test(css)) {
+  fail("body uses mono as primary font");
+}
+if (!/system-ui/.test(css)) fail("expected system-ui body font");
+ok("no .badge rules; system UI font");
+
+const src = fs.readFileSync(path.join(root, "app.js"), "utf8");
+if (!/await refreshBook\(\);\s*await refreshMark\(\);/.test(src)) {
+  fail("boot must await refreshBook before refreshMark");
+}
+ok("boot awaits refreshBook before refreshMark");
 
 const book = JSON.parse(fs.readFileSync(path.join(root, "book.json"), "utf8"));
 if (book.upnl_usd == null) fail("book.json missing upnl_usd");
 if (Number(book.upnl_usd) === 0) {
   console.log("note: book.upnl_usd is 0 at snapshot; regression cases still run");
 }
-ok("loaded book.json upnl_usd=" + book.upnl_usd + " mark_eth=" + book.mark_eth + " mark_btc=" + book.mark_btc);
+ok("loaded book.json upnl_usd=" + book.upnl_usd + " mark_eth=" + book.mark_eth + " mark_link=" + book.mark_link);
 
 const desk = require(path.join(root, "app.js"));
 
@@ -42,17 +53,21 @@ desk.resetMarks();
 const norm = desk.normalize(book);
 const first = desk.liveNumbers(norm);
 
-if (first.asset !== "BTC") fail("primary asset expected BTC, got " + first.asset);
-ok("primary asset BTC");
+const expectedAsset = desk.assetOf(book.positions[0]);
+if (first.asset !== expectedAsset) fail("primary asset expected " + expectedAsset + ", got " + first.asset);
+ok("primary asset " + first.asset);
 
 const eth = Number(book.mark_eth);
-if (first.mark != null && Math.abs(Number(first.mark) - eth) < 1) {
-  fail("BTC first-paint mark equals ETH (" + first.mark + ")");
+if (first.asset !== "ETH" && first.mark != null && Math.abs(Number(first.mark) - eth) < 1) {
+  fail(first.asset + " first-paint mark equals ETH (" + first.mark + ")");
 }
-if (first.mark != null && Number(first.mark) < 10000) {
+if (first.asset === "BTC" && first.mark != null && Number(first.mark) < 10000) {
   fail("BTC mark looks like ETH scale: " + first.mark);
 }
-ok("BTC mark is not ETH (" + first.mark + ")");
+if (first.asset === "LINK" && first.mark != null && Number(first.mark) > 100) {
+  fail("LINK mark looks like ETH/BTC scale: " + first.mark);
+}
+ok(first.asset + " mark is not ETH (" + first.mark + ")");
 
 if (book.upnl_usd != null && Number(book.upnl_usd) !== 0) {
   if (first.upnl == null || Number(first.upnl) === 0) {
@@ -77,7 +92,7 @@ if (!card) fail("no open position card");
 if (Math.abs(Number(card.upnl) - Number(book.positions[0].upnl_usd)) > 1e-9) {
   fail("card uPnL=" + card.upnl + " != position.upnl_usd");
 }
-ok("position.upnl_usd used when marks[BTC] missing");
+ok("position.upnl_usd used when marks[" + first.asset + "] missing");
 
 const poisoned = desk.normalize({
   liquid_usd: 34,
@@ -118,6 +133,42 @@ if (Math.abs(Number(liveSpot.mark) - 2506.24) < 1) {
   fail("after spot, BTC mark still ETH");
 }
 ok("after Coinbase BTC spot, uPnL recomputes from BTC only");
+
+desk.resetMarks();
+const linkPoison = desk.normalize({
+  liquid_usd: 21,
+  upnl_usd: -0.1376,
+  marks: { ETH: 2504.96, BTC: 79529.99 },
+  positions: [
+    {
+      market: "LINK/USD",
+      side: "LONG",
+      status: "LIVE",
+      size_usd: 300,
+      entry: 13.2961,
+      mark: 13.305,
+      upnl_usd: -0.1376,
+      collateral_usd: 49.88,
+    },
+  ],
+});
+desk.setBookMarks({ ETH: 2504.96, BTC: 79529.99, LINK: null });
+const linkLive = desk.liveNumbers(linkPoison);
+if (linkLive.mark != null && Number(linkLive.mark) > 100) {
+  fail("LINK used ETH/BTC mark: " + linkLive.mark);
+}
+if (Math.abs(Number(linkLive.upnl) - -0.1376) > 1e-9) {
+  fail("LINK writer uPnL lost: " + linkLive.upnl);
+}
+ok("LINK never uses ETH mark; writer uPnL until same-asset spot");
+
+desk.setMarks({ LINK: 13.4, ETH: 2504.96 });
+const linkSpot = desk.liveNumbers(linkPoison);
+const linkExp = ((13.4 - 13.2961) / 13.2961) * 300;
+if (Math.abs(Number(linkSpot.upnl) - linkExp) > 0.05) {
+  fail("live LINK spot uPnL expected ~" + linkExp + " got " + linkSpot.upnl);
+}
+ok("after Coinbase LINK spot, uPnL recomputes from LINK only");
 
 desk.resetMarks();
 const zeroTrap = desk.normalize({
