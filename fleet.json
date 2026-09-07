@@ -1,7 +1,7 @@
 {
-  "updated_et": "2026-09-07 11:25:00 ET",
-  "working": 11,
-  "idle": 3,
+  "updated_et": "2026-09-07 11:29:20 ET",
+  "working": 8,
+  "idle": 6,
   "standby": 5,
   "bots": [
     {
@@ -11,7 +11,7 @@
       "lane": "cli",
       "task": "touch OFFLOAD-QUEUE.md",
       "proof": "OFFLOAD-QUEUE.md",
-      "age_min": 13.4,
+      "age_min": 17.8,
       "owner_stream": "cos"
     },
     {
@@ -21,27 +21,17 @@
       "lane": "file",
       "task": "touch book.json",
       "proof": "quant/web/desk-dashboard/book.json",
-      "age_min": 0.4,
+      "age_min": 0.5,
       "owner_stream": "ops"
-    },
-    {
-      "name": "Boxbot",
-      "role": "Trading infra",
-      "state": "WORKING",
-      "lane": "file",
-      "task": "touch fleet-status.sh",
-      "proof": "quant/infra/fleet-status.sh",
-      "age_min": 8.6,
-      "owner_stream": "infra"
     },
     {
       "name": "Exec",
       "role": "Trade Exec",
       "state": "WORKING",
       "lane": "file",
-      "task": "touch TOPUP-BASE-ACROSS.md",
-      "proof": "quant/proof/TOPUP-BASE-ACROSS.md",
-      "age_min": 18.3,
+      "task": "touch ETH-SHORT-COVER-READER.md",
+      "proof": "quant/proof/ETH-SHORT-COVER-READER.md",
+      "age_min": 0.2,
       "owner_stream": "exec"
     },
     {
@@ -49,60 +39,40 @@
       "role": "Chief of Efficiency",
       "state": "WORKING",
       "lane": "file",
-      "task": "touch FLEET-TAB.md",
-      "proof": "gamma/FLEET-TAB.md",
-      "age_min": 6.2,
+      "task": "touch fleet-status.sh",
+      "proof": "quant/infra/fleet-status.sh",
+      "age_min": 1.0,
       "owner_stream": "efficiency"
-    },
-    {
-      "name": "Iddy",
-      "role": "Quant eng",
-      "state": "WORKING",
-      "lane": "cli",
-      "task": "touch cursor-burn-topup-consol.txt",
-      "proof": "quant/scans/cursor-burn-topup-consol.txt",
-      "age_min": 21.9,
-      "owner_stream": "eng"
     },
     {
       "name": "Liquid",
       "role": "Quant PM (GMX/Base)",
       "state": "WORKING",
       "lane": "file",
-      "task": "touch liquid-hold.md",
-      "proof": "liquid-hold.md",
-      "age_min": 19.3,
+      "task": "touch PM-SIZE-NOTES.md",
+      "proof": "quant/PM-SIZE-NOTES.md",
+      "age_min": 0.3,
       "owner_stream": "pm"
     },
     {
       "name": "OMEGA",
       "role": "Challenger CoS",
       "state": "WORKING",
-      "lane": "cli",
+      "lane": "file",
       "task": "touch CURSOR-USAGE-PROOF.md",
       "proof": "omega/CURSOR-USAGE-PROOF.md",
-      "age_min": 8.6,
+      "age_min": 12.9,
       "owner_stream": "cos"
     },
     {
       "name": "Radar",
       "role": "Research lead",
       "state": "WORKING",
-      "lane": "cli",
+      "lane": "file",
       "task": "touch PM-NEXT-MICRO-STANDBY.md",
       "proof": "quant/research/PM-NEXT-MICRO-STANDBY.md",
-      "age_min": 8.7,
+      "age_min": 13.1,
       "owner_stream": "research"
-    },
-    {
-      "name": "Risk",
-      "role": "Chief Risk",
-      "state": "WORKING",
-      "lane": "file",
-      "task": "touch RISK.md",
-      "proof": "RISK.md",
-      "age_min": 21.4,
-      "owner_stream": "risk"
     },
     {
       "name": "Webby",
@@ -111,8 +81,18 @@
       "lane": "file",
       "task": "touch styles.css",
       "proof": "quant/web/desk-dashboard/styles.css",
-      "age_min": 0.0,
+      "age_min": 4.3,
       "owner_stream": "ops"
+    },
+    {
+      "name": "Boxbot",
+      "role": "Trading infra",
+      "state": "IDLE",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "quant/infra/env.sh",
+      "age_min": 210.9,
+      "owner_stream": "infra"
     },
     {
       "name": "Flow",
@@ -121,8 +101,18 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/FLOW.md",
-      "age_min": 40.4,
+      "age_min": 44.7,
       "owner_stream": "flow"
+    },
+    {
+      "name": "Iddy",
+      "role": "Quant eng",
+      "state": "IDLE",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "quant/scans/cursor-burn-topup-consol.txt",
+      "age_min": 26.3,
+      "owner_stream": "eng"
     },
     {
       "name": "Macro",
@@ -131,8 +121,18 @@
       "lane": "none",
       "task": "CLI cursor-burn-explore-1049.txt",
       "proof": "quant/scans/cursor-burn-explore-1049.txt",
-      "age_min": 33.5,
+      "age_min": 37.8,
       "owner_stream": "macro"
+    },
+    {
+      "name": "Risk",
+      "role": "Chief Risk",
+      "state": "IDLE",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "RISK.md",
+      "age_min": 25.7,
+      "owner_stream": "risk"
     },
     {
       "name": "Scalp",
@@ -141,7 +141,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/SCALP.md",
-      "age_min": 42.7,
+      "age_min": 47.0,
       "owner_stream": "scalp"
     },
     {
