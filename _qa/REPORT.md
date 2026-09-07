@@ -29,4 +29,4 @@ node _qa/smoke.mjs
 Snapshot: book `upnl_usd=0.517`, first-paint uPnL `0.517`, primary BTC mark `79587.17` (not ETH).
 
 ## Commit
-SHA: (filled after git commit)
+SHA: `e9713b15973002e52d571dbe39a1671d0007a695` (`e9713b1`)
