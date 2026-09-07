@@ -538,16 +538,18 @@
     $("live-mark").textContent = live.mark != null ? px(live.mark) : (live.cards[0] && live.cards[0].mark != null ? px(live.cards[0].mark) : "—");
     $("liquid").textContent = money(book.liquidUsd);
     $("upnl").textContent = money(live.upnl);
+    const fund = book.fundingUsd != null ? book.fundingUsd : 107;
+    const tp = book.totalPnlUsd != null ? book.totalPnlUsd : (live.equity != null ? live.equity - fund : null);
+    const pct = book.totalPnlPct != null ? book.totalPnlPct : (fund && tp != null ? (tp / fund) * 100 : null);
+    const fundEl = $("funding");
+    if (fundEl) fundEl.textContent = money(fund, 0);
     const tpEl = $("total-pnl");
     if (tpEl) {
-      const fund = book.fundingUsd != null ? book.fundingUsd : 87;
-      const tp = book.totalPnlUsd != null ? book.totalPnlUsd : (live.equity != null ? live.equity - fund : null);
-      const pct = book.totalPnlPct != null ? book.totalPnlPct : (fund && tp != null ? (tp / fund) * 100 : null);
       if (tp == null) {
         tpEl.textContent = "—";
       } else {
-        const pctS = pct == null ? "" : " · " + (pct >= 0 ? "+" : "") + Number(pct).toFixed(2) + "%";
-        tpEl.textContent = "Total vs $" + Number(fund).toFixed(0) + " fund " + money(tp) + pctS;
+        const pctS = pct == null ? "" : " (" + (pct >= 0 ? "+" : "") + Number(pct).toFixed(2) + "%)";
+        tpEl.textContent = money(tp) + pctS;
       }
       setTone(tpEl, tp);
     }

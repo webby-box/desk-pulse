@@ -93,7 +93,7 @@ main {
 }
 
 .hero-pnl {
-  margin: 0.28rem 0 0.9rem;
+  margin: 0.28rem 0 0.55rem;
   font-size: 1.15rem;
   font-weight: 550;
 }
@@ -356,11 +356,32 @@ footer {
 
 .err.stale { border-color: #c9a227; color: #f0c14b; }
 
-.hero-total {
-  margin: 0.15rem 0 0;
-  font-family: var(--mono, ui-monospace, monospace);
-  font-size: 0.85rem;
-  color: var(--mut, #8b919e);
+
+
+
+
+.hero-return {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 0 0 0.85rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line, rgba(255,255,255,0.08));
 }
-.hero-total.up { color: var(--ok, #3ecf8e); }
-.hero-total.down { color: var(--bad, #ff5d6c); }
+.hero-return .k {
+  display: block;
+  color: var(--mut, #8b919e);
+  font-size: 11px;
+  margin-bottom: 0.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.hero-return .num {
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.hero-return .num.up { color: var(--ok, #3ecf8e); }
+.hero-return .num.down { color: var(--bad, #ff5d6c); }

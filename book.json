@@ -994,8 +994,8 @@
     "BTC": 79176.0,
     "LINK": 13.057
   },
-  "funding_usd": 87.0,
-  "funding_note": "COMPANY.md liquid ~$87 pre-rebuild (desk original funding basis)",
-  "total_pnl_usd": -2.6017,
-  "total_pnl_pct": -2.99
+  "funding_usd": 107.0,
+  "funding_note": "orig $107 = ~$87 desk liquid + $20 lost on Alpha transfer",
+  "total_pnl_usd": -22.6017,
+  "total_pnl_pct": -21.12
 }
