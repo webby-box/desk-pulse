@@ -1,0 +1,26 @@
+{
+  "updated_et": "2026-09-06 23:32:38 ET",
+  "liquid_usd": 20.8114,
+  "upnl_usd": -1.3369,
+  "equity_usd": 76.9465,
+  "position": {
+    "venue": "GMX",
+    "market": "ETH/USD",
+    "side": "LONG",
+    "leverage": 8.04,
+    "collateral_usd": 57.472,
+    "size_usd": 461.9941,
+    "entry": 2512.26,
+    "mark": 2504.99,
+    "sl": 2462.0,
+    "tp": 2638.0,
+    "status": "LIVE"
+  },
+  "residuals": {
+    "arb_eth": 0.00399461,
+    "arb_usdc": 5.021676,
+    "base_eth": 0.0023087,
+    "base_usdc": 0.0
+  },
+  "notes": "manage-only"
+}

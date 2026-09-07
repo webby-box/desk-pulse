@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0b0d11">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Desk Pulse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="mast">
+    <div class="mast-inner">
+      <div class="brand">
+        <p class="brand-kicker">Desk</p>
+        <h1>Pulse</h1>
+      </div>
+      <div class="mast-status">
+        <span id="badge" class="badge badge--flat" aria-live="polite">—</span>
+        <time id="clock" class="clock" title="">
+          <span class="clock-lbl">upd</span>
+          <span id="clock-main">—</span>
+        </time>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <div id="err" class="banner" hidden role="alert"></div>
+
+    <section class="book" aria-label="Balances">
+      <article class="book-row">
+        <h2>Liquid</h2>
+        <p class="num" id="liquid">—</p>
+        <p class="hint">USD free</p>
+      </article>
+      <article class="book-row">
+        <h2>Open uPnL</h2>
+        <p class="num" id="upnl">—</p>
+        <p class="hint">unrealized</p>
+      </article>
+      <article class="book-row book-row--accent">
+        <h2>Equity</h2>
+        <p class="num" id="equity">—</p>
+        <p class="hint">liquid + uPnL</p>
+      </article>
+    </section>
+
+    <section class="panel" aria-label="Position">
+      <div class="panel-head">
+        <h2>Position</h2>
+        <p class="meta" id="venue">—</p>
+      </div>
+      <div id="pos-empty" class="empty" hidden>No open ticket · FLAT</div>
+      <div id="pos-body" class="pos-grid">
+        <div><span class="k">Side</span><span class="v" id="side">—</span></div>
+        <div><span class="k">Lev</span><span class="v" id="lev">—</span></div>
+        <div><span class="k">Coll</span><span class="v" id="coll">—</span></div>
+        <div><span class="k">Size</span><span class="v" id="size">—</span></div>
+        <div><span class="k">Entry</span><span class="v" id="entry">—</span></div>
+        <div><span class="k">Mark</span><span class="v" id="mark-px">—</span></div>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="Stop and target">
+      <div class="panel-head">
+        <h2>SL / TP</h2>
+        <p class="meta meta--wrap" id="chain-flags">—</p>
+      </div>
+      <div id="therm-wrap">
+        <div class="levels" aria-hidden="false">
+          <div class="level level--sl">
+            <span class="k">Stop</span>
+            <span class="v" id="sl-px">—</span>
+          </div>
+          <div class="level level--m">
+            <span class="k">Mark</span>
+            <span class="v" id="mark-lvl">—</span>
+          </div>
+          <div class="level level--tp">
+            <span class="k">Target</span>
+            <span class="v" id="tp-px">—</span>
+          </div>
+        </div>
+        <div class="therm" aria-hidden="true">
+          <div class="therm-fill" id="therm-fill"></div>
+          <span class="tick tick--sl" id="tick-sl"></span>
+          <span class="tick tick--m" id="tick-m"></span>
+          <span class="tick tick--tp" id="tick-tp"></span>
+        </div>
+        <div class="dist-row">
+          <span id="dist-sl">—</span>
+          <span id="dist-tp">—</span>
+        </div>
+      </div>
+      <div id="therm-empty" class="empty" hidden>No levels</div>
+    </section>
+
+    <section class="panel panel--split" aria-label="Residuals and wallet">
+      <div class="split-block">
+        <h2>Residuals</h2>
+        <p class="num num--sm" id="residuals">—</p>
+        <ul id="residuals-list" class="res-list" hidden></ul>
+        <p class="hint" id="residuals-note">—</p>
+      </div>
+      <div class="split-block">
+        <h2>Wallet</h2>
+        <p class="mono wrap" id="wallet">—</p>
+        <p class="hint wrap" id="notes">—</p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span id="src">—</span>
+      <span>60s refresh · no keys</span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
