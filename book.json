@@ -1,5 +1,5 @@
 {
-  "updated_et": "2026-09-07 11:18:20 ET",
+  "updated_et": "2026-09-07 11:20 ET",
   "liquid_usd": 31.346,
   "upnl_usd": 0.4726,
   "equity_usd": 85.1535,
@@ -11,7 +11,7 @@
     "base_eth": 0.00024963,
     "base_usdc": 0.0
   },
-  "notes": "manage-only",
+  "notes": "manage-only \u00b7 \u00a736 COVER REPLACE LIVE \u00b7 n_ord=2 sizeDelta~267 both \u00b7 orphan/$117 narrative SUPERSEDED",
   "positions": [
     {
       "id": "gmx-eth-short",
@@ -32,7 +32,8 @@
       "word15": 0,
       "geometry": "SHORT-like",
       "reader_positions": 1,
-      "reader_orders": 2
+      "reader_orders": 2,
+      "notes": "COVER REPLACE full sizeDelta \u00b7 manage-only"
     }
   ],
   "position": {
@@ -54,7 +55,8 @@
     "word15": 0,
     "geometry": "SHORT-like",
     "reader_positions": 1,
-    "reader_orders": 2
+    "reader_orders": 2,
+    "notes": "COVER REPLACE full sizeDelta \u00b7 manage-only"
   },
   "pnl_history": [
     {
@@ -1004,5 +1006,14 @@
     "ETH": 2480.1,
     "BTC": 78950.01,
     "LINK": 12.925
+  },
+  "cover_replace": {
+    "auth": "Risk \u00a735 PASS + OMEGA EXECUTE",
+    "sl": 2533.91,
+    "tp": 2387.25,
+    "size_delta_usd": 267.208789,
+    "n_ord": 2,
+    "proof": "quant/code/ETH-SHORT-COVER-REPLACE-RESULT.json",
+    "reader_post": "quant/infra/ETH-SHORT-COVER-READER-POST.json"
   }
 }
