@@ -17,7 +17,7 @@
     "base": "https://basescan.org/address/0x425F91cFebFD8979c21008806403379390900052",
     "ethereum": "https://etherscan.io/address/0x425F91cFebFD8979c21008806403379390900052"
   },
-  "notes": "HOLD EXECUTE \u2014 ride ETH SHORT to TP/SL (ZETA decide 15:40; Ricky approve-all)",
+  "notes": "HOLD EXECUTE \u2014 ride TP/SL (ZETA DECIDE \u00b7 Risk \u00a740). No encode/add/rotate.",
   "positions": [
     {
       "id": "gmx-eth-short",
@@ -1280,5 +1280,11 @@
     "ETH": 2496.4,
     "BTC": 79357.34,
     "LINK": 12.819
+  },
+  "mode": "HOLD_EXECUTE",
+  "zeta_decide": {
+    "decision": "HOLD",
+    "auth": "ZETA-DECIDE-HOLD \u00b7 Risk \u00a740",
+    "updated_et": "2026-09-07 15:41 ET"
   }
 }
