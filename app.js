@@ -18,6 +18,7 @@
   let markAt = 0;
   let markAsset = "ETH";
   let marks = { ETH: null, BTC: null };
+  let bookMarks = { ETH: null, BTC: null };
 
   function money(n, digits) {
     if (digits == null) digits = 2;
@@ -164,6 +165,13 @@
       positions: positions,
       pnlHistory: Array.isArray(hist) ? hist : [],
       trades: Array.isArray(trades) ? trades : [],
+      marks: (function () {
+        const src = raw.marks || raw.spot || {};
+        return {
+          ETH: num(pick(src, ["ETH", "eth", "ETH-USD", "eth_usd"])),
+          BTC: num(pick(src, ["BTC", "btc", "BTC-USD", "btc_usd"])),
+        };
+      })(),
     };
   }
 
@@ -176,10 +184,10 @@
 
   function markFor(p) {
     const a = assetOf(p);
-    // Never cross-asset: BTC position must not use ETH spot (fake −$220 uPnL bug).
+    // Prefer marks.BTC / marks.ETH then p.mark. Never use cross-asset liveMark (ETH≠BTC).
     if (marks[a] != null) return marks[a];
-    if (p && p.mark != null) return p.mark; // book.json position.mark
-    if (a === markAsset && liveMark != null) return liveMark;
+    if (bookMarks[a] != null) return bookMarks[a];
+    if (p && p.mark != null) return p.mark;
     return null;
   }
 
@@ -199,7 +207,9 @@
     const primary = open.length ? assetOf(open[0]) : markAsset;
     const mark = marks[primary] != null
       ? marks[primary]
-      : (open[0] && open[0].mark != null ? open[0].mark : (primary === markAsset ? liveMark : null));
+      : (bookMarks[primary] != null
+        ? bookMarks[primary]
+        : (open[0] && open[0].mark != null ? open[0].mark : null));
     const liquid = book.liquidUsd != null ? book.liquidUsd : 0;
     const equity = open.length ? liquid + coll + upnl : (book.bookEquity != null ? book.bookEquity : liquid);
     return { mark: mark, asset: primary, upnl: open.length ? upnl : book.bookUpnl, equity: equity, cards: cards, open: open };
@@ -472,6 +482,16 @@
         bookAt = Date.now();
         const open = positionsFrom(bookRaw).filter(isOpen);
         if (open.length) markAsset = assetOf(open[0]);
+        const bm = normalize(bookRaw).marks || {};
+        bookMarks.ETH = bm.ETH != null ? bm.ETH : null;
+        bookMarks.BTC = bm.BTC != null ? bm.BTC : null;
+        // seed same-asset marks from book when spot lagging
+        if (bm.BTC != null && marks.BTC == null) marks.BTC = bm.BTC;
+        if (bm.ETH != null && marks.ETH == null) marks.ETH = bm.ETH;
+        for (const p of open) {
+          const a = assetOf(p);
+          if (marks[a] == null && p.mark != null) marks[a] = p.mark;
+        }
         render();
         return;
       } catch (e) {
