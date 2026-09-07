@@ -1,5 +1,5 @@
 {
-  "updated_et": "2026-09-07 09:07 ET",
+  "updated_et": "2026-09-07 09:07:48 ET",
   "liquid_usd": 21.0254,
   "upnl_usd": -0.1376,
   "equity_usd": 70.7678,
@@ -11,10 +11,10 @@
     "base_eth": 0.0023087,
     "base_usdc": 0.0
   },
-  "notes": "LINK LONG LIVE manage-only \u00b7 mark-safe \u00b7 OMEGA fix ETH-as-LINK",
+  "notes": "LINK LONG LIVE \u00b7 mark_link=13.29 only \u00b7 never ETH \u00b7 Atlas push-ready",
   "positions": [
     {
-      "id": "gmx-18455c-long",
+      "id": "gmx-link-long",
       "venue": "GMX",
       "market": "LINK/USD",
       "side": "LONG",
@@ -39,25 +39,28 @@
     }
   ],
   "position": {
-    "id": "gmx-18455c-long",
+    "id": "gmx-link-long",
     "venue": "GMX",
-    "market": "GMX:18455c",
+    "market": "LINK/USD",
     "side": "LONG",
     "leverage": 6.01,
     "collateral_usd": 49.88,
     "size_usd": 300.0,
     "entry": 13.2961,
-    "mark": 2504.96,
+    "mark": 13.29,
     "sl": 13.05,
     "tp": 13.85,
-    "upnl_usd": 56219.4305,
+    "upnl_usd": -0.1376,
     "status": "LIVE",
     "opened_et": "2026-09-07 09:05 ET",
     "tx_open": "0xc74b8a3f7dfdea8a6dfc67368da0962fe8050d4e2905d8fda78cfa06bb26347b",
     "word15": 1,
     "geometry": "LONG-like",
     "reader_positions": 1,
-    "reader_orders": 2
+    "reader_orders": 2,
+    "orders_n": 2,
+    "sl_trigger_usd": 0.0,
+    "tp_trigger_usd": 0.0
   },
   "pnl_history": [
     {
@@ -901,10 +904,10 @@
       "note": "Overnight PnL: mark~$2488.98 entry~$2512.26 uPnL~$-4.28 (~7.5% coll) equity~$73.90 liquid~$20.71 \u00b7 cushion to SL~$26.98 (~1.1%) \u00b7 recovered from 03:42 near-SL \u00b7"
     }
   ],
-  "mark": 13.29,
+  "mark": 13.303,
   "mark_src": "coinbase",
-  "mark_eth": 2504.96,
-  "mark_btc": 79529.99,
+  "mark_eth": 2505.025,
+  "mark_btc": 79522.925,
   "mark_btc_src": "coinbase",
   "marks": {
     "ETH": 2504.96,
@@ -912,5 +915,6 @@
   },
   "geometry": "LONG-like",
   "orders_n": 2,
-  "mark_link": 13.29
+  "mark_link": 13.29,
+  "mark_link_src": "coinbase"
 }
