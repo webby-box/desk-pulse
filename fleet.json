@@ -1,7 +1,7 @@
 {
-  "updated_et": "2026-09-07 13:07:30 ET",
-  "working": 4,
-  "idle": 15,
+  "updated_et": "2026-09-07 13:17:37 ET",
+  "working": 3,
+  "idle": 16,
   "standby": 1,
   "bots": [
     {
@@ -18,10 +18,10 @@
       "name": "GAMMA",
       "role": "Chief of Efficiency",
       "state": "WORKING",
-      "lane": "cli",
+      "lane": "file",
       "task": "touch DAEMON-DEDUPE-2026-09-07.md",
       "proof": "gamma/DAEMON-DEDUPE-2026-09-07.md",
-      "age_min": 1.7,
+      "age_min": 11.8,
       "owner_stream": "efficiency"
     },
     {
@@ -31,18 +31,8 @@
       "lane": "file",
       "task": "touch GAMMA-USAGE-ALERT-20260907-1303.md",
       "proof": "omega/GAMMA-USAGE-ALERT-20260907-1303.md",
-      "age_min": 3.3,
+      "age_min": 13.4,
       "owner_stream": "cos"
-    },
-    {
-      "name": "Webby",
-      "role": "Web/UI",
-      "state": "WORKING",
-      "lane": "file",
-      "task": "touch styles.css",
-      "proof": "quant/web/desk-dashboard/styles.css",
-      "age_min": 22.0,
-      "owner_stream": "ops"
     },
     {
       "name": "ALPHA",
@@ -51,7 +41,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "OFFLOAD-QUEUE.md",
-      "age_min": 115.9,
+      "age_min": 126.1,
       "owner_stream": "cos"
     },
     {
@@ -61,7 +51,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/infra/env.sh",
-      "age_min": 309.1,
+      "age_min": 319.2,
       "owner_stream": "infra"
     },
     {
@@ -81,7 +71,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/proof/EOD1K-C-LEG3-LIVE.md",
-      "age_min": 46.1,
+      "age_min": 56.3,
       "owner_stream": "exec"
     },
     {
@@ -91,7 +81,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/FLOW.md",
-      "age_min": 96.4,
+      "age_min": 106.5,
       "owner_stream": "flow"
     },
     {
@@ -111,7 +101,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/code/eod1k_leg3_open.py",
-      "age_min": 47.7,
+      "age_min": 57.9,
       "owner_stream": "eng"
     },
     {
@@ -131,7 +121,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/PM-EOD1K-MAX.md",
-      "age_min": 57.2,
+      "age_min": 67.3,
       "owner_stream": "pm"
     },
     {
@@ -141,7 +131,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/MACRO.md",
-      "age_min": 97.5,
+      "age_min": 107.6,
       "owner_stream": "macro"
     },
     {
@@ -151,7 +141,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/research/PM-EOD1K-MAX.md",
-      "age_min": 58.5,
+      "age_min": 68.6,
       "owner_stream": "research"
     },
     {
@@ -161,7 +151,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "RISK.md",
-      "age_min": 57.3,
+      "age_min": 67.4,
       "owner_stream": "risk"
     },
     {
@@ -171,7 +161,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/signals/SCALP.md",
-      "age_min": 98.0,
+      "age_min": 108.1,
       "owner_stream": "scalp"
     },
     {
@@ -183,6 +173,16 @@
       "proof": "\u2014",
       "age_min": null,
       "owner_stream": "standby"
+    },
+    {
+      "name": "Webby",
+      "role": "Web/UI",
+      "state": "IDLE",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "quant/web/desk-dashboard/styles.css",
+      "age_min": 32.1,
+      "owner_stream": "ops"
     },
     {
       "name": "ZETA",
