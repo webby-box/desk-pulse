@@ -353,3 +353,5 @@ footer {
   main { width: min(100%, 28rem); }
   .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
+.err.stale { border-color: #c9a227; color: #f0c14b; }

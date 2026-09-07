@@ -1,14 +1,18 @@
 (function (root) {
   "use strict";
 
-  const BOOK_MS = 10000;
+  const BOOK_MS = 5000;
   const MARK_MS = 5000;
   const SPOT = {
     ETH: "https://api.coinbase.com/v2/prices/ETH-USD/spot",
     BTC: "https://api.coinbase.com/v2/prices/BTC-USD/spot",
     LINK: "https://api.coinbase.com/v2/prices/LINK-USD/spot",
   };
-  const SOURCES = ["./book.json", "../scans/book.json"];
+  const SOURCES = [
+    "./book.json",
+    "https://raw.githubusercontent.com/webby-box/desk-pulse/main/book.json",
+    "../scans/book.json",
+  ];
 
   const $ = (id) => document.getElementById(id);
 
@@ -283,6 +287,38 @@
     const s = Math.max(0, Math.floor((Date.now() - ts) / 1000));
     if (s < 60) return s + "s";
     return Math.floor(s / 60) + "m" + (s % 60) + "s";
+  }
+
+
+  function bookStaleSec() {
+    if (!bookAt) return null;
+    return Math.floor((Date.now() - bookAt) / 1000);
+  }
+
+  function paintStale() {
+    const el = $("err");
+    if (!el) return;
+    const age = bookStaleSec();
+    // only show stale when we have a book but it is older than 90s wall vs updatedEt parse hard —
+    // use fetch age: if last successful refresh got a book whose updated_et is >3 min behind wall clock, warn.
+    if (!bookRaw) return;
+    const et = (normalize(bookRaw).updatedEt || "");
+    // parse "2026-09-07 10:49:02 ET" loosely as local ET wall
+    const m = String(et).match(/(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2})(?::(\d{2}))?/);
+    if (!m) return;
+    const y=+m[1], mo=+m[2]-1, d=+m[3], hh=+m[4], mm=+m[5], ss=+(m[6]||0);
+    // treat as America/New_York by constructing UTC-4/-5 roughly via Date with offset -4 for Sep
+    const approx = Date.UTC(y, mo, d, hh+4, mm, ss); // EDT
+    const lagMin = (Date.now() - approx) / 60000;
+    if (lagMin > 3) {
+      el.hidden = false;
+      el.textContent = "Book stale · " + et + " · lag ~" + Math.round(lagMin) + "m — waiting for next push";
+      el.className = "err stale";
+    } else if (el.className === "err stale") {
+      el.hidden = true;
+      el.textContent = "";
+      el.className = "err";
+    }
   }
 
   function paintAge() {
