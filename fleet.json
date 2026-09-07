@@ -1,5 +1,5 @@
 {
-  "updated_et": "2026-09-07 15:49:25 ET",
+  "updated_et": "2026-09-07 15:59:32 ET",
   "working": 9,
   "idle": 10,
   "standby": 1,
@@ -21,7 +21,7 @@
       "lane": "file",
       "task": "touch PATH-C-C1-CONSOL-BLOCKER.md",
       "proof": "quant/proof/PATH-C-C1-CONSOL-BLOCKER.md",
-      "age_min": 5.7,
+      "age_min": 15.9,
       "owner_stream": "exec"
     },
     {
@@ -31,7 +31,7 @@
       "lane": "file",
       "task": "touch FLOW.md",
       "proof": "quant/signals/FLOW.md",
-      "age_min": 11.6,
+      "age_min": 21.8,
       "owner_stream": "flow"
     },
     {
@@ -41,7 +41,7 @@
       "lane": "cli",
       "task": "touch EXECUTION-CONSTRAINTS.md",
       "proof": "gamma/EXECUTION-CONSTRAINTS.md",
-      "age_min": 10.0,
+      "age_min": 20.1,
       "owner_stream": "efficiency"
     },
     {
@@ -51,7 +51,7 @@
       "lane": "file",
       "task": "touch PM-EOD1K-PATH-C-DRAFT.md",
       "proof": "quant/PM-EOD1K-PATH-C-DRAFT.md",
-      "age_min": 2.7,
+      "age_min": 12.8,
       "owner_stream": "pm"
     },
     {
@@ -61,7 +61,7 @@
       "lane": "file",
       "task": "touch MACRO.md",
       "proof": "quant/signals/MACRO.md",
-      "age_min": 11.6,
+      "age_min": 21.8,
       "owner_stream": "macro"
     },
     {
@@ -71,7 +71,7 @@
       "lane": "cli",
       "task": "touch CURSOR-EOD1K-DEEP-20260907-194133.md",
       "proof": "quant/research/CURSOR-EOD1K-DEEP-20260907-194133.md",
-      "age_min": 2.7,
+      "age_min": 12.8,
       "owner_stream": "research"
     },
     {
@@ -81,7 +81,7 @@
       "lane": "file",
       "task": "touch RISK.md",
       "proof": "RISK.md",
-      "age_min": 6.5,
+      "age_min": 16.6,
       "owner_stream": "risk"
     },
     {
@@ -91,7 +91,7 @@
       "lane": "file",
       "task": "touch SCALP.md",
       "proof": "quant/signals/SCALP.md",
-      "age_min": 11.6,
+      "age_min": 21.8,
       "owner_stream": "scalp"
     },
     {
@@ -101,7 +101,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "OFFLOAD-QUEUE.md",
-      "age_min": 277.9,
+      "age_min": 288.0,
       "owner_stream": "cos"
     },
     {
@@ -111,7 +111,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/infra/env.sh",
-      "age_min": 471.0,
+      "age_min": 481.1,
       "owner_stream": "infra"
     },
     {
@@ -141,7 +141,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/code/eod1k_leg3_open.py",
-      "age_min": 209.7,
+      "age_min": 219.8,
       "owner_stream": "eng"
     },
     {
@@ -161,7 +161,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "omega/GAMMA-USAGE-ALERT-20260907-1303.md",
-      "age_min": 165.2,
+      "age_min": 175.3,
       "owner_stream": "cos"
     },
     {
@@ -181,7 +181,7 @@
       "lane": "none",
       "task": "\u2014",
       "proof": "quant/web/desk-dashboard/styles.css",
-      "age_min": 183.9,
+      "age_min": 194.0,
       "owner_stream": "ops"
     },
     {
