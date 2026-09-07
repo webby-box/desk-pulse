@@ -1,8 +1,8 @@
 {
-  "updated_et": "2026-09-07 07:48:06 ET",
-  "liquid_usd": 34.1822,
-  "upnl_usd": 0.0249,
-  "equity_usd": 72.0703,
+  "updated_et": "2026-09-07 07:48:59 ET",
+  "liquid_usd": 34.1809,
+  "upnl_usd": 0.0155,
+  "equity_usd": 72.0596,
   "status": "LIVE",
   "wallet": "0x425F91cFebFD8979c21008806403379390900052",
   "residuals": {
@@ -11,7 +11,7 @@
     "base_eth": 0.0023087,
     "base_usdc": 0.0
   },
-  "notes": "manage-only",
+  "notes": "manage-only \u00b7 OMEGA#1 BTC \u22646\u00d7 \u00b7 SL/TP live \u00b7 ETH flat",
   "positions": [
     {
       "id": "gmx-btc-long",
@@ -22,10 +22,10 @@
       "collateral_usd": 37.8632,
       "size_usd": 228.0,
       "entry": 79407.0937,
-      "mark": 79415.77,
-      "sl": null,
-      "tp": null,
-      "upnl_usd": 0.0249,
+      "mark": 79412.48,
+      "sl": 77813.01,
+      "tp": 82577.07,
+      "upnl_usd": 0.0155,
       "status": "LIVE",
       "opened_et": "2026-09-07 07:46 ET",
       "tx_open": "0xc74b8a3f7dfdea8a6dfc67368da0962fe8050d4e2905d8fda78cfa06bb26347b"
@@ -40,10 +40,10 @@
     "collateral_usd": 37.8632,
     "size_usd": 228.0,
     "entry": 79407.0937,
-    "mark": 79415.77,
-    "sl": null,
-    "tp": null,
-    "upnl_usd": 0.0249,
+    "mark": 79412.48,
+    "sl": 77813.01,
+    "tp": 82577.07,
+    "upnl_usd": 0.0155,
     "status": "LIVE",
     "opened_et": "2026-09-07 07:46 ET",
     "tx_open": "0xc74b8a3f7dfdea8a6dfc67368da0962fe8050d4e2905d8fda78cfa06bb26347b"
@@ -166,6 +166,20 @@
       "equity_usd": 72.0703,
       "liquid_usd": 34.1822,
       "upnl_usd": 0.0249,
+      "n_pos": 1
+    },
+    {
+      "t": "2026-09-07 07:48:58 ET",
+      "equity_usd": 72.0596,
+      "liquid_usd": 34.1809,
+      "upnl_usd": 0.0155,
+      "n_pos": 1
+    },
+    {
+      "t": "2026-09-07 07:48:59 ET",
+      "equity_usd": 72.0596,
+      "liquid_usd": 34.1809,
+      "upnl_usd": 0.0155,
       "n_pos": 1
     }
   ],
@@ -772,7 +786,9 @@
     }
   ],
   "mark_src": "coinbase",
-  "mark_eth": 2490.78,
-  "mark_btc": 79415.77,
-  "mark_btc_src": "coinbase"
+  "mark_eth": 2490.53,
+  "mark_btc": 79412.48,
+  "mark_btc_src": "coinbase",
+  "cushion_to_sl_usd": 1599.47,
+  "cushion_to_sl_pct": 2.014
 }
