@@ -386,6 +386,31 @@ footer {
 .hero-return .num.up { color: var(--ok, #3ecf8e); }
 .hero-return .num.down { color: var(--bad, #ff5d6c); }
 
+.funding-note {
+  margin: 0 0 0.85rem;
+  padding: 0 0.15rem;
+  color: var(--mut);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.wallet-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.65rem;
+  margin: 0 0 0.45rem;
+}
+
+.wallet-links a {
+  color: #7aa2ff;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.wallet-links a:hover {
+  text-decoration: underline;
+}
+
 
 
 /* segment + fleet */

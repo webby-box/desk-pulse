@@ -178,6 +178,7 @@
       totalPnlPct: num(pick(raw, ["totalPnlPct", "total_pnl_pct"])),
       residualRows: rows,
       wallet: pick(raw, ["wallet", "account"]),
+      walletUrls: pick(raw, ["walletUrls", "wallet_urls"]),
       notes: pick(raw, ["notes"]),
       positions: positions,
       pnlHistory: Array.isArray(hist) ? hist : [],
@@ -517,6 +518,53 @@
     }
   }
 
+  function walletUrlsFrom(book) {
+    const urls = book.walletUrls;
+    if (urls && typeof urls === "object") return urls;
+    const w = book.wallet;
+    if (!w) return null;
+    return {
+      arbitrum: "https://arbiscan.io/address/" + w,
+      base: "https://basescan.org/address/" + w,
+      ethereum: "https://etherscan.io/address/" + w,
+    };
+  }
+
+  function renderWalletLinks(book) {
+    const host = $("wallet-links");
+    if (!host) return;
+    host.replaceChildren();
+    const urls = walletUrlsFrom(book);
+    if (!urls) return;
+    const items = [
+      { key: "arbitrum", label: "Arbitrum" },
+      { key: "base", label: "Base" },
+      { key: "ethereum", label: "Ethereum" },
+    ];
+    for (const item of items) {
+      const href = urls[item.key];
+      if (!href) continue;
+      const a = document.createElement("a");
+      a.href = href;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.textContent = item.label;
+      host.append(a);
+    }
+  }
+
+  function renderFundingNote(note) {
+    const el = $("funding-note");
+    if (!el) return;
+    if (note) {
+      el.textContent = note;
+      el.hidden = false;
+    } else {
+      el.textContent = "";
+      el.hidden = true;
+    }
+  }
+
   function renderResiduals(book) {
     const list = $("residuals-list");
     list.replaceChildren();
@@ -553,6 +601,7 @@
       }
       setTone(tpEl, tp);
     }
+    renderFundingNote(book.fundingNote);
 
     setTone($("upnl"), live.upnl);
     $("equity").textContent = money(live.equity);
@@ -562,6 +611,7 @@
     renderTrades(book.trades);
     renderResiduals(book);
     $("wallet").textContent = truncAddr(book.wallet);
+    renderWalletLinks(book);
     $("notes").textContent = book.notes || "—";
     $("src").textContent = bookSrc;
     paintAge();

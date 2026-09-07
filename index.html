@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#0b0d10">
   <title>Desk</title>
-  <link rel="stylesheet" href="styles.css?v=fleet2">
+  <link rel="stylesheet" href="styles.css?v=fund3">
 </head>
 <body>
   <header class="top">
@@ -22,8 +22,8 @@
     <div id="err" class="err" hidden role="alert"></div>
 
     <div id="view-pulse">
-    <section class="hero" aria-label="Equity">
-      <p class="hero-k">Equity</p>
+    <section class="hero" aria-label="Current">
+      <p class="hero-k">Current</p>
       <p id="equity" class="hero-n">—</p>
       <p id="upnl" class="hero-pnl">—</p>
       <div class="hero-return" aria-label="Total vs original">
@@ -36,6 +36,7 @@
           <span id="total-pnl" class="num">—</span>
         </div>
       </div>
+      <p id="funding-note" class="funding-note" hidden></p>
       <div class="hero-sub">
         <div>
           <span class="k">Liquid</span>
@@ -89,6 +90,7 @@
 
     <section class="meta">
       <p><span class="k">Wallet</span> <span id="wallet" class="num wrap">—</span></p>
+      <p id="wallet-links" class="wallet-links"></p>
       <p><span class="k">Notes</span> <span id="notes" class="wrap">—</span></p>
       <ul id="residuals-list" class="res"></ul>
     </section>
@@ -113,6 +115,6 @@
       </footer>
     </div>
   </main>
-  <script src="app.js?v=fleet2"></script>
+  <script src="app.js?v=fund3"></script>
 </body>
 </html>
