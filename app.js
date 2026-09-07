@@ -167,10 +167,10 @@
       trades: Array.isArray(trades) ? trades : [],
       marks: (function () {
         const src = raw.marks || raw.spot || {};
-        return {
-          ETH: num(pick(src, ["ETH", "eth", "ETH-USD", "eth_usd"])),
-          BTC: num(pick(src, ["BTC", "btc", "BTC-USD", "btc_usd"])),
-        };
+        // Prefer nested marks/spot; also accept top-level mark_eth / mark_btc (never cross-seed).
+        const eth = num(pick(src, ["ETH", "eth", "ETH-USD", "eth_usd"])) ?? num(pick(raw, ["mark_eth", "markEth"]));
+        const btc = num(pick(src, ["BTC", "btc", "BTC-USD", "btc_usd"])) ?? num(pick(raw, ["mark_btc", "markBtc"]));
+        return { ETH: eth, BTC: btc };
       })(),
     };
   }
