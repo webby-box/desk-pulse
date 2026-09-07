@@ -17,7 +17,7 @@
     "base": "https://basescan.org/address/0x425F91cFebFD8979c21008806403379390900052",
     "ethereum": "https://etherscan.io/address/0x425F91cFebFD8979c21008806403379390900052"
   },
-  "notes": "TRADE EXECUTE \u2014 leave manage-only (Ricky 15:35 ET)",
+  "notes": "HOLD EXECUTE \u2014 ride ETH SHORT to TP/SL (ZETA decide 15:40; Ricky approve-all)",
   "positions": [
     {
       "id": "gmx-eth-short",
