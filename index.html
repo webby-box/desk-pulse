@@ -10,13 +10,20 @@
 </head>
 <body>
   <header class="top">
-    <p class="brand">Desk</p>
+    <div class="top-left">
+      <p class="brand">Desk</p>
+      <nav class="tabs" aria-label="Views">
+        <button type="button" class="tab is-on" id="tab-pulse" data-tab="pulse">Pulse</button>
+        <button type="button" class="tab" id="tab-fleet" data-tab="fleet">Fleet</button>
+      </nav>
+    </div>
     <p class="asof"><span id="last-updated">—</span></p>
   </header>
 
   <main>
     <div id="err" class="err" hidden role="alert"></div>
 
+    <div id="view-pulse">
     <section class="hero" aria-label="Equity">
       <p class="hero-k">Equity</p>
       <p id="equity" class="hero-n">—</p>
@@ -92,6 +99,21 @@
       <span id="src">—</span>
       <span id="book-age">book —</span>
     </footer>
+    </div>
+
+    <div id="view-fleet" hidden>
+      <section class="fleet-sum" aria-label="Fleet summary">
+        <div><span class="k">Working</span> <span id="fleet-working" class="num">—</span></div>
+        <div><span class="k">Idle</span> <span id="fleet-idle" class="num">—</span></div>
+        <div><span class="k">Standby</span> <span id="fleet-standby" class="num">—</span></div>
+      </section>
+      <p class="fleet-hint">File-proof activity (CLI/disk). Not Grok chat.</p>
+      <div id="fleet-list" class="fleet-list"></div>
+      <footer>
+        <span id="fleet-src">fleet.json</span>
+        <span id="fleet-age">—</span>
+      </footer>
+    </div>
   </main>
   <script src="app.js"></script>
 </body>

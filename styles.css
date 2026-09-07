@@ -385,3 +385,41 @@ footer {
 }
 .hero-return .num.up { color: var(--ok, #3ecf8e); }
 .hero-return .num.down { color: var(--bad, #ff5d6c); }
+
+
+/* tabs + fleet */
+.top-left { display: flex; flex-direction: column; gap: 0.35rem; }
+.tabs { display: flex; gap: 0.25rem; }
+.tab {
+  appearance: none; border: 1px solid var(--line); background: transparent;
+  color: var(--mut); font: inherit; font-size: 12px; font-weight: 600;
+  padding: 0.28rem 0.65rem; border-radius: 999px; cursor: pointer;
+}
+.tab.is-on { color: var(--fg); background: var(--bg-2); border-color: #3a4352; }
+.fleet-sum {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;
+  padding: 0.35rem 0 0.75rem;
+}
+.fleet-sum .k { display: block; color: var(--mut); font-size: 11px; }
+.fleet-sum .num { font-size: 18px; font-weight: 650; }
+.fleet-hint { margin: 0 0 0.75rem; color: var(--mut); font-size: 12px; }
+.fleet-list { display: flex; flex-direction: column; gap: 0.55rem; }
+.fleet-card {
+  background: var(--bg-2); border: 1px solid var(--line);
+  border-radius: 12px; padding: 0.7rem 0.8rem;
+}
+.fleet-row { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; }
+.fleet-name { margin: 0; font-size: 14px; font-weight: 650; }
+.fleet-role { margin: 0.2rem 0 0; color: var(--mut); font-size: 12px; }
+.fleet-task { margin: 0.45rem 0 0; font-size: 12px; line-height: 1.35; word-break: break-word; }
+.fleet-meta { margin: 0.35rem 0 0; color: var(--mut); font-size: 11px; }
+.pill {
+  display: inline-flex; align-items: center; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 0.18rem 0.45rem; border-radius: 999px;
+}
+.pill-working { color: var(--ok); background: var(--pill-long); }
+.pill-idle { color: var(--mut); background: rgba(139,147,160,0.14); }
+.pill-standby, .pill-parked { color: var(--warn); background: rgba(201,162,39,0.14); }
+.pill-orphan { color: var(--bad); background: rgba(255,80,0,0.14); }
+.pill-room { color: #7aa2ff; background: rgba(122,162,255,0.14); }

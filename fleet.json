@@ -1,0 +1,258 @@
+{
+  "updated_et": "2026-09-07 11:17:22 ET",
+  "working": 11,
+  "idle": 3,
+  "standby": 5,
+  "bots": [
+    {
+      "name": "ALPHA",
+      "role": "Quant CIO / CoS incumbent",
+      "state": "WORKING",
+      "lane": "cli",
+      "task": "touch OFFLOAD-QUEUE.md",
+      "proof": "OFFLOAD-QUEUE.md",
+      "age_min": 5.8,
+      "owner_stream": "cos"
+    },
+    {
+      "name": "Atlas",
+      "role": "Ops / book keeper",
+      "state": "WORKING",
+      "lane": "file",
+      "task": "touch book.json",
+      "proof": "quant/web/desk-dashboard/book.json",
+      "age_min": 1.8,
+      "owner_stream": "ops"
+    },
+    {
+      "name": "Boxbot",
+      "role": "Trading infra",
+      "state": "WORKING",
+      "lane": "file",
+      "task": "touch fleet-status.sh",
+      "proof": "quant/infra/fleet-status.sh",
+      "age_min": 1.0,
+      "owner_stream": "infra"
+    },
+    {
+      "name": "Exec",
+      "role": "Trade Exec",
+      "state": "WORKING",
+      "lane": "file",
+      "task": "touch TOPUP-BASE-ACROSS.md",
+      "proof": "quant/proof/TOPUP-BASE-ACROSS.md",
+      "age_min": 10.6,
+      "owner_stream": "exec"
+    },
+    {
+      "name": "GAMMA",
+      "role": "Chief of Efficiency",
+      "state": "WORKING",
+      "lane": "file",
+      "task": "touch USAGE-LATEST.md",
+      "proof": "gamma/USAGE-LATEST.md",
+      "age_min": 5.8,
+      "owner_stream": "efficiency"
+    },
+    {
+      "name": "Iddy",
+      "role": "Quant eng",
+      "state": "WORKING",
+      "lane": "cli",
+      "task": "touch cursor-burn-topup-consol.txt",
+      "proof": "quant/scans/cursor-burn-topup-consol.txt",
+      "age_min": 14.3,
+      "owner_stream": "eng"
+    },
+    {
+      "name": "Liquid",
+      "role": "Quant PM (GMX/Base)",
+      "state": "WORKING",
+      "lane": "file",
+      "task": "touch liquid-hold.md",
+      "proof": "liquid-hold.md",
+      "age_min": 11.6,
+      "owner_stream": "pm"
+    },
+    {
+      "name": "OMEGA",
+      "role": "Challenger CoS",
+      "state": "WORKING",
+      "lane": "cli",
+      "task": "touch CURSOR-USAGE-PROOF.md",
+      "proof": "omega/CURSOR-USAGE-PROOF.md",
+      "age_min": 0.9,
+      "owner_stream": "cos"
+    },
+    {
+      "name": "Radar",
+      "role": "Research lead",
+      "state": "WORKING",
+      "lane": "cli",
+      "task": "touch PM-NEXT-MICRO-STANDBY.md",
+      "proof": "quant/research/PM-NEXT-MICRO-STANDBY.md",
+      "age_min": 1.1,
+      "owner_stream": "research"
+    },
+    {
+      "name": "Risk",
+      "role": "Chief Risk",
+      "state": "WORKING",
+      "lane": "file",
+      "task": "touch RISK.md",
+      "proof": "RISK.md",
+      "age_min": 13.8,
+      "owner_stream": "risk"
+    },
+    {
+      "name": "Webby",
+      "role": "Web/UI",
+      "state": "WORKING",
+      "lane": "file",
+      "task": "touch app.js",
+      "proof": "quant/web/desk-dashboard/app.js",
+      "age_min": 0.2,
+      "owner_stream": "ops"
+    },
+    {
+      "name": "Flow",
+      "role": "Flow funding/OI/liqs",
+      "state": "IDLE",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "quant/signals/FLOW.md",
+      "age_min": 32.7,
+      "owner_stream": "flow"
+    },
+    {
+      "name": "Macro",
+      "role": "Macro regime",
+      "state": "IDLE",
+      "lane": "none",
+      "task": "CLI cursor-burn-explore-1049.txt",
+      "proof": "quant/scans/cursor-burn-explore-1049.txt",
+      "age_min": 25.9,
+      "owner_stream": "macro"
+    },
+    {
+      "name": "Scalp",
+      "role": "Scalp 15m\u20131h",
+      "state": "IDLE",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "quant/signals/SCALP.md",
+      "age_min": 35.0,
+      "owner_stream": "scalp"
+    },
+    {
+      "name": "Closer",
+      "role": "Closer",
+      "state": "STANDBY",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "\u2014",
+      "age_min": null,
+      "owner_stream": "standby"
+    },
+    {
+      "name": "Hunter",
+      "role": "Lead hunter",
+      "state": "STANDBY",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "\u2014",
+      "age_min": null,
+      "owner_stream": "standby"
+    },
+    {
+      "name": "Lex",
+      "role": "Copy/voice",
+      "state": "STANDBY",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "\u2014",
+      "age_min": null,
+      "owner_stream": "standby"
+    },
+    {
+      "name": "Vend",
+      "role": "Product/fulfillment",
+      "state": "STANDBY",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "\u2014",
+      "age_min": null,
+      "owner_stream": "standby"
+    },
+    {
+      "name": "Noozz",
+      "role": "News digest",
+      "state": "PARKED",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "\u2014",
+      "age_min": null,
+      "owner_stream": "standby"
+    },
+    {
+      "name": "Cash",
+      "role": "ROOM Cash",
+      "state": "ROOM",
+      "lane": "none",
+      "task": "rare sync only",
+      "proof": "\u2014",
+      "age_min": null,
+      "owner_stream": "room"
+    },
+    {
+      "name": "Quant",
+      "role": "ROOM Quant",
+      "state": "ROOM",
+      "lane": "none",
+      "task": "rare sync only",
+      "proof": "\u2014",
+      "age_min": null,
+      "owner_stream": "room"
+    },
+    {
+      "name": "RiskExec",
+      "role": "ROOM RiskExec",
+      "state": "ROOM",
+      "lane": "none",
+      "task": "rare sync only",
+      "proof": "\u2014",
+      "age_min": null,
+      "owner_stream": "room"
+    },
+    {
+      "name": "Signals",
+      "role": "ROOM Signals",
+      "state": "ROOM",
+      "lane": "none",
+      "task": "rare sync only",
+      "proof": "\u2014",
+      "age_min": null,
+      "owner_stream": "room"
+    },
+    {
+      "name": "Sprint",
+      "role": "ROOM Sprint",
+      "state": "ROOM",
+      "lane": "none",
+      "task": "rare sync only",
+      "proof": "\u2014",
+      "age_min": null,
+      "owner_stream": "room"
+    },
+    {
+      "name": "New Bot",
+      "role": "ORPHAN \u2014 DELETE NOW",
+      "state": "ORPHAN",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "\u2014",
+      "age_min": null,
+      "owner_stream": "other"
+    }
+  ]
+}
