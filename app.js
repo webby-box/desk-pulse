@@ -751,6 +751,128 @@
     else render();
   }
 
+  function fleetBlank(v) {
+    if (v == null) return true;
+    const s = String(v).trim();
+    return !s || s === "—" || s === "–" || s === "-" || /^[—–-]+$/.test(s);
+  }
+
+  function fleetState(bot) {
+    return String((bot && bot.state) || "IDLE").toUpperCase();
+  }
+
+  function fleetFile(p) {
+    if (fleetBlank(p)) return "";
+    const s = String(p).replace(/\\/g, "/").replace(/\/+$/, "");
+    const parts = s.split("/").filter(Boolean);
+    return parts.length ? parts[parts.length - 1] : s;
+  }
+
+  function fleetHumanTask(raw) {
+    const t = String(raw).replace(/\s+/g, " ").trim();
+    const mTouch = t.match(/^(touch|write|edit|patch|save|update)\s+(.+)$/i);
+    if (mTouch) {
+      const verb = mTouch[1].toLowerCase() === "touch" ? "Updating" : "Editing";
+      return verb + " " + fleetFile(mTouch[2]);
+    }
+    if (/^rare sync only$/i.test(t)) return "Waiting in room";
+    return t;
+  }
+
+  function fleetRole(bot) {
+    const name = String((bot && bot.name) || "").trim();
+    let r = String((bot && bot.role) || "").trim();
+    if (!r || r === name) r = "";
+    else if (/ORPHAN/i.test(r)) r = "Unassigned";
+    else if (/PARKED/i.test(r)) r = "Parked";
+    else if (/^ROOM\b/i.test(r)) r = "Room";
+    else {
+      r = r.replace(/\s*[—–-]\s*NOT\b.*$/i, "");
+      r = r.replace(/\s*[—–-]\s*Signals pod under Radar/i, " · signals");
+      r = r.replace(/\s+/g, " ").trim();
+    }
+    const lane = bot && bot.lane && bot.lane !== "none" ? String(bot.lane) : "";
+    if (lane && r && r.toLowerCase().indexOf(lane.toLowerCase()) < 0) r += " · " + lane;
+    else if (lane && !r) r = lane;
+    return r;
+  }
+
+  function fleetActivity(bot) {
+    const state = fleetState(bot);
+    const task = fleetBlank(bot && bot.task) ? "" : fleetHumanTask(bot.task);
+    const file = fleetFile(bot && bot.proof);
+    if (state === "WORKING") {
+      return { kind: "doing", label: "Doing", text: task || (file ? "Working on " + file : "Working") };
+    }
+    if (state === "ROOM") {
+      return { kind: "mode", label: "Status", text: task || "Waiting in room" };
+    }
+    if (state === "PARKED") {
+      return { kind: "mode", label: "Status", text: "Parked" };
+    }
+    if (state === "STANDBY") {
+      return { kind: "mode", label: "Status", text: "Standby" };
+    }
+    if (state === "ORPHAN") {
+      return { kind: "mode", label: "Status", text: "Orphan — delete from sidebar" };
+    }
+    if (task) return { kind: "last", label: "Last", text: task };
+    if (file) return { kind: "last", label: "Last", text: "Last file " + file };
+    return { kind: "last", label: "Status", text: "Idle" };
+  }
+
+  function fleetAgeText(bot) {
+    const n = bot && bot.age_min;
+    if (n == null || n === "" || Number.isNaN(Number(n))) return "";
+    const m = Number(n);
+    let pretty;
+    if (m < 1) pretty = "just now";
+    else if (m < 60) pretty = Math.round(m) + "m";
+    else if (m < 1440) {
+      const h = m / 60;
+      pretty = (h >= 10 ? Math.round(h) : Math.round(h * 10) / 10) + "h";
+    } else {
+      pretty = (Math.round((m / 1440) * 10) / 10) + "d";
+    }
+    const state = fleetState(bot);
+    if (state === "WORKING") return m < 1 ? "active now" : "active " + pretty;
+    if (state === "IDLE") return "idle " + pretty;
+    return pretty;
+  }
+
+  function fleetRank(state) {
+    if (state === "WORKING") return 0;
+    if (state === "IDLE") return 1;
+    if (state === "STANDBY") return 2;
+    if (state === "PARKED") return 3;
+    if (state === "ROOM") return 4;
+    if (state === "ORPHAN") return 5;
+    return 6;
+  }
+
+  function fleetCounts(bots) {
+    const out = { working: 0, idle: 0, held: 0 };
+    (bots || []).forEach(function (b) {
+      const s = fleetState(b);
+      if (s === "WORKING") out.working += 1;
+      else if (s === "IDLE") out.idle += 1;
+      else out.held += 1;
+    });
+    return out;
+  }
+
+  function sortFleetBots(bots) {
+    return (bots || []).slice().sort(function (a, b) {
+      const ra = fleetRank(fleetState(a));
+      const rb = fleetRank(fleetState(b));
+      if (ra !== rb) return ra - rb;
+      const aa = a.age_min == null || Number.isNaN(Number(a.age_min)) ? Infinity : Number(a.age_min);
+      const ba = b.age_min == null || Number.isNaN(Number(b.age_min)) ? Infinity : Number(b.age_min);
+      if (aa !== ba) return aa - ba;
+      return String(a.name || "").localeCompare(String(b.name || ""));
+    });
+  }
+
   function pillClass(state) {
     const s = String(state || "").toUpperCase();
     if (s === "WORKING") return "pill pill-working";
@@ -773,37 +895,49 @@
 
   function paintFleet() {
     if (!fleetRaw) return;
+    const bots = Array.isArray(fleetRaw.bots) ? fleetRaw.bots : [];
+    const counts = fleetCounts(bots);
     const w = $("fleet-working");
     const i = $("fleet-idle");
-    const s = $("fleet-standby");
-    if (w) w.textContent = fleetRaw.working != null ? String(fleetRaw.working) : "—";
+    const h = $("fleet-held") || $("fleet-standby");
+    if (w) w.textContent = String(counts.working);
     const badge = $("fleet-badge");
-    if (badge) badge.textContent = fleetRaw.working != null ? String(fleetRaw.working) : "0";
-    if (i) i.textContent = fleetRaw.idle != null ? String(fleetRaw.idle) : "—";
-    if (s) s.textContent = fleetRaw.standby != null ? String(fleetRaw.standby) : "—";
+    if (badge) {
+      badge.textContent = String(counts.working);
+      badge.classList.toggle("is-zero", counts.working === 0);
+    }
+    if (i) i.textContent = String(counts.idle);
+    if (h) h.textContent = String(counts.held);
     const lu = $("last-updated");
     if (lu && activeTab === "fleet") lu.textContent = compactTime(fleetRaw.updated_et);
     const list = $("fleet-list");
     if (!list) return;
-    const bots = Array.isArray(fleetRaw.bots) ? fleetRaw.bots : [];
-    list.innerHTML = "";
-    bots.forEach(function (b) {
+    list.replaceChildren();
+    sortFleetBots(bots).forEach(function (b) {
+      const state = fleetState(b);
+      const act = fleetActivity(b);
       const card = document.createElement("article");
-      card.className = "fleet-card";
-      const age = b.age_min != null ? Math.round(Number(b.age_min)) + "m" : "—";
+      card.className = "fleet-card" + (state === "WORKING" ? " is-working" : "");
+      const role = fleetRole(b);
+      const age = fleetAgeText(b);
+      const file = fleetFile(b.proof);
       card.innerHTML =
         '<div class="fleet-row">' +
         '<p class="fleet-name"></p>' +
-        '<span class="' + pillClass(b.state) + '"></span>' +
+        '<span class="' + pillClass(state) + '"></span>' +
         "</div>" +
-        '<p class="fleet-role"></p>' +
-        '<p class="fleet-task"><span class="fleet-doing-k">Doing</span> <span class="fleet-doing-v"></span></p>' +
-        '<p class="fleet-meta">age ' + age + ' · Proof: <span class="mono fleet-proof"></span></p>';
+        (role ? '<p class="fleet-role"></p>' : "") +
+        '<p class="fleet-task' + (act.kind !== "doing" ? " is-idle" : "") + '"><span class="fleet-doing-k"></span> <span class="fleet-doing-v"></span></p>' +
+        '<p class="fleet-meta"></p>';
       card.querySelector(".fleet-name").textContent = b.name || "—";
-      card.querySelector(".pill").textContent = pillLabel(b.state);
-      card.querySelector(".fleet-role").textContent = (b.role || "—") + (b.lane && b.lane !== "none" ? " · " + b.lane : "");
-      card.querySelector(".fleet-doing-v").textContent = b.task || "—";
-      card.querySelector(".fleet-proof").textContent = b.proof || "—";
+      card.querySelector(".pill").textContent = pillLabel(state);
+      if (role) card.querySelector(".fleet-role").textContent = role;
+      card.querySelector(".fleet-doing-k").textContent = act.label;
+      card.querySelector(".fleet-doing-v").textContent = act.text;
+      const meta = [];
+      if (age) meta.push(age);
+      if (file) meta.push(file);
+      card.querySelector(".fleet-meta").textContent = meta.join(" · ") || "";
       list.appendChild(card);
     });
     const fs = $("fleet-src");
@@ -819,7 +953,7 @@
     let lastErr = null;
     for (const url of FLEET_SOURCES) {
       try {
-        const res = await fetch(url, { cache: "no-store" });
+        const res = await fetch(url + (url.includes("?") ? "&" : "?") + "t=" + Date.now(), { cache: "no-store" });
         if (!res.ok) throw new Error("HTTP " + res.status);
         const j = await res.json();
         if (!j || !Array.isArray(j.bots)) throw new Error("bad fleet");
@@ -845,6 +979,11 @@
     markFor: markFor,
     isOpen: isOpen,
     positionsFrom: positionsFrom,
+    fleetActivity: fleetActivity,
+    fleetCounts: fleetCounts,
+    fleetRole: fleetRole,
+    fleetAgeText: fleetAgeText,
+    sortFleetBots: sortFleetBots,
     getMarks: function () { return marks; },
     setMarks: function (next) { marks = Object.assign({ ETH: null, BTC: null, LINK: null }, next || {}); },
     setBookMarks: function (next) { bookMarks = Object.assign({ ETH: null, BTC: null, LINK: null }, next || {}); },

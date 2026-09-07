@@ -194,4 +194,70 @@ if (Number(trapped.upnl) === 0) {
 if (Number(trapped.upnl) !== 12.5) fail("expected writer 12.5 got " + trapped.upnl);
 ok("non-zero writer beats mark==entry zero compute");
 
+const fleet = JSON.parse(fs.readFileSync(path.join(root, "fleet.json"), "utf8"));
+const counted = desk.fleetCounts(fleet.bots);
+if (counted.working + counted.idle + counted.held !== fleet.bots.length) {
+  fail("fleet counts must cover every bot");
+}
+const workingBots = fleet.bots.filter((b) => String(b.state).toUpperCase() === "WORKING");
+if (counted.working !== workingBots.length) fail("working count must match bot states, not header");
+ok("fleet counts from bot states working=" + counted.working + " idle=" + counted.idle + " held=" + counted.held);
+
+const atlas = fleet.bots.find((b) => b.name === "Atlas") || {
+  name: "Atlas",
+  state: "WORKING",
+  task: "touch book.json",
+  proof: "quant/web/desk-dashboard/book.json",
+};
+const atlasAct = desk.fleetActivity(atlas);
+if (atlasAct.label !== "Doing") fail("working bot must use Doing, got " + atlasAct.label);
+if (!/book\.json/i.test(atlasAct.text) || /touch/i.test(atlasAct.text)) {
+  fail("working task should be plain English, got " + atlasAct.text);
+}
+ok("working task: " + atlasAct.text);
+
+const idleDash = desk.fleetActivity({
+  name: "ALPHA",
+  state: "IDLE",
+  task: "—",
+  proof: "OFFLOAD-QUEUE.md",
+});
+if (idleDash.label === "Doing") fail("idle bot must not say Doing");
+if (idleDash.text !== "Last file OFFLOAD-QUEUE.md") fail("idle blank task expected last file, got " + idleDash.text);
+ok("idle blank task uses last file, not Doing —");
+
+const room = desk.fleetActivity({ state: "ROOM", task: "rare sync only", proof: "—" });
+if (room.text !== "Waiting in room") fail("room task expected Waiting in room, got " + room.text);
+ok("room task: " + room.text);
+
+const orphanRole = desk.fleetRole({
+  name: "New Bot",
+  role: "ORPHAN SUSPENDED — DELETE via sidebar",
+  lane: "none",
+});
+if (orphanRole !== "Unassigned") fail("orphan role expected Unassigned, got " + orphanRole);
+ok("orphan role cleaned");
+
+const alphaRole = desk.fleetRole({
+  name: "ALPHA",
+  role: "Quant CIO only — NOT CoS",
+  lane: "none",
+});
+if (/NOT CoS/i.test(alphaRole)) fail("role still has shouting: " + alphaRole);
+if (alphaRole !== "Quant CIO only") fail("ALPHA role expected Quant CIO only, got " + alphaRole);
+ok("role shouting stripped: " + alphaRole);
+
+const sorted = desk.sortFleetBots([
+  { name: "Z", state: "IDLE", age_min: 10 },
+  { name: "A", state: "WORKING", age_min: 0 },
+  { name: "R", state: "ROOM", age_min: null },
+]);
+if (sorted[0].name !== "A" || sorted[2].name !== "R") fail("sort must be working, idle, then held");
+ok("fleet sort working first");
+
+if (desk.fleetAgeText({ state: "IDLE", age_min: 328.5 }) !== "idle 5.5h") {
+  fail("age 328.5m should be idle 5.5h, got " + desk.fleetAgeText({ state: "IDLE", age_min: 328.5 }));
+}
+ok("idle age formats as hours");
+
 console.log("ALL PASS");

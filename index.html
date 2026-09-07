@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#0b0d10">
   <title>Desk</title>
-  <link rel="stylesheet" href="styles.css?v=fund3">
+  <link rel="stylesheet" href="styles.css?v=fleetplain2">
 </head>
 <body>
   <header class="top">
@@ -17,7 +17,7 @@
   <main>
     <nav class="seg" aria-label="Views">
       <button type="button" class="seg-btn is-on" id="tab-pulse" data-tab="pulse">Pulse</button>
-      <button type="button" class="seg-btn" id="tab-fleet" data-tab="fleet">Fleet <span id="fleet-badge" class="badge">0</span></button>
+      <button type="button" class="seg-btn" id="tab-fleet" data-tab="fleet">Fleet <span id="fleet-badge" class="fleet-n">0</span></button>
     </nav>
     <div id="err" class="err" hidden role="alert"></div>
 
@@ -105,9 +105,9 @@
       <section class="fleet-sum" aria-label="Fleet summary">
         <div><span class="k">Working</span> <span id="fleet-working" class="num">—</span></div>
         <div><span class="k">Idle</span> <span id="fleet-idle" class="num">—</span></div>
-        <div><span class="k">Standby</span> <span id="fleet-standby" class="num">—</span></div>
+        <div><span class="k">Held</span> <span id="fleet-held" class="num">—</span></div>
       </section>
-      <p class="fleet-hint">What each bot is doing (from file activity). Not chat.</p>
+      <p class="fleet-hint">File activity on disk. Working first. Not chat.</p>
       <div id="fleet-list" class="fleet-list"></div>
       <footer>
         <span id="fleet-src">fleet.json</span>
@@ -115,6 +115,6 @@
       </footer>
     </div>
   </main>
-  <script src="app.js?v=fleetplain1"></script>
+  <script src="app.js?v=fleetplain2"></script>
 </body>
 </html>

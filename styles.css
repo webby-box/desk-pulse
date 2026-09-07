@@ -445,7 +445,7 @@ footer {
   background: #1c2330;
   box-shadow: 0 0 0 1px #2c3545 inset;
 }
-.badge {
+.fleet-n {
   display: inline-flex;
   min-width: 1.25rem;
   height: 1.25rem;
@@ -458,6 +458,10 @@ footer {
   font-size: 11px;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
+}
+.fleet-n.is-zero {
+  background: rgba(139, 147, 160, 0.16);
+  color: var(--mut);
 }
 .fleet-sum {
   display: grid;
@@ -485,10 +489,12 @@ footer {
 .fleet-name { margin: 0; font-size: 14px; font-weight: 700; }
 .fleet-role { margin: 0.25rem 0 0; color: var(--mut); font-size: 12px; }
 .fleet-task { margin: 0.5rem 0 0; font-size: 12.5px; line-height: 1.4; word-break: break-word; color: #d7dde6; }
+.fleet-task.is-idle { color: var(--mut); }
 .fleet-doing-k { color: var(--mut); font-size: 11px; font-weight: 650; margin-right: 0.25rem; }
-.fleet-doing-v { color: #d7dde6; }
+.fleet-doing-v { color: inherit; }
 .fleet-meta { margin: 0.4rem 0 0; color: var(--mut); font-size: 11px; }
 .fleet-proof { word-break: break-all; }
+.fleet-card.is-working { border-color: rgba(25, 195, 125, 0.35); }
 .pill {
   display: inline-flex; align-items: center; font-size: 10px; font-weight: 750;
   letter-spacing: 0.02em;
