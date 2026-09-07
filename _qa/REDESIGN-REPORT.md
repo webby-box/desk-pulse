@@ -2,7 +2,7 @@
 
 Date: 2026-09-07  
 Author: Webby  
-Commit SHA: (filled after git)
+Commit SHA: 7aea981563a9bf4d7b5e6515961381512f289fbf
 
 ## What changed
 Mobile-first dark FinTech shell (system UI, tabular mono on numbers only). Hero Equity, colored uPnL, Liquid + live mark secondary. One position card: side pill, lev, size, entry/mark, uPnL, slim SL–TP thermometer. History/trades collapsed. No LIVE/status badge.
