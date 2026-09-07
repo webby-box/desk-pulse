@@ -1,8 +1,8 @@
 {
-  "updated_et": "2026-09-07 15:34:50 ET",
-  "liquid_usd": 19.3098,
-  "upnl_usd": -42.7732,
-  "equity_usd": 74.5363,
+  "updated_et": "2026-09-07 15:31:11 ET",
+  "liquid_usd": 19.2863,
+  "upnl_usd": -35.2782,
+  "equity_usd": 82.0078,
   "status": "LIVE",
   "wallet": "0x425F91cFebFD8979c21008806403379390900052",
   "residuals": {
@@ -17,7 +17,7 @@
     "base": "https://basescan.org/address/0x425F91cFebFD8979c21008806403379390900052",
     "ethereum": "https://etherscan.io/address/0x425F91cFebFD8979c21008806403379390900052"
   },
-  "notes": "manage-only",
+  "notes": "TRADE EXECUTE resume \u2014 leave manage-only (ZETA/Ricky). Not manage-only.",
   "positions": [
     {
       "id": "gmx-eth-short",
@@ -28,17 +28,20 @@
       "collateral_usd": 97.9997,
       "size_usd": 5000.0,
       "entry": 2474.9973,
-      "mark": 2496.17,
+      "mark": 2492.46,
       "sl": 2573.95,
       "tp": 1979.96,
-      "upnl_usd": -42.7732,
+      "upnl_usd": -35.2782,
       "status": "LIVE",
       "opened_et": "2026-09-07 12:19 ET",
-      "tx_open": null,
+      "tx_open": "0x00847742e5c872e87f81c4ef1a25b016b345735c3653703f343ae166c0a1a306",
       "word15": 0,
       "geometry": "SHORT-like",
       "reader_positions": 1,
-      "reader_orders": 2
+      "reader_orders": 2,
+      "tx_sl": "0xa25e6359d824e0233b5f3b6eed2ccf8df5958883ef0a39102437e37d3e6e60fa",
+      "tx_tp": "0x313a4969fea6bf5ef0c3c168e6dd7c2d6ef9739a452e6941c4237e257e188e98",
+      "explorer_open": "https://arbiscan.io/tx/0x00847742e5c872e87f81c4ef1a25b016b345735c3653703f343ae166c0a1a306"
     }
   ],
   "position": {
@@ -50,17 +53,20 @@
     "collateral_usd": 97.9997,
     "size_usd": 5000.0,
     "entry": 2474.9973,
-    "mark": 2496.17,
+    "mark": 2492.46,
     "sl": 2573.95,
     "tp": 1979.96,
-    "upnl_usd": -42.7732,
+    "upnl_usd": -35.2782,
     "status": "LIVE",
     "opened_et": "2026-09-07 12:19 ET",
-    "tx_open": null,
+    "tx_open": "0x00847742e5c872e87f81c4ef1a25b016b345735c3653703f343ae166c0a1a306",
     "word15": 0,
     "geometry": "SHORT-like",
     "reader_positions": 1,
-    "reader_orders": 2
+    "reader_orders": 2,
+    "tx_sl": "0xa25e6359d824e0233b5f3b6eed2ccf8df5958883ef0a39102437e37d3e6e60fa",
+    "tx_tp": "0x313a4969fea6bf5ef0c3c168e6dd7c2d6ef9739a452e6941c4237e257e188e98",
+    "explorer_open": "https://arbiscan.io/tx/0x00847742e5c872e87f81c4ef1a25b016b345735c3653703f343ae166c0a1a306"
   },
   "pnl_history": [
     {
@@ -589,52 +595,66 @@
       "n_pos": 1
     },
     {
-      "t": "2026-09-07 15:32:44 ET",
-      "equity_usd": 77.1745,
-      "liquid_usd": 19.3015,
-      "upnl_usd": -40.1267,
+      "t": "2026-09-07 14:28:32 ET",
+      "equity_usd": 86.6799,
+      "liquid_usd": 19.2715,
+      "upnl_usd": -30.5913,
       "n_pos": 1
     },
     {
-      "t": "2026-09-07 15:33:43 ET",
-      "equity_usd": 77.0134,
-      "liquid_usd": 19.302,
-      "upnl_usd": -40.2883,
+      "t": "2026-09-07 14:38:38 ET",
+      "equity_usd": 92.7215,
+      "liquid_usd": 19.2525,
+      "upnl_usd": -24.5307,
       "n_pos": 1
     },
     {
-      "t": "2026-09-07 15:33:47 ET",
-      "equity_usd": 77.0738,
-      "liquid_usd": 19.3018,
-      "upnl_usd": -40.2277,
+      "t": "2026-09-07 14:48:45 ET",
+      "equity_usd": 90.3048,
+      "liquid_usd": 19.2601,
+      "upnl_usd": -26.955,
       "n_pos": 1
     },
     {
-      "t": "2026-09-07 15:33:55 ET",
-      "equity_usd": 77.396,
-      "liquid_usd": 19.3008,
-      "upnl_usd": -39.9045,
+      "t": "2026-09-07 14:58:52 ET",
+      "equity_usd": 83.9008,
+      "liquid_usd": 19.2803,
+      "upnl_usd": -33.3792,
       "n_pos": 1
     },
     {
-      "t": "2026-09-07 15:33:58 ET",
-      "equity_usd": 77.396,
-      "liquid_usd": 19.3008,
-      "upnl_usd": -39.9045,
+      "t": "2026-09-07 15:08:59 ET",
+      "equity_usd": 86.8008,
+      "liquid_usd": 19.2712,
+      "upnl_usd": -30.4701,
       "n_pos": 1
     },
     {
-      "t": "2026-09-07 15:34:50 ET",
-      "equity_usd": 74.5363,
-      "liquid_usd": 19.3098,
-      "upnl_usd": -42.7732,
+      "t": "2026-09-07 15:19:05 ET",
+      "equity_usd": 85.1494,
+      "liquid_usd": 19.2764,
+      "upnl_usd": -32.1267,
+      "n_pos": 1
+    },
+    {
+      "t": "2026-09-07 15:29:12 ET",
+      "equity_usd": 83.6792,
+      "liquid_usd": 19.281,
+      "upnl_usd": -33.6015,
+      "n_pos": 1
+    },
+    {
+      "t": "2026-09-07 15:31:11 ET",
+      "equity_usd": 82.0078,
+      "liquid_usd": 19.2863,
+      "upnl_usd": -35.2782,
       "n_pos": 1
     }
   ],
   "funding_usd": 107.0,
   "funding_note": "Original $107 includes Alpha ~$20 wrong-Inbox burn (gone). Current = live wallets+position only.",
-  "total_pnl_usd": -32.4637,
-  "total_pnl_pct": -30.34,
+  "total_pnl_usd": -24.9922,
+  "total_pnl_pct": -23.36,
   "trades": [
     {
       "t": "suggested-fees origin=8453 dest=42161 token=WETH amount=5e15 recipient=0x425F\u20260052",
@@ -712,18 +732,6 @@
       "t": "Base ETH now",
       "kind": "NOTE",
       "venue": "\u2014",
-      "market": "ETH/USD",
-      "side": "\u2014",
-      "size_usd": null,
-      "price": null,
-      "pnl_usd": null,
-      "tx": null,
-      "note": "~**0.005495** (includes gas dust + new ETH)"
-    },
-    {
-      "t": "Base ETH now",
-      "kind": "NOTE",
-      "venue": "\u2014",
       "market": "\u2014",
       "side": "\u2014",
       "size_usd": null,
@@ -731,6 +739,18 @@
       "pnl_usd": null,
       "tx": null,
       "note": "~0.007889"
+    },
+    {
+      "t": "Base ETH now",
+      "kind": "NOTE",
+      "venue": "\u2014",
+      "market": "ETH/USD",
+      "side": "\u2014",
+      "size_usd": null,
+      "price": null,
+      "pnl_usd": null,
+      "tx": null,
+      "note": "~**0.005495** (includes gas dust + new ETH)"
     },
     {
       "t": "Base ETH left",
@@ -742,7 +762,7 @@
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "**~0.004919** (\u22650.002 gas OK)"
+      "note": "**~0.00231** (\u22650.0015 OK)"
     },
     {
       "t": "Base ETH left",
@@ -766,19 +786,7 @@
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "**~0.00231** (\u22650.0015 OK)"
-    },
-    {
-      "t": "Arb ETH residual",
-      "kind": "NOTE",
-      "venue": "\u2014",
-      "market": "\u2014",
-      "side": "\u2014",
-      "size_usd": null,
-      "price": null,
-      "pnl_usd": null,
-      "tx": null,
-      "note": "~0.000858"
+      "note": "**~0.004919** (\u22650.002 gas OK)"
     },
     {
       "t": "Arb ETH residual",
@@ -791,6 +799,18 @@
       "pnl_usd": null,
       "tx": null,
       "note": "~0.003995"
+    },
+    {
+      "t": "Arb ETH residual",
+      "kind": "NOTE",
+      "venue": "\u2014",
+      "market": "\u2014",
+      "side": "\u2014",
+      "size_usd": null,
+      "price": null,
+      "pnl_usd": null,
+      "tx": null,
+      "note": "~0.000858"
     },
     {
       "t": "Arb ETH credited",
@@ -910,7 +930,7 @@
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "ETH SHORT **LIVE** Reader isLong=0 pos=1 orders=4 size~$267 coll~$53. open `0x76d68a1d\u2026` SL `0xee576342\u2026` TP `0xd2776c25\u2026`. Manage-only. No rebroadcast."
+      "note": "Book refresh: ETH SHORT LIVE Reader size~$267 coll~$53.33 lev~5.01\u00d7 orders\u22484. open/sl/tp status1."
     },
     {
       "t": "2026-09-07 10:31 ET",
@@ -922,7 +942,7 @@
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "Book refresh: ETH SHORT LIVE Reader size~$267 coll~$53.33 lev~5.01\u00d7 orders\u22484. open/sl/tp status1."
+      "note": "ETH SHORT **LIVE** Reader isLong=0 pos=1 orders=4 size~$267 coll~$53. open `0x76d68a1d\u2026` SL `0xee576342\u2026` TP `0xd2776c25\u2026`. Manage-only. No rebroadcast."
     },
     {
       "t": "2026-09-07 10:29 ET",
@@ -976,13 +996,13 @@
       "t": "2026-09-07 10:13 ET",
       "kind": "CLOSE",
       "venue": "\u2014",
-      "market": "ETH/USD",
+      "market": "\u2014",
       "side": "\u2014",
       "size_usd": null,
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "LINK FLAT. PM-POSTFLAT-NOW: SOL>105 else ETH\u22652505. Pick=WAIT SOL~104.48 ETH~2484.9."
+      "note": "LINK SL **FLAT** Reader pos=0 orders=0 USDC~$53.92. Spot~13.00. No revenge. SOL micro COND."
     },
     {
       "t": "2026-09-07 10:13 ET",
@@ -1000,13 +1020,13 @@
       "t": "2026-09-07 10:13 ET",
       "kind": "CLOSE",
       "venue": "\u2014",
-      "market": "\u2014",
+      "market": "ETH/USD",
       "side": "\u2014",
       "size_usd": null,
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "LINK SL **FLAT** Reader pos=0 orders=0 USDC~$53.92. Spot~13.00. No revenge. SOL micro COND."
+      "note": "LINK FLAT. PM-POSTFLAT-NOW: SOL>105 else ETH\u22652505. Pick=WAIT SOL~104.48 ETH~2484.9."
     },
     {
       "t": "2026-09-07 10:12 ET",
@@ -1030,7 +1050,7 @@
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "Alpha: USDC$53.92 OK. SOL~104.57 gate FAIL \u2014 wait >105 then Risk. No encode."
+      "note": "Risk \u00a729 FAIL encode. SOL\u2264105 HOLD. COND PASS when SOL>105."
     },
     {
       "t": "2026-09-07 10:11 ET",
@@ -1042,7 +1062,7 @@
       "price": null,
       "pnl_usd": null,
       "tx": null,
-      "note": "Risk \u00a729 FAIL encode. SOL\u2264105 HOLD. COND PASS when SOL>105."
+      "note": "Alpha: USDC$53.92 OK. SOL~104.57 gate FAIL \u2014 wait >105 then Risk. No encode."
     },
     {
       "t": "2026-09-07 10:10 ET",
@@ -1202,18 +1222,6 @@
     },
     {
       "t": "2026-09-07 09:06 ET",
-      "kind": "CLOSE",
-      "venue": "\u2014",
-      "market": "\u2014",
-      "side": "LONG",
-      "size_usd": null,
-      "price": null,
-      "pnl_usd": null,
-      "tx": "0x7f1fa204bb700853d36994da19f830b6ad18455c",
-      "note": "\u00a718 LEG2 LINK **LIVE LONG** Reader-proved. size~$300 coll~$49.88 lev~6.01\u00d7 market `0x7f1fa204bb700853d36994da19f830b6ad18455c` isLong=1 orders\u22482. BTC FLAT."
-    },
-    {
-      "t": "2026-09-07 09:06 ET",
       "kind": "TP",
       "venue": "\u2014",
       "market": "\u2014",
@@ -1223,6 +1231,18 @@
       "pnl_usd": null,
       "tx": "0x22a0976a089303c21b08ec97c6e21c775271921711d686c6bbc7c0371d7281b7",
       "note": "\u00a718 LEG2 LINK **LIVE** Reader-proved: isLong=1 size~$300 coll~$49.88 lev~6\u00d7 orders=2 (SL6+TP5). open `0x22a0976a089303c21b08ec97c6e21c775271921711d686c6bbc7c037"
+    },
+    {
+      "t": "2026-09-07 09:06 ET",
+      "kind": "CLOSE",
+      "venue": "\u2014",
+      "market": "\u2014",
+      "side": "LONG",
+      "size_usd": null,
+      "price": null,
+      "pnl_usd": null,
+      "tx": "0x7f1fa204bb700853d36994da19f830b6ad18455c",
+      "note": "\u00a718 LEG2 LINK **LIVE LONG** Reader-proved. size~$300 coll~$49.88 lev~6.01\u00d7 market `0x7f1fa204bb700853d36994da19f830b6ad18455c` isLong=1 orders\u22482. BTC FLAT."
     },
     {
       "t": "2026-09-07 09:04 ET",
@@ -1237,16 +1257,29 @@
       "note": "\u00a718 LEG1 BTC **FLAT** Reader-proved. tx `0xa1c804dba9bf808c1119b664a32c3ba446947a6dc85aae2f8dae82170d8899a4` status=1 block 502685977. positions=0 orders=0 USDC"
     }
   ],
-  "mark": 2496.17,
+  "mark": 2492.46,
   "mark_src": "coinbase",
-  "mark_eth": 2496.17,
-  "mark_btc": 79373.24,
+  "mark_eth": 2492.46,
+  "mark_btc": 79239.99,
   "mark_btc_src": "coinbase",
-  "mark_link": 12.803,
+  "mark_link": 12.769,
   "mark_link_src": "coinbase",
   "marks": {
-    "ETH": 2496.17,
-    "BTC": 79373.24,
-    "LINK": 12.803
-  }
+    "ETH": 2492.46,
+    "BTC": 79239.99,
+    "LINK": 12.769
+  },
+  "chain_proof": {
+    "wallet": "https://arbiscan.io/address/0x425F91cFebFD8979c21008806403379390900052",
+    "open_tx": "https://arbiscan.io/tx/0x00847742e5c872e87f81c4ef1a25b016b345735c3653703f343ae166c0a1a306",
+    "leg1_across": "https://etherscan.io/tx/0x2a70674320976cbe9f1e79ce1ca3597760053eb17674b63a792a199282379788",
+    "reader": "n_pos=1 size=$5000 coll~$98 SHORT isLong=false"
+  },
+  "mode": "TRADE_EXECUTE",
+  "eod1k": {
+    "phase": "RESUME",
+    "auth": "ZETA EXECUTE-RESUME-EOD1K",
+    "updated_et": "2026-09-07 15:36 ET"
+  },
+  "atlas_mirror_et": "2026-09-07 15:37 ET"
 }

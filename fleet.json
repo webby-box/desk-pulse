@@ -1,7 +1,7 @@
 {
-  "updated_et": "2026-09-07 15:34:50 ET",
-  "working": 3,
-  "idle": 16,
+  "updated_et": "2026-09-07 15:36:45 ET",
+  "working": 2,
+  "idle": 17,
   "standby": 1,
   "bots": [
     {
@@ -9,39 +9,29 @@
       "role": "Ops / book keeper",
       "state": "WORKING",
       "lane": "file",
-      "task": "Updating the desk money board",
+      "task": "touch book.json",
       "proof": "quant/web/desk-dashboard/book.json",
       "age_min": 0.0,
       "owner_stream": "ops"
     },
     {
-      "name": "GAMMA",
-      "role": "Chief of Efficiency",
+      "name": "Liquid",
+      "role": "Quant PM (GMX/Base)",
       "state": "WORKING",
       "lane": "file",
-      "task": "Efficiency / quota housekeeping",
-      "proof": "gamma/DAEMON-HEALTH.md",
-      "age_min": 0.0,
-      "owner_stream": "efficiency"
-    },
-    {
-      "name": "Webby",
-      "role": "Web/UI",
-      "state": "WORKING",
-      "lane": "file",
-      "task": "Tweaking the desk dashboard UI",
-      "proof": "quant/web/desk-dashboard/styles.css",
-      "age_min": 0.5,
-      "owner_stream": "ops"
+      "task": "touch PM-EOD1K-RESUME.md",
+      "proof": "quant/PM-EOD1K-RESUME.md",
+      "age_min": 0.2,
+      "owner_stream": "pm"
     },
     {
       "name": "ALPHA",
       "role": "Quant CIO only \u2014 NOT CoS",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~69m ago",
+      "task": "\u2014",
       "proof": "OFFLOAD-QUEUE.md",
-      "age_min": 68.7,
+      "age_min": 265.2,
       "owner_stream": "cos"
     },
     {
@@ -49,9 +39,9 @@
       "role": "Trading infra",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~69m ago",
-      "proof": "quant/infra/reader_helper.py",
-      "age_min": 68.7,
+      "task": "\u2014",
+      "proof": "quant/infra/env.sh",
+      "age_min": 458.4,
       "owner_stream": "infra"
     },
     {
@@ -59,7 +49,7 @@
       "role": "Closer",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 nothing new in the last ~25 min",
+      "task": "\u2014",
       "proof": "\u2014",
       "age_min": null,
       "owner_stream": "standby"
@@ -69,9 +59,9 @@
       "role": "Trade Exec",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~69m ago",
-      "proof": "quant/proof/EOD-READER-CONSOL-READY.md",
-      "age_min": 68.6,
+      "task": "\u2014",
+      "proof": "quant/proof/EOD1K-C-LEG3-LIVE.md",
+      "age_min": 195.4,
       "owner_stream": "exec"
     },
     {
@@ -79,17 +69,27 @@
       "role": "Flow funding/OI/liqs \u2014 Signals pod under Radar",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~69m ago",
+      "task": "\u2014",
       "proof": "quant/signals/FLOW.md",
-      "age_min": 68.7,
+      "age_min": 245.6,
       "owner_stream": "flow"
+    },
+    {
+      "name": "GAMMA",
+      "role": "Chief of Efficiency",
+      "state": "IDLE",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "gamma/QUOTA-LOG.md",
+      "age_min": 80.5,
+      "owner_stream": "efficiency"
     },
     {
       "name": "Hunter",
       "role": "Hunter",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 nothing new in the last ~25 min",
+      "task": "\u2014",
       "proof": "\u2014",
       "age_min": null,
       "owner_stream": "standby"
@@ -99,9 +99,9 @@
       "role": "Quant eng",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~69m ago",
-      "proof": "quant/code/l1_across_depositV3_sim.py",
-      "age_min": 68.6,
+      "task": "\u2014",
+      "proof": "quant/code/eod1k_leg3_open.py",
+      "age_min": 197.0,
       "owner_stream": "eng"
     },
     {
@@ -109,29 +109,19 @@
       "role": "Lex",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 nothing new in the last ~25 min",
+      "task": "\u2014",
       "proof": "\u2014",
       "age_min": null,
       "owner_stream": "standby"
-    },
-    {
-      "name": "Liquid",
-      "role": "Quant PM (GMX/Base)",
-      "state": "IDLE",
-      "lane": "none",
-      "task": "Idle \u2014 last file touch ~69m ago",
-      "proof": "quant/PM-EOD1K-MAX.md",
-      "age_min": 68.6,
-      "owner_stream": "pm"
     },
     {
       "name": "Macro",
       "role": "Macro regime \u2014 Signals pod under Radar",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~69m ago",
-      "proof": "quant/scans/cursor-burn-explore-1049.txt",
-      "age_min": 68.6,
+      "task": "\u2014",
+      "proof": "quant/signals/MACRO.md",
+      "age_min": 246.7,
       "owner_stream": "macro"
     },
     {
@@ -139,9 +129,9 @@
       "role": "Chief of Execution",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~69m ago",
+      "task": "\u2014",
       "proof": "omega/GAMMA-USAGE-ALERT-20260907-1303.md",
-      "age_min": 68.6,
+      "age_min": 152.5,
       "owner_stream": "cos"
     },
     {
@@ -149,9 +139,9 @@
       "role": "Research + Signals lead",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~69m ago",
+      "task": "\u2014",
       "proof": "quant/research/PM-EOD1K-MAX.md",
-      "age_min": 68.6,
+      "age_min": 207.8,
       "owner_stream": "research"
     },
     {
@@ -159,9 +149,9 @@
       "role": "Chief Risk",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~69m ago",
+      "task": "\u2014",
       "proof": "RISK.md",
-      "age_min": 68.7,
+      "age_min": 206.6,
       "owner_stream": "risk"
     },
     {
@@ -169,9 +159,9 @@
       "role": "Scalp 15m\u20131h \u2014 Signals pod under Radar",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~69m ago",
-      "proof": "quant/scans/cursor-burn-out-nonstop.txt",
-      "age_min": 68.6,
+      "task": "\u2014",
+      "proof": "quant/signals/SCALP.md",
+      "age_min": 247.2,
       "owner_stream": "scalp"
     },
     {
@@ -179,17 +169,27 @@
       "role": "Vend",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 nothing new in the last ~25 min",
+      "task": "\u2014",
       "proof": "\u2014",
       "age_min": null,
       "owner_stream": "standby"
+    },
+    {
+      "name": "Webby",
+      "role": "Web/UI",
+      "state": "IDLE",
+      "lane": "none",
+      "task": "\u2014",
+      "proof": "quant/web/desk-dashboard/styles.css",
+      "age_min": 171.3,
+      "owner_stream": "ops"
     },
     {
       "name": "ZETA",
       "role": "Chief of Staff",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 nothing new in the last ~25 min",
+      "task": "\u2014",
       "proof": "\u2014",
       "age_min": null,
       "owner_stream": "other"
@@ -199,7 +199,7 @@
       "role": "PARKED+SUSPENDED @GrokBot\u226580%",
       "state": "PARKED",
       "lane": "none",
-      "task": "Parked / suspended \u2014 no work",
+      "task": "\u2014",
       "proof": "\u2014",
       "age_min": null,
       "owner_stream": "standby"
@@ -209,7 +209,7 @@
       "role": "ROOM Cash",
       "state": "ROOM",
       "lane": "none",
-      "task": "Group chat room (not a worker bot)",
+      "task": "rare sync only",
       "proof": "\u2014",
       "age_min": null,
       "owner_stream": "room"
@@ -219,7 +219,7 @@
       "role": "ROOM Quant",
       "state": "ROOM",
       "lane": "none",
-      "task": "Group chat room (not a worker bot)",
+      "task": "rare sync only",
       "proof": "\u2014",
       "age_min": null,
       "owner_stream": "room"
@@ -229,7 +229,7 @@
       "role": "ROOM RiskExec",
       "state": "ROOM",
       "lane": "none",
-      "task": "Group chat room (not a worker bot)",
+      "task": "rare sync only",
       "proof": "\u2014",
       "age_min": null,
       "owner_stream": "room"
@@ -239,7 +239,7 @@
       "role": "ROOM Signals",
       "state": "ROOM",
       "lane": "none",
-      "task": "Group chat room (not a worker bot)",
+      "task": "rare sync only",
       "proof": "\u2014",
       "age_min": null,
       "owner_stream": "room"
@@ -249,7 +249,7 @@
       "role": "ROOM Sprint",
       "state": "ROOM",
       "lane": "none",
-      "task": "Group chat room (not a worker bot)",
+      "task": "rare sync only",
       "proof": "\u2014",
       "age_min": null,
       "owner_stream": "room"
@@ -259,7 +259,7 @@
       "role": "ORPHAN SUSPENDED \u2014 DELETE via sidebar",
       "state": "ORPHAN",
       "lane": "none",
-      "task": "Orphan \u2014 delete from sidebar",
+      "task": "\u2014",
       "proof": "\u2014",
       "age_min": null,
       "owner_stream": "other"
