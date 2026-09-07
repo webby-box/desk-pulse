@@ -1,7 +1,7 @@
 {
-  "updated_et": "2026-09-07 08:02:41 ET",
+  "updated_et": "2026-09-07 08:03:34 ET",
   "liquid_usd": 34.1776,
-  "upnl_usd": 0.0448,
+  "upnl_usd": -0.0347,
   "equity_usd": 72.0856,
   "status": "LIVE",
   "wallet": "0x425F91cFebFD8979c21008806403379390900052",
@@ -11,7 +11,7 @@
     "base_eth": 0.0023087,
     "base_usdc": 0.0
   },
-  "notes": "manage-only",
+  "notes": "manage-only \u00b7 Reader LONG \u00b7 Iddy decode proof \u00b7 Atlas book push",
   "positions": [
     {
       "id": "gmx-btc-long",
@@ -22,10 +22,10 @@
       "collateral_usd": 37.8632,
       "size_usd": 228.0,
       "entry": 79407.0937,
-      "mark": 79422.68,
+      "mark": 79395.01,
       "sl": 77818.71,
       "tp": 82583.12,
-      "upnl_usd": 0.0448,
+      "upnl_usd": -0.0347,
       "status": "LIVE",
       "opened_et": "2026-09-07 07:46 ET",
       "tx_open": "0xc74b8a3f7dfdea8a6dfc67368da0962fe8050d4e2905d8fda78cfa06bb26347b",
@@ -44,10 +44,10 @@
     "collateral_usd": 37.8632,
     "size_usd": 228.0,
     "entry": 79407.0937,
-    "mark": 79422.68,
+    "mark": 79395.01,
     "sl": 77818.71,
     "tp": 82583.12,
-    "upnl_usd": 0.0448,
+    "upnl_usd": -0.0347,
     "status": "LIVE",
     "opened_et": "2026-09-07 07:46 ET",
     "tx_open": "0xc74b8a3f7dfdea8a6dfc67368da0962fe8050d4e2905d8fda78cfa06bb26347b",
@@ -880,6 +880,6 @@
   "mark": 79422.68,
   "mark_src": "coinbase/gmx",
   "mark_eth": 2489.93,
-  "mark_btc": 79422.68,
+  "mark_btc": 79395.01,
   "mark_btc_src": "coinbase"
 }
