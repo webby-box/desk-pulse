@@ -1,5 +1,5 @@
 {
-  "updated_et": "2026-09-07 07:50:15 ET",
+  "updated_et": "2026-09-07 07:50:40 ET",
   "liquid_usd": 34.1788,
   "upnl_usd": -0.0204,
   "equity_usd": 72.0216,
@@ -11,7 +11,7 @@
     "base_eth": 0.0023087,
     "base_usdc": 0.0
   },
-  "notes": "manage-only",
+  "notes": "OMEGA #2: ETH FLAT \u00b7 BTC LONG LIVE \u00b7 SL~77813 / TP~82577 \u00b7 pulse BOOK_MS=10s BTC mark",
   "positions": [
     {
       "id": "gmx-btc-long",
@@ -23,12 +23,12 @@
       "size_usd": 228.0,
       "entry": 79407.0937,
       "mark": 79400.0,
-      "sl": null,
-      "tp": null,
+      "sl": 77813.01,
+      "tp": 82577.07,
       "upnl_usd": -0.0204,
       "status": "LIVE",
       "opened_et": "2026-09-07 07:46 ET",
-      "tx_open": "0xc74b8a3f7dfdea8a6dfc67368da0962fe8050d4e2905d8fda78cfa06bb26347b"
+      "tx_open": "0xbaefd372709ae45ea61f117c11f4c897237355eced51cffbe67d63bb30878f9f"
     }
   ],
   "position": {
