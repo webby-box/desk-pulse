@@ -1,8 +1,8 @@
 {
-  "updated_et": "2026-09-07 03:42:16 ET",
-  "liquid_usd": 20.659,
-  "upnl_usd": -5.7835,
-  "equity_usd": 72.3475,
+  "updated_et": "2026-09-07 04:05:13 ET",
+  "liquid_usd": 20.7105,
+  "upnl_usd": -4.2811,
+  "equity_usd": 73.9014,
   "position": {
     "venue": "GMX",
     "market": "ETH/USD",
@@ -11,7 +11,7 @@
     "collateral_usd": 57.472,
     "size_usd": 461.9941,
     "entry": 2512.26,
-    "mark": 2480.81,
+    "mark": 2488.98,
     "sl": 2462.0,
     "tp": 2638.0,
     "status": "LIVE"
