@@ -689,6 +689,9 @@
     if (fleet) fleet.hidden = activeTab !== "fleet";
     if (tp) tp.classList.toggle("is-on", activeTab === "pulse");
     if (tf) tf.classList.toggle("is-on", activeTab === "fleet");
+    document.querySelectorAll(".seg-btn").forEach(function (el) {
+      el.classList.toggle("is-on", el.dataset.tab === activeTab);
+    });
     try {
       if (location.hash.replace("#", "") !== activeTab) {
         history.replaceState(null, "", "#" + activeTab);
@@ -713,6 +716,8 @@
     const i = $("fleet-idle");
     const s = $("fleet-standby");
     if (w) w.textContent = fleetRaw.working != null ? String(fleetRaw.working) : "—";
+    const badge = $("fleet-badge");
+    if (badge) badge.textContent = fleetRaw.working != null ? String(fleetRaw.working) : "0";
     if (i) i.textContent = fleetRaw.idle != null ? String(fleetRaw.idle) : "—";
     if (s) s.textContent = fleetRaw.standby != null ? String(fleetRaw.standby) : "—";
     const lu = $("last-updated");

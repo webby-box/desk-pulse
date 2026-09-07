@@ -6,21 +6,19 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#0b0d10">
   <title>Desk</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=fleet2">
 </head>
 <body>
   <header class="top">
-    <div class="top-left">
-      <p class="brand">Desk</p>
-      <nav class="tabs" aria-label="Views">
-        <button type="button" class="tab is-on" id="tab-pulse" data-tab="pulse">Pulse</button>
-        <button type="button" class="tab" id="tab-fleet" data-tab="fleet">Fleet</button>
-      </nav>
-    </div>
+    <p class="brand">Desk Pulse</p>
     <p class="asof"><span id="last-updated">—</span></p>
   </header>
 
   <main>
+    <nav class="seg" aria-label="Views">
+      <button type="button" class="seg-btn is-on" id="tab-pulse" data-tab="pulse">Pulse</button>
+      <button type="button" class="seg-btn" id="tab-fleet" data-tab="fleet">Fleet <span id="fleet-badge" class="badge">0</span></button>
+    </nav>
     <div id="err" class="err" hidden role="alert"></div>
 
     <div id="view-pulse">
@@ -115,6 +113,6 @@
       </footer>
     </div>
   </main>
-  <script src="app.js"></script>
+  <script src="app.js?v=fleet2"></script>
 </body>
 </html>
