@@ -1,5 +1,5 @@
 {
-  "updated_et": "2026-09-07 15:34:24 ET",
+  "updated_et": "2026-09-07 15:34:50 ET",
   "working": 3,
   "idle": 16,
   "standby": 1,
@@ -11,7 +11,7 @@
       "lane": "file",
       "task": "Updating the desk money board",
       "proof": "quant/web/desk-dashboard/book.json",
-      "age_min": 0.4,
+      "age_min": 0.0,
       "owner_stream": "ops"
     },
     {
@@ -19,9 +19,9 @@
       "role": "Chief of Efficiency",
       "state": "WORKING",
       "lane": "file",
-      "task": "Working on desk files (see proof)",
-      "proof": "quant/infra/fleet-status.sh",
-      "age_min": 0.4,
+      "task": "Efficiency / quota housekeeping",
+      "proof": "gamma/DAEMON-HEALTH.md",
+      "age_min": 0.0,
       "owner_stream": "efficiency"
     },
     {
@@ -31,7 +31,7 @@
       "lane": "file",
       "task": "Tweaking the desk dashboard UI",
       "proof": "quant/web/desk-dashboard/styles.css",
-      "age_min": 0.1,
+      "age_min": 0.5,
       "owner_stream": "ops"
     },
     {
@@ -39,9 +39,9 @@
       "role": "Quant CIO only \u2014 NOT CoS",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~68m ago",
+      "task": "Idle \u2014 last file touch ~69m ago",
       "proof": "OFFLOAD-QUEUE.md",
-      "age_min": 68.3,
+      "age_min": 68.7,
       "owner_stream": "cos"
     },
     {
@@ -49,9 +49,9 @@
       "role": "Trading infra",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~68m ago",
+      "task": "Idle \u2014 last file touch ~69m ago",
       "proof": "quant/infra/reader_helper.py",
-      "age_min": 68.2,
+      "age_min": 68.7,
       "owner_stream": "infra"
     },
     {
@@ -69,9 +69,9 @@
       "role": "Trade Exec",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~68m ago",
+      "task": "Idle \u2014 last file touch ~69m ago",
       "proof": "quant/proof/EOD-READER-CONSOL-READY.md",
-      "age_min": 68.2,
+      "age_min": 68.6,
       "owner_stream": "exec"
     },
     {
@@ -79,9 +79,9 @@
       "role": "Flow funding/OI/liqs \u2014 Signals pod under Radar",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~68m ago",
+      "task": "Idle \u2014 last file touch ~69m ago",
       "proof": "quant/signals/FLOW.md",
-      "age_min": 68.2,
+      "age_min": 68.7,
       "owner_stream": "flow"
     },
     {
@@ -99,9 +99,9 @@
       "role": "Quant eng",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~68m ago",
+      "task": "Idle \u2014 last file touch ~69m ago",
       "proof": "quant/code/l1_across_depositV3_sim.py",
-      "age_min": 68.2,
+      "age_min": 68.6,
       "owner_stream": "eng"
     },
     {
@@ -119,9 +119,9 @@
       "role": "Quant PM (GMX/Base)",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~68m ago",
+      "task": "Idle \u2014 last file touch ~69m ago",
       "proof": "quant/PM-EOD1K-MAX.md",
-      "age_min": 68.2,
+      "age_min": 68.6,
       "owner_stream": "pm"
     },
     {
@@ -129,9 +129,9 @@
       "role": "Macro regime \u2014 Signals pod under Radar",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~68m ago",
-      "proof": "quant/signals/MACRO.md",
-      "age_min": 68.2,
+      "task": "Idle \u2014 last file touch ~69m ago",
+      "proof": "quant/scans/cursor-burn-explore-1049.txt",
+      "age_min": 68.6,
       "owner_stream": "macro"
     },
     {
@@ -139,9 +139,9 @@
       "role": "Chief of Execution",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~68m ago",
+      "task": "Idle \u2014 last file touch ~69m ago",
       "proof": "omega/GAMMA-USAGE-ALERT-20260907-1303.md",
-      "age_min": 68.2,
+      "age_min": 68.6,
       "owner_stream": "cos"
     },
     {
@@ -149,9 +149,9 @@
       "role": "Research + Signals lead",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~68m ago",
+      "task": "Idle \u2014 last file touch ~69m ago",
       "proof": "quant/research/PM-EOD1K-MAX.md",
-      "age_min": 68.2,
+      "age_min": 68.6,
       "owner_stream": "research"
     },
     {
@@ -159,9 +159,9 @@
       "role": "Chief Risk",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~68m ago",
+      "task": "Idle \u2014 last file touch ~69m ago",
       "proof": "RISK.md",
-      "age_min": 68.2,
+      "age_min": 68.7,
       "owner_stream": "risk"
     },
     {
@@ -169,9 +169,9 @@
       "role": "Scalp 15m\u20131h \u2014 Signals pod under Radar",
       "state": "IDLE",
       "lane": "none",
-      "task": "Idle \u2014 last file touch ~68m ago",
-      "proof": "quant/signals/SCALP.md",
-      "age_min": 68.2,
+      "task": "Idle \u2014 last file touch ~69m ago",
+      "proof": "quant/scans/cursor-burn-out-nonstop.txt",
+      "age_min": 68.6,
       "owner_stream": "scalp"
     },
     {
