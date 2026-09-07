@@ -152,7 +152,14 @@
       const open = positions.filter(isOpen);
       status = open.length ? "LIVE" : "FLAT";
     }
-    const hist = raw.pnl_history || raw.history || [];
+    const histRaw = raw.pnl_history || raw.history || [];
+    const hist = (Array.isArray(histRaw) ? histRaw : []).filter(function (h) {
+      if (!h || typeof h !== "object") return false;
+      const e = num(pick(h, ["equity_usd", "equityUsd"]));
+      const l = num(pick(h, ["liquid_usd", "liquidUsd"]));
+      // drop corrupt/null equity points so spark/table do not break
+      return e != null && l != null;
+    });
     const trades = raw.trades || [];
     return {
       updatedEt: pick(raw, ["updatedEt", "updated_et", "updatedAt", "updated_at"]),
@@ -378,7 +385,7 @@
   }
 
   function series(hist, key) {
-    return hist.map(function (h) { return num(h[key]); });
+    return hist.map(function (h) { return num(h[key]); }).filter(function (v) { return v != null; });
   }
 
   function pathFrom(vals, w, h, pad) {
