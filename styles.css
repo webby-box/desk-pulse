@@ -52,18 +52,6 @@ body {
 
 .id { font-size: 13px; letter-spacing: 0.08em; }
 
-.badge {
-  border: 1px solid var(--line);
-  padding: 0 0.4rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--mut);
-}
-
-.badge.live { color: var(--ok); border-color: var(--ok); }
-.badge.risk { color: var(--bad); border-color: var(--bad); }
-.badge.flat { color: var(--mut); }
-
 .age { color: var(--mut); font-size: 11px; }
 .age.stale { color: var(--warn); }
 .age.dead { color: var(--bad); }
@@ -335,5 +323,13 @@ footer {
   .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-.updated-line{margin:0.4rem 0 0.75rem;font-size:0.75rem;opacity:0.85}
-.updated-line .k{margin-right:0.4rem;opacity:0.7;text-transform:uppercase;letter-spacing:0.04em}
+.updated-line {
+  margin: 0.35rem 0 0.55rem;
+  font-size: 11px;
+  color: var(--mut);
+}
+.updated-line .k {
+  margin-right: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}

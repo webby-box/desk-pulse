@@ -1,0 +1,146 @@
+#!/usr/bin/env node
+"use strict";
+
+import fs from "fs";
+import path from "path";
+import { createRequire } from "module";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(__dirname, "..");
+const require = createRequire(import.meta.url);
+
+function fail(msg) {
+  console.error("FAIL:", msg);
+  process.exit(1);
+}
+
+function ok(msg) {
+  console.log("OK:", msg);
+}
+
+const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
+if (/\bid=["']badge["']/.test(html)) fail("index.html still has #badge");
+if (/class=["'][^"']*\bbadge\b/.test(html)) fail("index.html still has .badge chrome");
+if (/>\s*LIVE\s*</.test(html)) fail("index.html contains LIVE badge text");
+ok("no LIVE/status badge in HTML");
+
+const css = fs.readFileSync(path.join(root, "styles.css"), "utf8");
+if (/\.badge\b/.test(css)) fail("styles.css still defines .badge");
+ok("no .badge rules in CSS");
+
+const book = JSON.parse(fs.readFileSync(path.join(root, "book.json"), "utf8"));
+if (book.upnl_usd == null) fail("book.json missing upnl_usd");
+if (Number(book.upnl_usd) === 0) {
+  console.log("note: book.upnl_usd is 0 at snapshot; regression cases still run");
+}
+ok("loaded book.json upnl_usd=" + book.upnl_usd + " mark_eth=" + book.mark_eth + " mark_btc=" + book.mark_btc);
+
+const desk = require(path.join(root, "app.js"));
+
+desk.resetMarks();
+const norm = desk.normalize(book);
+const first = desk.liveNumbers(norm);
+
+if (first.asset !== "BTC") fail("primary asset expected BTC, got " + first.asset);
+ok("primary asset BTC");
+
+const eth = Number(book.mark_eth);
+if (first.mark != null && Math.abs(Number(first.mark) - eth) < 1) {
+  fail("BTC first-paint mark equals ETH (" + first.mark + ")");
+}
+if (first.mark != null && Number(first.mark) < 10000) {
+  fail("BTC mark looks like ETH scale: " + first.mark);
+}
+ok("BTC mark is not ETH (" + first.mark + ")");
+
+if (book.upnl_usd != null && Number(book.upnl_usd) !== 0) {
+  if (first.upnl == null || Number(first.upnl) === 0) {
+    fail(
+      "uPnL would paint as " +
+        first.upnl +
+        " while book.upnl_usd=" +
+        book.upnl_usd +
+        " (writer must win when marks[asset] missing)"
+    );
+  }
+  if (Math.abs(Number(first.upnl) - Number(book.upnl_usd)) > 1e-9) {
+    fail("first-paint uPnL=" + first.upnl + " != book.upnl_usd=" + book.upnl_usd);
+  }
+}
+ok("first-paint uPnL uses writer " + first.upnl);
+
+const card = first.cards.find(function (c) {
+  return desk.isOpen(c.p);
+});
+if (!card) fail("no open position card");
+if (Math.abs(Number(card.upnl) - Number(book.positions[0].upnl_usd)) > 1e-9) {
+  fail("card uPnL=" + card.upnl + " != position.upnl_usd");
+}
+ok("position.upnl_usd used when marks[BTC] missing");
+
+const poisoned = desk.normalize({
+  liquid_usd: 34,
+  upnl_usd: 0.517,
+  equity_usd: 72,
+  marks: { ETH: 2506.24 },
+  positions: [
+    {
+      market: "BTC/USD",
+      side: "LONG",
+      status: "LIVE",
+      size_usd: 228,
+      entry: 79407,
+      mark: 79587,
+      upnl_usd: 0.517,
+      collateral_usd: 37.86,
+    },
+  ],
+});
+desk.resetMarks();
+desk.setBookMarks({ ETH: 2506.24, BTC: null });
+const livePoison = desk.liveNumbers(poisoned);
+if (livePoison.mark != null && Number(livePoison.mark) < 10000) {
+  fail("BTC used ETH book mark: " + livePoison.mark);
+}
+if (Number(livePoison.upnl) === 0) {
+  fail("ETH-only marks poisoned first-paint uPnL to 0");
+}
+ok("BTC never gets ETH mark; writer uPnL survives ETH-only book marks");
+
+desk.setMarks({ BTC: 81000, ETH: 2506.24 });
+const liveSpot = desk.liveNumbers(poisoned);
+const expected = ((81000 - 79407) / 79407) * 228;
+if (Math.abs(Number(liveSpot.upnl) - expected) > 0.05) {
+  fail("live BTC spot uPnL expected ~" + expected + " got " + liveSpot.upnl);
+}
+if (Math.abs(Number(liveSpot.mark) - 2506.24) < 1) {
+  fail("after spot, BTC mark still ETH");
+}
+ok("after Coinbase BTC spot, uPnL recomputes from BTC only");
+
+desk.resetMarks();
+const zeroTrap = desk.normalize({
+  upnl_usd: 12.5,
+  liquid_usd: 10,
+  positions: [
+    {
+      market: "BTC/USD",
+      side: "LONG",
+      status: "LIVE",
+      size_usd: 100,
+      entry: 80000,
+      mark: 80000,
+      upnl_usd: 12.5,
+      collateral_usd: 20,
+    },
+  ],
+});
+const trapped = desk.liveNumbers(zeroTrap);
+if (Number(trapped.upnl) === 0) {
+  fail("uPnL painted 0 despite book upnl_usd=12.5 (mark==entry trap)");
+}
+if (Number(trapped.upnl) !== 12.5) fail("expected writer 12.5 got " + trapped.upnl);
+ok("non-zero writer beats mark==entry zero compute");
+
+console.log("ALL PASS");

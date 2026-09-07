@@ -1,4 +1,4 @@
-(function () {
+(function (root) {
   "use strict";
 
   const BOOK_MS = 10000;
@@ -271,7 +271,7 @@
     const el = $("mark-age");
     if (el) {
       el.textContent = "age " + ageText(markAt);
-      el.className = "dim tiny age";
+      el.className = "age";
       if (markAt) {
         const s = (Date.now() - markAt) / 1000;
         if (s > 30) el.classList.add("dead");
@@ -429,7 +429,8 @@
       tr.append(
         el("td", "", compactTime(pick(h, ["t", "updated_et"]))),
         tdU,
-        el("td", "", money(e))
+        el("td", "", money(e)),
+        el("td", "", String(pick(h, ["n_pos", "n"]) != null ? pick(h, ["n_pos", "n"]) : "—"))
       );
       body.append(tr);
     }
@@ -446,9 +447,12 @@
       const size = num(pick(t, ["size_usd", "sizeUsd"]));
       tr.append(
         el("td", "", compactTime(pick(t, ["t"]))),
+        el("td", "", String(pick(t, ["kind", "k"]) || "—")),
         el("td", "", String(pick(t, ["market"]) || "—")),
         el("td", "", String(pick(t, ["side"]) || "—")),
-        el("td", pnl > 0 ? "up" : pnl < 0 ? "down" : "", money(pnl))
+        el("td", "", size != null ? money(size) : "—"),
+        el("td", pnl > 0 ? "up" : pnl < 0 ? "down" : "", money(pnl)),
+        el("td", "", truncTx(pick(t, ["tx"])))
       );
       body.append(tr);
     }
@@ -585,11 +589,37 @@
     }
   }
 
-  (async function boot() {
-    await refreshBook();
-    await refreshMark();
-  })();
-  setInterval(refreshBook, BOOK_MS);
-  setInterval(refreshMark, MARK_MS);
-  setInterval(paintAge, 1000);
-})();
+  const api = {
+    normalize: normalize,
+    liveNumbers: liveNumbers,
+    assetOf: assetOf,
+    markFor: markFor,
+    isOpen: isOpen,
+    positionsFrom: positionsFrom,
+    getMarks: function () { return marks; },
+    setMarks: function (next) { marks = Object.assign({ ETH: null, BTC: null }, next || {}); },
+    setBookMarks: function (next) { bookMarks = Object.assign({ ETH: null, BTC: null }, next || {}); },
+    resetMarks: function () {
+      marks = { ETH: null, BTC: null };
+      bookMarks = { ETH: null, BTC: null };
+      liveMark = null;
+      markAsset = "ETH";
+    },
+  };
+
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = api;
+  } else if (root) {
+    root.__desk = api;
+  }
+
+  if (typeof document !== "undefined") {
+    (async function boot() {
+      await refreshBook();
+      await refreshMark();
+    })();
+    setInterval(refreshBook, BOOK_MS);
+    setInterval(refreshMark, MARK_MS);
+    setInterval(paintAge, 1000);
+  }
+})(typeof window !== "undefined" ? window : (typeof globalThis !== "undefined" ? globalThis : this));
