@@ -6,6 +6,7 @@
   const SPOT = {
     ETH: "https://api.coinbase.com/v2/prices/ETH-USD/spot",
     BTC: "https://api.coinbase.com/v2/prices/BTC-USD/spot",
+    LINK: "https://api.coinbase.com/v2/prices/LINK-USD/spot",
   };
   const SOURCES = ["./book.json", "../scans/book.json"];
 
@@ -17,8 +18,8 @@
   let liveMark = null;
   let markAt = 0;
   let markAsset = "ETH";
-  let marks = { ETH: null, BTC: null };
-  let bookMarks = { ETH: null, BTC: null };
+  let marks = { ETH: null, BTC: null, LINK: null };
+  let bookMarks = { ETH: null, BTC: null, LINK: null };
 
   function money(n, digits) {
     if (digits == null) digits = 2;
@@ -170,7 +171,8 @@
         // Prefer nested marks/spot; also accept top-level mark_eth / mark_btc (never cross-seed).
         const eth = num(pick(src, ["ETH", "eth", "ETH-USD", "eth_usd"])) ?? num(pick(raw, ["mark_eth", "markEth"]));
         const btc = num(pick(src, ["BTC", "btc", "BTC-USD", "btc_usd"])) ?? num(pick(raw, ["mark_btc", "markBtc"]));
-        return { ETH: eth, BTC: btc };
+        const link = num(pick(src, ["LINK", "link", "LINK-USD", "link_usd"])) ?? num(pick(raw, ["mark_link", "markLink"]));
+        return { ETH: eth, BTC: btc, LINK: link };
       })(),
     };
   }
@@ -178,13 +180,14 @@
   function assetOf(p) {
     const m = String((p && p.market) || "").toUpperCase();
     if (m.indexOf("BTC") >= 0 || m.indexOf("WBTC") >= 0) return "BTC";
+    if (m.indexOf("LINK") >= 0) return "LINK";
     if (m.indexOf("ETH") >= 0) return "ETH";
     return markAsset || "ETH";
   }
 
   function markFor(p) {
     const a = assetOf(p);
-    // Prefer marks.BTC / marks.ETH then p.mark. Never use cross-asset liveMark (ETH≠BTC).
+    // Prefer marks.BTC / marks.ETH then p.mark. Never use cross-asset liveMark (ETH≠BTC≠LINK).
     if (marks[a] != null) return marks[a];
     if (bookMarks[a] != null) return bookMarks[a];
     if (p && p.mark != null) return p.mark;
@@ -519,6 +522,7 @@
         const bm = normalize(bookRaw).marks || {};
         bookMarks.ETH = bm.ETH != null ? bm.ETH : null;
         bookMarks.BTC = bm.BTC != null ? bm.BTC : null;
+        bookMarks.LINK = bm.LINK != null ? bm.LINK : null;
         // Do not seed live marks[] from book — first paint uses writer upnl until Coinbase spot lands.
         render();
         return;
@@ -597,11 +601,11 @@
     isOpen: isOpen,
     positionsFrom: positionsFrom,
     getMarks: function () { return marks; },
-    setMarks: function (next) { marks = Object.assign({ ETH: null, BTC: null }, next || {}); },
-    setBookMarks: function (next) { bookMarks = Object.assign({ ETH: null, BTC: null }, next || {}); },
+    setMarks: function (next) { marks = Object.assign({ ETH: null, BTC: null, LINK: null }, next || {}); },
+    setBookMarks: function (next) { bookMarks = Object.assign({ ETH: null, BTC: null, LINK: null }, next || {}); },
     resetMarks: function () {
-      marks = { ETH: null, BTC: null };
-      bookMarks = { ETH: null, BTC: null };
+      marks = { ETH: null, BTC: null, LINK: null };
+      bookMarks = { ETH: null, BTC: null, LINK: null };
       liveMark = null;
       markAsset = "ETH";
     },

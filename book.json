@@ -1,5 +1,5 @@
 {
-  "updated_et": "2026-09-07 09:07:48 ET",
+  "updated_et": "2026-09-07 09:08 ET",
   "liquid_usd": 21.0254,
   "upnl_usd": -0.1376,
   "equity_usd": 70.7678,
@@ -22,7 +22,7 @@
       "collateral_usd": 49.88,
       "size_usd": 300.0,
       "entry": 13.2961,
-      "mark": 13.29,
+      "mark": 13.305,
       "sl": 13.05,
       "tp": 13.85,
       "upnl_usd": -0.1376,
@@ -47,7 +47,7 @@
     "collateral_usd": 49.88,
     "size_usd": 300.0,
     "entry": 13.2961,
-    "mark": 13.29,
+    "mark": 13.305,
     "sl": 13.05,
     "tp": 13.85,
     "upnl_usd": -0.1376,
@@ -904,10 +904,10 @@
       "note": "Overnight PnL: mark~$2488.98 entry~$2512.26 uPnL~$-4.28 (~7.5% coll) equity~$73.90 liquid~$20.71 \u00b7 cushion to SL~$26.98 (~1.1%) \u00b7 recovered from 03:42 near-SL \u00b7"
     }
   ],
-  "mark": 13.303,
+  "mark": 13.305,
   "mark_src": "coinbase",
-  "mark_eth": 2505.025,
-  "mark_btc": 79522.925,
+  "mark_eth": 2503.795,
+  "mark_btc": 79524.635,
   "mark_btc_src": "coinbase",
   "marks": {
     "ETH": 2504.96,
@@ -915,6 +915,6 @@
   },
   "geometry": "LONG-like",
   "orders_n": 2,
-  "mark_link": 13.29,
+  "mark_link": 13.305,
   "mark_link_src": "coinbase"
 }
