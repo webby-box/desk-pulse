@@ -1,8 +1,8 @@
 {
-  "updated_et": "2026-09-07 12:47:17 ET",
-  "liquid_usd": 19.2067,
-  "upnl_usd": -9.9247,
-  "equity_usd": 107.2817,
+  "updated_et": "2026-09-07 12:57:23 ET",
+  "liquid_usd": 19.2188,
+  "upnl_usd": -13.8034,
+  "equity_usd": 103.4151,
   "status": "LIVE",
   "wallet": "0x425F91cFebFD8979c21008806403379390900052",
   "residuals": {
@@ -28,13 +28,13 @@
       "collateral_usd": 97.9997,
       "size_usd": 5000.0,
       "entry": 2474.9973,
-      "mark": 2479.91,
+      "mark": 2481.83,
       "sl": 2573.95,
       "tp": 1979.96,
-      "upnl_usd": -9.9247,
+      "upnl_usd": -13.8034,
       "status": "LIVE",
       "opened_et": "2026-09-07 12:19 ET",
-      "tx_open": "0xc74b8a3f7dfdea8a6dfc67368da0962fe8050d4e2905d8fda78cfa06bb26347b",
+      "tx_open": null,
       "word15": 0,
       "geometry": "SHORT-like",
       "reader_positions": 1,
@@ -50,13 +50,13 @@
     "collateral_usd": 97.9997,
     "size_usd": 5000.0,
     "entry": 2474.9973,
-    "mark": 2479.91,
+    "mark": 2481.83,
     "sl": 2573.95,
     "tp": 1979.96,
-    "upnl_usd": -9.9247,
+    "upnl_usd": -13.8034,
     "status": "LIVE",
     "opened_et": "2026-09-07 12:19 ET",
-    "tx_open": "0xc74b8a3f7dfdea8a6dfc67368da0962fe8050d4e2905d8fda78cfa06bb26347b",
+    "tx_open": null,
     "word15": 0,
     "geometry": "SHORT-like",
     "reader_positions": 1,
@@ -510,12 +510,26 @@
       "liquid_usd": 19.2067,
       "upnl_usd": -9.9247,
       "n_pos": 1
+    },
+    {
+      "t": "2026-09-07 12:50:21 ET",
+      "equity_usd": 108.6914,
+      "liquid_usd": 19.2022,
+      "upnl_usd": -8.5105,
+      "n_pos": 1
+    },
+    {
+      "t": "2026-09-07 12:57:23 ET",
+      "equity_usd": 103.4151,
+      "liquid_usd": 19.2188,
+      "upnl_usd": -13.8034,
+      "n_pos": 1
     }
   ],
   "funding_usd": 107.0,
   "funding_note": "Original $107 includes Alpha ~$20 wrong-Inbox burn (gone). Current = live wallets+position only.",
-  "total_pnl_usd": 0.2817,
-  "total_pnl_pct": 0.26,
+  "total_pnl_usd": -3.5849,
+  "total_pnl_pct": -3.35,
   "trades": [
     {
       "t": "suggested-fees origin=8453 dest=42161 token=WETH amount=5e15 recipient=0x425F\u20260052",
@@ -1118,16 +1132,16 @@
       "note": "\u00a718 LEG1 BTC **FLAT** Reader-proved. tx `0xa1c804dba9bf808c1119b664a32c3ba446947a6dc85aae2f8dae82170d8899a4` status=1 block 502685977. positions=0 orders=0 USDC"
     }
   ],
-  "mark": 2479.91,
+  "mark": 2481.83,
   "mark_src": "coinbase",
-  "mark_eth": 2479.91,
-  "mark_btc": 78969.83,
+  "mark_eth": 2481.83,
+  "mark_btc": 78998.15,
   "mark_btc_src": "coinbase",
-  "mark_link": 12.92,
+  "mark_link": 12.928,
   "mark_link_src": "coinbase",
   "marks": {
-    "ETH": 2479.91,
-    "BTC": 78969.83,
-    "LINK": 12.92
+    "ETH": 2481.83,
+    "BTC": 78998.15,
+    "LINK": 12.928
   }
 }
