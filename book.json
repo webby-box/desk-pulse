@@ -58,20 +58,6 @@
   },
   "pnl_history": [
     {
-      "t": "2026-09-06 21:52 ET",
-      "equity_usd": null,
-      "liquid_usd": null,
-      "upnl_usd": -0.04,
-      "n_pos": 1
-    },
-    {
-      "t": "2026-09-06 23:21 ET",
-      "equity_usd": null,
-      "liquid_usd": null,
-      "upnl_usd": -0.2,
-      "n_pos": 1
-    },
-    {
       "t": "2026-09-07 00:08 ET",
       "equity_usd": 75.48,
       "liquid_usd": null,
@@ -97,13 +83,6 @@
       "equity_usd": 73.59,
       "liquid_usd": 20.7,
       "upnl_usd": -4.58,
-      "n_pos": 1
-    },
-    {
-      "t": "2026-09-07 07:33 ET",
-      "equity_usd": null,
-      "liquid_usd": null,
-      "upnl_usd": -3.7,
       "n_pos": 1
     },
     {
@@ -140,20 +119,6 @@
       "liquid_usd": 73.5953,
       "upnl_usd": 0,
       "n_pos": 0
-    },
-    {
-      "t": "2026-09-07 07:47:01 ET",
-      "equity_usd": -155.9587,
-      "liquid_usd": 34.1781,
-      "upnl_usd": -228.0,
-      "n_pos": 1
-    },
-    {
-      "t": "2026-09-07 07:47:13 ET",
-      "equity_usd": -148.8055,
-      "liquid_usd": 34.1805,
-      "upnl_usd": -220.8492,
-      "n_pos": 1
     },
     {
       "t": "2026-09-07 07:47:52 ET",
@@ -268,13 +233,6 @@
       "n_pos": 1
     },
     {
-      "t": "2026-09-07 08:00:06 ET",
-      "equity_usd": 490.5164,
-      "liquid_usd": 452.6255,
-      "upnl_usd": 0.0277,
-      "n_pos": 1
-    },
-    {
       "t": "2026-09-07 08:02:26 ET",
       "equity_usd": 72.0846,
       "liquid_usd": 34.1786,
@@ -300,13 +258,6 @@
       "equity_usd": 72.6465,
       "liquid_usd": 34.2663,
       "upnl_usd": 0.517,
-      "n_pos": 1
-    },
-    {
-      "t": "2026-09-07 09:06:46 ET",
-      "equity_usd": 56290.3357,
-      "liquid_usd": 21.0252,
-      "upnl_usd": 56219.4305,
       "n_pos": 1
     },
     {
@@ -1042,5 +993,9 @@
     "ETH": 2489.37,
     "BTC": 79176.0,
     "LINK": 13.057
-  }
+  },
+  "funding_usd": 87.0,
+  "funding_note": "COMPANY.md liquid ~$87 pre-rebuild (desk original funding basis)",
+  "total_pnl_usd": -2.6017,
+  "total_pnl_pct": -2.99
 }

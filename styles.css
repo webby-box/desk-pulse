@@ -355,3 +355,12 @@ footer {
 }
 
 .err.stale { border-color: #c9a227; color: #f0c14b; }
+
+.hero-total {
+  margin: 0.15rem 0 0;
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 0.85rem;
+  color: var(--mut, #8b919e);
+}
+.hero-total.up { color: var(--ok, #3ecf8e); }
+.hero-total.down { color: var(--bad, #ff5d6c); }

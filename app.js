@@ -172,6 +172,10 @@
       liquidUsd: num(pick(raw, ["liquidUsd", "liquid_usd"])),
       bookUpnl: num(pick(raw, ["openUpnlUsd", "upnl_usd", "open_upnl_usd"])),
       bookEquity: num(pick(raw, ["equityUsd", "equity_usd"])),
+      fundingUsd: num(pick(raw, ["fundingUsd", "funding_usd"])),
+      fundingNote: pick(raw, ["fundingNote", "funding_note"]),
+      totalPnlUsd: num(pick(raw, ["totalPnlUsd", "total_pnl_usd"])),
+      totalPnlPct: num(pick(raw, ["totalPnlPct", "total_pnl_pct"])),
       residualRows: rows,
       wallet: pick(raw, ["wallet", "account"]),
       notes: pick(raw, ["notes"]),
@@ -534,6 +538,20 @@
     $("live-mark").textContent = live.mark != null ? px(live.mark) : (live.cards[0] && live.cards[0].mark != null ? px(live.cards[0].mark) : "—");
     $("liquid").textContent = money(book.liquidUsd);
     $("upnl").textContent = money(live.upnl);
+    const tpEl = $("total-pnl");
+    if (tpEl) {
+      const fund = book.fundingUsd != null ? book.fundingUsd : 87;
+      const tp = book.totalPnlUsd != null ? book.totalPnlUsd : (live.equity != null ? live.equity - fund : null);
+      const pct = book.totalPnlPct != null ? book.totalPnlPct : (fund && tp != null ? (tp / fund) * 100 : null);
+      if (tp == null) {
+        tpEl.textContent = "—";
+      } else {
+        const pctS = pct == null ? "" : " · " + (pct >= 0 ? "+" : "") + Number(pct).toFixed(2) + "%";
+        tpEl.textContent = "Total vs $" + Number(fund).toFixed(0) + " fund " + money(tp) + pctS;
+      }
+      setTone(tpEl, tp);
+    }
+
     setTone($("upnl"), live.upnl);
     $("equity").textContent = money(live.equity);
     if ($("last-updated")) $("last-updated").textContent = book.updatedEt || "—";
